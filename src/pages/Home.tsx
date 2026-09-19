@@ -18,7 +18,6 @@ import {
 import { 
   CLINIC_INFO, 
   DOCTOR_PROFILE, 
-  SPECIALTY_SERVICES, 
   BRANCHES, 
   TESTIMONIALS 
 } from '../data/clinicData';
@@ -52,7 +51,7 @@ export const Home: React.FC = () => {
                 Led by <strong>{DOCTOR_PROFILE.name}</strong> ({DOCTOR_PROFILE.qualification}), featuring state-of-the-art Zeiss microscopic surgical suite, Storz HD video endoscopy, and soundproof audiology testing across 2 convenient branches in Patna.
               </p>
 
-              {/* Action Buttons: Call Clinic & Get Directions aligned in the SAME LINE (WhatsApp button removed as requested) */}
+              {/* Action Buttons: Call Clinic & Get Directions aligned in the SAME LINE */}
               <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
                 <a
                   href={`tel:${CLINIC_INFO.emergencyNumber}`}
@@ -230,78 +229,6 @@ export const Home: React.FC = () => {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* 4. SPECIALTY SERVICES PREVIEW */}
-      <section className="bg-slate-100/70 dark:bg-slate-900/50 py-16 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div className="space-y-2">
-              <span className="text-xs uppercase font-bold tracking-widest text-tealbrand-600 dark:text-tealbrand-400">
-                Clinical Expertise
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-slate-900 dark:text-white">
-                Core ENT Specialties & Treatments
-              </h2>
-            </div>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-medical-600 dark:text-medical-400 hover:text-medical-700 dark:hover:text-medical-300 group"
-            >
-              Explore All Treatments <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SPECIALTY_SERVICES.map((service) => (
-              <div 
-                key={service.id}
-                className="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:shadow-xl transition-all group"
-              >
-                <div>
-                  <div className="h-48 overflow-hidden relative">
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-                    <span className="absolute bottom-3 left-4 bg-medical-950/80 text-white text-xs font-semibold px-3 py-1 rounded-full border border-medical-700/50 backdrop-blur-sm">
-                      {service.title}
-                    </span>
-                  </div>
-
-                  <div className="p-6 space-y-3">
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      {service.shortDesc}
-                    </p>
-
-                    <div className="space-y-1 pt-2">
-                      <div className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Key Procedures:</div>
-                      {service.treatments.slice(0, 3).map((t, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-tealbrand-500 shrink-0" />
-                          <span>{t}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6 pt-0">
-                  <Link
-                    to="/services"
-                    className="w-full py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-medical-600 hover:text-white dark:hover:bg-medical-600 text-slate-800 dark:text-slate-200 font-semibold text-xs rounded-xl flex items-center justify-center gap-1 transition-colors"
-                  >
-                    View Procedure Details <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-
         </div>
       </section>
 

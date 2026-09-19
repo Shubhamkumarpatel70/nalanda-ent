@@ -10,7 +10,6 @@ import {
   ChevronDown, 
   MapPin, 
   Clock, 
-  Activity,
   LogOut,
   ShieldCheck,
   LogIn
@@ -101,14 +100,14 @@ export const Navbar: React.FC = () => {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Logo - Prominent NEC with Nalanda ENT Center Tagline */}
+          {/* Logo - NEC & Nalanda ENT Center (Clinic text removed) */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-medical-500 via-medical-600 to-tealbrand-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
               <span className="font-extrabold font-display text-lg tracking-wider">NEC</span>
             </div>
             <div>
-              <span className="text-xl sm:text-2xl font-black font-display tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
-                NEC <span className="text-xs font-semibold uppercase tracking-widest text-medical-600 dark:text-medical-400 px-2 py-0.5 rounded-md bg-medical-50 dark:bg-medical-950/60 border border-medical-200/60 dark:border-medical-800/60">Clinic</span>
+              <span className="text-xl sm:text-2xl font-black font-display tracking-tight text-slate-900 dark:text-white">
+                NEC
               </span>
               <span className="block text-[11px] font-bold tracking-wide text-slate-600 dark:text-slate-300">
                 Nalanda ENT Center
@@ -143,7 +142,6 @@ export const Navbar: React.FC = () => {
               Services
             </Link>
 
-            {/* Branches Dropdown */}
             <div className="relative group">
               <button
                 onClick={() => setBranchDropdownOpen(!branchDropdownOpen)}
@@ -267,7 +265,6 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Animated Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 fade-in duration-300 shadow-xl">
             {navLinks.map((link) => (

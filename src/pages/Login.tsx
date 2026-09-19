@@ -67,20 +67,6 @@ export const Login: React.FC = () => {
           </p>
         </div>
 
-        <div className="p-3.5 rounded-2xl bg-medical-50 dark:bg-medical-950/60 border border-medical-200 dark:border-medical-800 text-xs flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 text-medical-800 dark:text-medical-200">
-            <Key className="w-4 h-4 text-medical-600 shrink-0" />
-            <span>Test Admin Account Available</span>
-          </div>
-          <button
-            type="button"
-            onClick={fillAdmin}
-            className="text-[11px] font-bold text-medical-600 dark:text-medical-400 underline hover:text-medical-800"
-          >
-            Auto Fill Admin
-          </button>
-        </div>
-
         {error && (
           <div className="p-3.5 rounded-xl bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 text-xs text-rose-700 dark:text-rose-300">
             {error}
@@ -130,7 +116,7 @@ export const Login: React.FC = () => {
         <div className="text-center pt-2 text-xs text-slate-500">
           Don't have an account yet?{' '}
           <Link to="/signup" className="font-bold text-medical-600 dark:text-medical-400 hover:underline">
-            Create Account (Default: User)
+            Create Account
           </Link>
         </div>
 
