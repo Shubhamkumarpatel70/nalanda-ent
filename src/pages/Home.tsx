@@ -183,7 +183,7 @@ export const Home: React.FC = () => {
             {
               icon: Award,
               title: "Senior AIIMS Alumni Doctor",
-              desc: "Consultation by Dr. Rajesh Kumar Nalanda (MS ENT AIIMS), with over 18+ years of advanced surgical expertise."
+              desc: `Consultation by ${DOCTOR_PROFILE.name} (${DOCTOR_PROFILE.qualification}), with over ${DOCTOR_PROFILE.experienceYears}+ years of advanced surgical expertise.`
             },
             {
               icon: Zap,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { ShieldCheck, FileText, AlertTriangle } from 'lucide-react';
+import { DOCTOR_PROFILE } from '../data/clinicData';
 
 export const LegalPages: React.FC = () => {
   const location = useLocation();
@@ -86,7 +87,7 @@ export const LegalPages: React.FC = () => {
 
               <h2 className="text-lg font-bold font-display text-slate-900 dark:text-white">2. Mandatory Clinical Examination</h2>
               <p>
-                Every ENT symptom (such as eardrum perforation, sinus headache, or vertigo) requires an in-person physical examination with Dr. Rajesh Kumar Nalanda using video endoscopy or microscope tools before starting medication.
+                Every ENT symptom (such as eardrum perforation, sinus headache, or vertigo) requires an in-person physical examination with {DOCTOR_PROFILE.name} using video endoscopy or microscope tools before starting medication.
               </p>
 
               <h2 className="text-lg font-bold font-display text-slate-900 dark:text-white">3. Emergency Advisory</h2>

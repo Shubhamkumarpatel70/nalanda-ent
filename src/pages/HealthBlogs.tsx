@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HEALTH_BLOGS } from '../data/clinicData';
+import { HEALTH_BLOGS, DOCTOR_PROFILE } from '../data/clinicData';
 import { Search, Clock, User, ArrowRight, BookOpen } from 'lucide-react';
 
 export const HealthBlogs: React.FC = () => {
@@ -29,7 +29,7 @@ export const HealthBlogs: React.FC = () => {
             ENT Health & Medical Guide
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Medical articles written by Dr. Rajesh Kumar Nalanda covering ear care, sinus infection management, hearing aid tuning, and vertigo prevention.
+            Medical articles written by {DOCTOR_PROFILE.name} covering ear care, sinus infection management, hearing aid tuning, and vertigo prevention.
           </p>
         </div>
       </section>

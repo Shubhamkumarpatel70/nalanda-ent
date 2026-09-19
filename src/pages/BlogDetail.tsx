@@ -1,8 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { HEALTH_BLOGS } from '../data/clinicData';
+import { HEALTH_BLOGS, CLINIC_INFO, DOCTOR_PROFILE } from '../data/clinicData';
 import { ChevronLeft, User, Clock, Calendar, CheckCircle2, Phone, Share2 } from 'lucide-react';
-import { CLINIC_INFO } from '../data/clinicData';
 
 export const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -80,7 +79,7 @@ export const BlogDetail: React.FC = () => {
         <div className="bg-gradient-to-r from-medical-900 to-tealbrand-900 text-white rounded-3xl p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h3 className="text-xl font-bold font-display">Experiencing Similar ENT Symptoms?</h3>
-            <p className="text-xs text-slate-300">Consult Dr. Rajesh Kumar Nalanda directly at Rajendra Nagar or Kankerbagh branch.</p>
+            <p className="text-xs text-slate-300">Consult {DOCTOR_PROFILE.name} directly at Rajendra Nagar or Kankerbagh branch.</p>
           </div>
           <a
             href={`tel:${CLINIC_INFO.emergencyNumber}`}

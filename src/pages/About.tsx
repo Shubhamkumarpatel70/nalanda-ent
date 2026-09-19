@@ -53,7 +53,7 @@ export const About: React.FC = () => {
               Pioneering Advanced ENT Surgical Care with Human Compassion
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              Founded by Dr. Rajesh Kumar Nalanda in {CLINIC_INFO.established}, Nalanda ENT Center was established with a clear vision: to bring high-precision German microscopic ear surgery and German video endoscopic diagnostics to Patna at affordable costs.
+              Founded by {DOCTOR_PROFILE.name} in {CLINIC_INFO.established}, Nalanda ENT Center was established with a clear vision: to bring high-precision German microscopic ear surgery and German video endoscopic diagnostics to Patna at affordable costs.
             </p>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               Over the past 18+ years, our clinic has treated over 50,000 patients across Bihar and neighbouring regions, establishing an unblemished reputation for surgical success, hygiene, and ethical medical advice.
