@@ -1,13 +1,21 @@
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import { User } from './models/User.js';
+import { ContactQuery } from './models/ContactQuery.js';
+
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/nalanda_ent';
+
+export let isMongoConnected = false;
+
+// Fallback in-memory / file store if local MongoDB daemon is not running
 import fs from 'fs';
 import path from 'path';
-import bcrypt from 'bcryptjs';
-
 const DB_FILE = path.join(process.cwd(), 'server', 'data_store.json');
 
-// Initial default database structure
-const initialData = {
+const initialFallbackData = {
   users: [
     {
+      _id: "usr-admin-1",
       id: "usr-admin-1",
       name: "Clinic Administrator",
       email: "admin@nalandaent.com",
@@ -18,6 +26,7 @@ const initialData = {
   ],
   queries: [
     {
+      _id: "qry-101",
       id: "qry-101",
       name: "Ramesh Jha",
       email: "ramesh.jha@gmail.com",
@@ -27,49 +36,54 @@ const initialData = {
       message: "Respected Dr. Nalanda, I have chronic ear discharge for 3 years. I want to visit Rajendra Nagar branch next Tuesday for microscopic tympanoplasty examination.",
       status: "New",
       createdAt: new Date(Date.now() - 3600000 * 24 * 2).toISOString()
-    },
-    {
-      id: "qry-102",
-      name: "Pooja Roy",
-      email: "pooja.roy@yahoo.com",
-      phone: "+91 94310 98765",
-      branchPreference: "Kankerbagh City Branch",
-      subject: "Sinus headache & endoscopic evaluation",
-      message: "Hello doctor, I get severe morning sinus headaches. Do I need to bring my previous CT scan report when visiting Kankerbagh OPD?",
-      status: "In Progress",
-      createdAt: new Date(Date.now() - 3600000 * 12).toISOString()
     }
   ]
 };
 
-// Read database from file
-export function readDB() {
+export function readFallbackDB() {
   try {
     if (!fs.existsSync(DB_FILE)) {
       const dir = path.dirname(DB_FILE);
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-      }
-      fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2), 'utf-8');
-      return initialData;
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(DB_FILE, JSON.stringify(initialFallbackData, null, 2), 'utf-8');
+      return initialFallbackData;
     }
-    const content = fs.readFileSync(DB_FILE, 'utf-8');
-    return JSON.parse(content);
+    return JSON.parse(fs.readFileSync(DB_FILE, 'utf-8'));
   } catch (err) {
-    console.error("Error reading database file:", err);
-    return initialData;
+    return initialFallbackData;
   }
 }
 
-// Write database to file
-export function writeDB(data) {
+export function writeFallbackDB(data) {
   try {
     const dir = path.dirname(DB_FILE);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (err) {}
+}
+
+export async function connectDB() {
+  try {
+    await mongoose.connect(MONGODB_URI, {
+      serverSelectionTimeoutMS: 3000 // Quick timeout if no local MongoDB service
+    });
+    isMongoConnected = true;
+    console.log('✅ Connected to MongoDB database:', MONGODB_URI);
+
+    // Auto-seed admin user if not exists in MongoDB
+    const adminExists = await User.findOne({ email: 'admin@nalandaent.com' });
+    if (!adminExists) {
+      const passwordHash = await bcrypt.hash('Admin@123', 10);
+      await User.create({
+        name: 'Clinic Administrator',
+        email: 'admin@nalandaent.com',
+        passwordHash,
+        role: 'admin'
+      });
+      console.log('🔑 Auto-seeded MongoDB Admin: admin@nalandaent.com / Admin@123');
+    }
   } catch (err) {
-    console.error("Error writing database file:", err);
+    isMongoConnected = false;
+    console.log('ℹ️ MongoDB server not detected locally. Operating in persistent database file mode.');
   }
 }

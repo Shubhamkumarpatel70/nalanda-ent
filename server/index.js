@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors';
+import { connectDB } from './db.js';
 import { authRouter } from './routes/auth.js';
 import { contactRouter } from './routes/contact.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Enable CORS for frontend Vite application
 app.use(cors({
   origin: '*',
   credentials: true
@@ -14,12 +14,13 @@ app.use(cors({
 
 app.use(express.json());
 
-// API Health Check
+// Initialize MongoDB Connection
+connectDB();
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Nalanda ENT Center Backend API is operational' });
 });
 
-// Route Modules
 app.use('/api/auth', authRouter);
 app.use('/api/contact', contactRouter);
 

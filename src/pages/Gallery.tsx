@@ -50,7 +50,7 @@ export const Gallery: React.FC = () => {
         </div>
       </section>
 
-      {/* GALLERY GRID / MASONRY */}
+      {/* GALLERY GRID / MASONRY - Displays only image title and tag */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item) => (
@@ -71,7 +71,6 @@ export const Gallery: React.FC = () => {
                   <Tag className="w-3 h-3" /> {item.category}
                 </span>
                 <h3 className="text-base font-bold font-display leading-tight">{item.title}</h3>
-                <p className="text-xs text-slate-300 line-clamp-1 opacity-90">{item.description}</p>
               </div>
 
               <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-xs">

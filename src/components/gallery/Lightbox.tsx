@@ -44,9 +44,6 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, onClose }) => {
               <h3 className="text-xl font-bold font-display text-slate-100">
                 {item.title}
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                {item.description}
-              </p>
             </div>
 
             <div className="pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">

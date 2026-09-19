@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { 
   Phone, 
   MapPin, 
-  MessageSquare, 
   ShieldCheck, 
   Award, 
   Users, 
@@ -21,8 +20,7 @@ import {
   DOCTOR_PROFILE, 
   SPECIALTY_SERVICES, 
   BRANCHES, 
-  TESTIMONIALS, 
-  HEALTH_BLOGS 
+  TESTIMONIALS 
 } from '../data/clinicData';
 
 export const Home: React.FC = () => {
@@ -32,14 +30,13 @@ export const Home: React.FC = () => {
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 bg-gradient-to-b from-medical-50/60 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
         
-        {/* Background glow effects */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-medical-400/10 dark:bg-medical-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-tealbrand-400/10 dark:bg-tealbrand-600/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left Column: Text & Hero Content */}
+            {/* Left Column */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-medical-100/80 dark:bg-medical-950/80 border border-medical-200 dark:border-medical-800 text-medical-800 dark:text-medical-300 text-xs font-semibold tracking-wide">
@@ -55,11 +52,11 @@ export const Home: React.FC = () => {
                 Led by <strong>{DOCTOR_PROFILE.name}</strong> ({DOCTOR_PROFILE.qualification}), featuring state-of-the-art Zeiss microscopic surgical suite, Storz HD video endoscopy, and soundproof audiology testing across 2 convenient branches in Patna.
               </p>
 
-              {/* Action Buttons: Direct Call, Get Directions, WhatsApp */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+              {/* Action Buttons: Call Clinic & Get Directions aligned in the SAME LINE (WhatsApp button removed as requested) */}
+              <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
                 <a
                   href={`tel:${CLINIC_INFO.emergencyNumber}`}
-                  className="flex items-center gap-2 bg-gradient-to-r from-medical-600 to-tealbrand-600 hover:from-medical-700 hover:to-tealbrand-700 text-white font-semibold text-base px-6 py-3.5 rounded-xl shadow-lg hover:shadow-glow transition-all hover:-translate-y-0.5"
+                  className="flex items-center gap-2 bg-gradient-to-r from-medical-600 to-tealbrand-600 hover:from-medical-700 hover:to-tealbrand-700 text-white font-semibold text-base px-6 py-3.5 rounded-xl shadow-lg hover:shadow-glow transition-all hover:-translate-y-0.5 shrink-0"
                 >
                   <Phone className="w-5 h-5" /> Call Clinic Desk
                 </a>
@@ -68,22 +65,12 @@ export const Home: React.FC = () => {
                   href={BRANCHES[0].googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-semibold text-base px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 shadow-sm transition-all hover:-translate-y-0.5"
+                  className="flex items-center gap-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-semibold text-base px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 shadow-sm transition-all hover:-translate-y-0.5 shrink-0"
                 >
                   <MapPin className="w-5 h-5 text-medical-500" /> Get Directions
                 </a>
-
-                <a
-                  href={`https://wa.me/${CLINIC_INFO.whatsappNumber.replace(/[^0-9]/g, '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-base px-5 py-3.5 rounded-xl shadow-md transition-all hover:-translate-y-0.5"
-                >
-                  <MessageSquare className="w-5 h-5" /> WhatsApp
-                </a>
               </div>
 
-              {/* Physical Walk-in Notification */}
               <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-medium text-slate-500 dark:text-slate-400">
                 <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
                   <CheckCircle2 className="w-4 h-4" /> Physical Walk-in Registration
@@ -96,11 +83,9 @@ export const Home: React.FC = () => {
 
             </div>
 
-            {/* Right Column: Featured Doctor & Clinic Showcase Card */}
+            {/* Right Column */}
             <div className="lg:col-span-5">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                
-                {/* Decorative border backdrop */}
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-medical-500 to-tealbrand-500 opacity-20 blur-lg animate-pulse-slow" />
 
                 <div className="relative glass-card rounded-3xl p-6 shadow-2xl border border-slate-200/80 dark:border-slate-800 space-y-6">
@@ -121,7 +106,6 @@ export const Home: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Highlights Badge Grid */}
                   <div className="grid grid-cols-2 gap-3 text-xs">
                     <div className="p-3 rounded-xl bg-medical-50 dark:bg-medical-950/50 border border-medical-100 dark:border-medical-900/50">
                       <div className="font-bold text-lg text-medical-700 dark:text-medical-300">18+ Years</div>
@@ -158,7 +142,6 @@ export const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-medical-900 via-medical-800 to-tealbrand-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
-            
             <div className="space-y-1">
               <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">18+</div>
               <div className="text-xs sm:text-sm text-slate-300 font-medium">Years of Medical Excellence</div>
@@ -178,12 +161,11 @@ export const Home: React.FC = () => {
               <div className="text-3xl sm:text-4xl font-extrabold font-display text-emerald-300">2</div>
               <div className="text-xs sm:text-sm text-slate-300 font-medium">Super-Specialty Branches</div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 3. WHY CHOOSE US (FEATURE CARDS) */}
+      {/* 3. WHY CHOOSE US */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center space-y-3 max-w-3xl mx-auto">
           <h2 className="text-xs uppercase font-bold tracking-widest text-medical-600 dark:text-medical-400">
@@ -401,10 +383,9 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. TESTIMONIALS CAROUSEL PREVIEW */}
+      {/* 6. TESTIMONIALS */}
       <section className="bg-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          
           <div className="text-center space-y-3 max-w-2xl mx-auto">
             <span className="text-xs uppercase font-bold tracking-widest text-tealbrand-400">
               Verified Patient Recovery
@@ -444,7 +425,6 @@ export const Home: React.FC = () => {
               Read All Verified Patient Testimonials <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-
         </div>
       </section>
 

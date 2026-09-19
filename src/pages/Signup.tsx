@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { API_BASE_URL } from '../config/api';
-import { User as UserIcon, Mail, Lock, Activity, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { User as UserIcon, Mail, Lock, Activity, ArrowRight } from 'lucide-react';
 
 export const Signup: React.FC = () => {
   const [name, setName] = useState('');
@@ -68,11 +68,6 @@ export const Signup: React.FC = () => {
           <p className="text-xs text-slate-500 dark:text-slate-400">
             Sign up for Nalanda ENT Center patient portal
           </p>
-        </div>
-
-        <div className="p-3 rounded-xl bg-tealbrand-50 dark:bg-tealbrand-950/60 border border-tealbrand-200 dark:border-tealbrand-800 text-xs flex items-center gap-2 text-tealbrand-800 dark:text-tealbrand-200 font-medium">
-          <CheckCircle2 className="w-4 h-4 text-tealbrand-600 shrink-0" />
-          <span>New accounts are assigned default role: <strong>User</strong></span>
         </div>
 
         {error && (
