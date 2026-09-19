@@ -58,10 +58,15 @@ export const Signup: React.FC = () => {
     <div className="min-h-[75vh] flex items-center justify-center p-4 py-16">
       <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-6">
         
-        <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-medical-500 to-tealbrand-600 text-white mx-auto flex items-center justify-center shadow-md">
-            <Activity className="w-7 h-7" />
-          </div>
+        <div className="text-center space-y-3">
+          <img 
+            src="/logo.png" 
+            alt="Nalanda ENT Center Logo" 
+            className="w-16 h-16 object-contain mx-auto rounded-2xl shadow-md p-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700" 
+            onError={(e) => {
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
           <h1 className="text-2xl font-bold font-display text-slate-900 dark:text-white">
             Create Patient Account
           </h1>

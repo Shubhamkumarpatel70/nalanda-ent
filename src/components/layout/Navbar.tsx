@@ -24,7 +24,9 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [branchDropdownOpen, setBranchDropdownOpen] = useState(false);
+  const [othersDropdownOpen, setOthersDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [mobileBranchOpen, setMobileBranchOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -38,20 +40,9 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setBranchDropdownOpen(false);
+    setOthersDropdownOpen(false);
     setUserDropdownOpen(false);
   }, [location.pathname]);
-
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Facilities', path: '/facilities' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'Health Blogs', path: '/blogs' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contact', path: '/contact' },
-  ];
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -147,6 +138,7 @@ export const Navbar: React.FC = () => {
               Services
             </Link>
 
+            {/* Desktop Branch Dropdown */}
             <div className="relative group">
               <button
                 onClick={() => setBranchDropdownOpen(!branchDropdownOpen)}
@@ -180,9 +172,48 @@ export const Navbar: React.FC = () => {
             </div>
 
             <Link to="/gallery" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/gallery') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>Gallery</Link>
-            <Link to="/testimonials" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/testimonials') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>Reviews</Link>
-            <Link to="/blogs" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/blogs') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>Blogs</Link>
-            <Link to="/faq" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/faq') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>FAQ</Link>
+
+            {/* Desktop Others Dropdown (Reviews, Blogs, FAQ) */}
+            <div className="relative group">
+              <button
+                onClick={() => setOthersDropdownOpen(!othersDropdownOpen)}
+                onMouseEnter={() => setOthersDropdownOpen(true)}
+                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center gap-1 ${
+                  ['/testimonials', '/blogs', '/faq'].some(p => location.pathname.startsWith(p))
+                    ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold'
+                    : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                Others <ChevronDown className="w-4 h-4 opacity-70" />
+              </button>
+
+              {othersDropdownOpen && (
+                <div 
+                  onMouseLeave={() => setOthersDropdownOpen(false)}
+                  className="absolute top-full left-0 w-56 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200 space-y-1"
+                >
+                  <Link 
+                    to="/testimonials" 
+                    className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/testimonials') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                  >
+                    Reviews & Testimonials
+                  </Link>
+                  <Link 
+                    to="/blogs" 
+                    className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/blogs') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                  >
+                    Health Blogs
+                  </Link>
+                  <Link 
+                    to="/faq" 
+                    className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/faq') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                  >
+                    Frequently Asked Questions
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link to="/contact" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/contact') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>Contact</Link>
             
             {isAdmin && (
@@ -272,19 +303,48 @@ export const Navbar: React.FC = () => {
 
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 fade-in duration-300 shadow-xl">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.path} 
-                to={link.path} 
-                className={`block px-4 py-2.5 rounded-xl text-base font-medium transition-all ${
-                  isActive(link.path) 
-                    ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 dark:text-medical-400 font-bold border-l-4 border-medical-600' 
-                    : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                }`}
+            <Link to="/" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Home</Link>
+            <Link to="/about" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/about') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>About</Link>
+            <Link to="/services" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/services') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Services</Link>
+            
+            {/* Mobile Branch Dropdown Accordion */}
+            <div className="space-y-1">
+              <button
+                onClick={() => setMobileBranchOpen(!mobileBranchOpen)}
+                className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
               >
-                {link.name}
-              </Link>
-            ))}
+                <span>Branches</span>
+                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${mobileBranchOpen ? 'rotate-180 text-medical-600' : ''}`} />
+              </button>
+
+              {mobileBranchOpen && (
+                <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/60 dark:border-slate-800 ml-2">
+                  <Link
+                    to="/branches"
+                    className="block px-3 py-2 text-xs uppercase font-bold tracking-wider text-medical-600 dark:text-medical-400"
+                  >
+                    View All Branches
+                  </Link>
+                  {BRANCHES.map((b) => (
+                    <Link
+                      key={b.id}
+                      to={`/branches/${b.id}`}
+                      className="block px-3 py-2 text-sm text-slate-800 dark:text-slate-200 hover:text-medical-600 flex items-center gap-2"
+                    >
+                      <MapPin className="w-4 h-4 text-medical-500 shrink-0" />
+                      <span>{b.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link to="/gallery" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/gallery') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Gallery</Link>
+            <Link to="/testimonials" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/testimonials') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Reviews</Link>
+            <Link to="/blogs" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/blogs') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Health Blogs</Link>
+            <Link to="/faq" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/faq') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>FAQ</Link>
+            <Link to="/contact" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/contact') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Contact</Link>
+            
             {isAdmin && (
               <Link to="/admin/queries" className="block px-4 py-2.5 rounded-xl text-base font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border-l-4 border-amber-500">
                 Admin Queries Dashboard

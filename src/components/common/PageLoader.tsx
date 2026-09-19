@@ -7,15 +7,15 @@ export const PageLoader: React.FC = () => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Start fade-out animation slightly before 1.5s for ultra smooth transition
+    // Start fade-out animation slightly before 2.0s for ultra smooth transition
     const fadeTimer = setTimeout(() => {
       setFadeOut(true);
-    }, 1200);
+    }, 1700);
 
-    // Completely unmount/hide loader after exactly 1.5s (1500ms)
+    // Completely unmount/hide loader after exactly 2.0s (2000ms)
     const removeTimer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 2000);
 
     return () => {
       clearTimeout(fadeTimer);
@@ -71,24 +71,17 @@ export const PageLoader: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl font-black font-display tracking-tight text-white pt-1">
             NALANDA <span className="text-gradient-primary">ENT CENTER</span>
           </h2>
-          <p className="text-xs text-slate-400 font-medium">
-            Patna's Premier Micro-Otology & Sinus Center
-          </p>
         </div>
 
-        {/* 1.5 Second Progress Bar */}
+        {/* 2.0 Second Progress Bar */}
         <div className="w-48 sm:w-64 h-1.5 bg-slate-800/80 rounded-full overflow-hidden border border-slate-700/50 shadow-inner">
           <div 
-            className="h-full bg-gradient-to-r from-medical-500 via-tealbrand-400 to-emerald-400 rounded-full transition-all duration-[1500ms] ease-out"
+            className="h-full bg-gradient-to-r from-medical-500 via-tealbrand-400 to-emerald-400 rounded-full transition-all duration-[2000ms] ease-out"
             style={{ 
               width: fadeOut ? '100%' : '90%',
-              animation: 'loadingProgress 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards'
+              animation: 'loadingProgress 2s cubic-bezier(0.4, 0, 0.2, 1) forwards'
             }}
           />
-        </div>
-
-        <div className="text-[11px] text-slate-500 font-medium animate-pulse">
-          Initializing Medical Portal...
         </div>
 
       </div>
