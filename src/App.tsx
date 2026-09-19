@@ -24,6 +24,7 @@ import { Login } from './pages/Login';
 import { Signup } from './pages/Signup';
 import { AdminQueries } from './pages/AdminQueries';
 import { LegalPages } from './pages/LegalPages';
+import { PageLoader } from './components/common/PageLoader';
 import { Activity, Home as HomeIcon } from 'lucide-react';
 
 const ScrollToTop: React.FC = () => {
@@ -53,6 +54,7 @@ export const App: React.FC = () => {
   return (
     <ThemeProvider>
       <AuthProvider>
+        <PageLoader />
         <ScrollToTop />
         <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300">
           
