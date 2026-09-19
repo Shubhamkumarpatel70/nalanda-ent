@@ -100,11 +100,16 @@ export const Navbar: React.FC = () => {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Logo - NEC & Nalanda ENT Center (Clinic text removed) */}
+          {/* Logo - NEC & Nalanda ENT Center */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-medical-500 via-medical-600 to-tealbrand-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-              <span className="font-extrabold font-display text-lg tracking-wider">NEC</span>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Nalanda ENT Center" 
+              className="h-11 w-auto max-w-[140px] object-contain group-hover:scale-105 transition-transform rounded-lg"
+              onError={(e) => {
+                (e.target as HTMLElement).style.display = 'none';
+              }}
+            />
             <div>
               <span className="text-xl sm:text-2xl font-black font-display tracking-tight text-slate-900 dark:text-white">
                 NEC

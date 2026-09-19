@@ -24,9 +24,11 @@ export const Footer: React.FC = () => {
           {/* Column 1: Brand & Overview */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-medical-500 to-tealbrand-600 flex items-center justify-center text-white shadow-md">
-                <Activity className="w-6 h-6 stroke-[2.5]" />
-              </div>
+              <img 
+                src="/logo.png" 
+                alt="Nalanda ENT Center Logo" 
+                className="h-12 w-auto max-w-[160px] object-contain group-hover:scale-105 transition-transform rounded-lg" 
+              />
               <div>
                 <span className="text-xl font-bold font-display tracking-tight text-white flex items-center gap-1">
                   NALANDA <span className="text-medical-400">ENT</span>

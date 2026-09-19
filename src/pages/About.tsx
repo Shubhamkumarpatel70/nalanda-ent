@@ -104,8 +104,9 @@ export const About: React.FC = () => {
             <div className="w-full lg:w-4/12 shrink-0">
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800">
                 <img
-                  src={DOCTOR_PROFILE.image}
+                  src={DOCTOR_PROFILE.image || '/logo.png'}
                   alt={DOCTOR_PROFILE.name}
+                  onError={(e) => { e.currentTarget.src = '/logo.png'; }}
                   className="w-full h-[400px] object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
@@ -247,8 +248,9 @@ export const About: React.FC = () => {
               <div>
                 <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
                   <img
-                    src={staff.photo}
+                    src={staff.photo || '/logo.png'}
                     alt={staff.name}
+                    onError={(e) => { e.currentTarget.src = '/logo.png'; }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/40 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">

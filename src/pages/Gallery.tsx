@@ -60,8 +60,9 @@ export const Gallery: React.FC = () => {
               className="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 cursor-pointer bg-slate-900 aspect-video sm:aspect-square"
             >
               <img
-                src={item.image}
+                src={item.image || '/logo.png'}
                 alt={item.title}
+                onError={(e) => { e.currentTarget.src = '/logo.png'; }}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />

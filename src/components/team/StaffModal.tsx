@@ -33,8 +33,9 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
           {/* Photo Side */}
           <div className="md:col-span-2 relative min-h-[200px] sm:min-h-[260px] md:min-h-full bg-slate-100 dark:bg-slate-800">
             <img
-              src={staff.photo}
+              src={staff.photo || '/logo.png'}
               alt={staff.name}
+              onError={(e) => { e.currentTarget.src = '/logo.png'; }}
               className="w-full h-full object-cover max-h-[280px] md:max-h-none"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent md:hidden" />

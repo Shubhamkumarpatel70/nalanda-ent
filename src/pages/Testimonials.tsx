@@ -76,7 +76,12 @@ export const Testimonials: React.FC = () => {
 
               {/* Patient Card Footer: Line 1 Name, Line 2 Address, Line 3 Disease */}
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-start gap-4">
-                <img src={t.patientPhoto} alt={t.patientName} className="w-12 h-12 rounded-full object-cover border-2 border-medical-500 shrink-0 mt-1" />
+                <img 
+                  src={t.patientPhoto || '/logo.png'} 
+                  alt={t.patientName} 
+                  onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                  className="w-12 h-12 rounded-full object-cover border-2 border-medical-500 shrink-0 mt-1 bg-slate-100 dark:bg-slate-800" 
+                />
                 
                 <div className="space-y-1 text-xs">
                   {/* Line 1: Name */}
