@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-1",
+      "name": "Clinic Administrator",
+      "email": "admin@nalandaent.com",
+      "passwordHash": "$2b$10$wqm8z6rAcNiNDpNNiadaGObNYxSayLasnof.h/qjhqLD7TlQvEUPG",
+      "role": "admin",
+      "createdAt": "2026-09-19T08:47:06.634Z"
+    },
+    {
+      "id": "usr-1789807821011",
+      "name": "Test Patient",
+      "email": "testuser@gmail.com",
+      "passwordHash": "$2b$10$YAsk0suBkeXAVdP0qx9ck.FV9W0ErMgvVcektSk9gL0b5gfLGqHrW",
+      "role": "user",
+      "createdAt": "2026-09-19T08:50:21.011Z"
+    },
+    {
+      "id": "usr-1789808974300",
+      "name": "Test Patient",
+      "email": "patient1789808974178@gmail.com",
+      "passwordHash": "$2b$10$vyLaJeM4cEEaSkrQfhO2xud7KuZYgbjBVKhDqC5fEYlAur0m5cndS",
+      "role": "user",
+      "createdAt": "2026-09-19T09:09:34.300Z"
+    }
+  ],
+  "queries": [
+    {
+      "id": "qry-1789808974312",
+      "name": "Test Patient",
+      "email": "patient1789808974178@gmail.com",
+      "phone": "+91 99887 76655",
+      "branchPreference": "Rajendra Nagar Main Branch",
+      "subject": "Endoscopic Sinus Surgery Inquiry",
+      "message": "Respected Doctor, I am experiencing persistent sinus blockage. I want to inquire about FESS procedure.",
+      "status": "Resolved",
+      "createdAt": "2026-09-19T09:09:34.312Z",
+      "updatedAt": "2026-09-19T09:09:34.398Z"
+    },
+    {
+      "id": "qry-101",
+      "name": "Ramesh Jha",
+      "email": "ramesh.jha@gmail.com",
+      "phone": "+91 98350 12345",
+      "branchPreference": "Rajendra Nagar Main Branch",
+      "subject": "Eardrum perforation surgery consultation query",
+      "message": "Respected Dr. Nalanda, I have chronic ear discharge for 3 years. I want to visit Rajendra Nagar branch next Tuesday for microscopic tympanoplasty examination.",
+      "status": "New",
+      "createdAt": "2026-09-17T08:47:06.635Z"
+    },
+    {
+      "id": "qry-102",
+      "name": "Pooja Roy",
+      "email": "pooja.roy@yahoo.com",
+      "phone": "+91 94310 98765",
+      "branchPreference": "Kankerbagh City Branch",
+      "subject": "Sinus headache & endoscopic evaluation",
+      "message": "Hello doctor, I get severe morning sinus headaches. Do I need to bring my previous CT scan report when visiting Kankerbagh OPD?",
+      "status": "In Progress",
+      "createdAt": "2026-09-18T20:47:06.635Z"
+    }
+  ]
+}
