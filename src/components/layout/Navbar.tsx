@@ -10,7 +10,6 @@ import {
   ChevronDown, 
   MapPin, 
   Clock, 
-  ShieldAlert,
   Activity,
   LogOut,
   ShieldCheck,
@@ -60,12 +59,12 @@ export const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
       
-      {/* Top Bar - "Emergency Desk:" text removed as requested */}
+      {/* Top Bar */}
       <div className="bg-medical-900 text-white text-xs sm:text-sm py-2 px-4 shadow-inner">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4 text-slate-200">
             <a href={`tel:${CLINIC_INFO.emergencyNumber}`} className="hover:underline font-semibold text-amber-300 flex items-center gap-1.5">
-              <Phone className="w-3.5 h-3.5" /> {CLINIC_INFO.emergencyNumber}
+              <Phone className="w-3.5 h-3.5 animate-bounce" /> {CLINIC_INFO.emergencyNumber}
             </a>
             <span className="hidden md:inline-block text-slate-400">|</span>
             <span className="hidden md:flex items-center gap-1 text-slate-300">
@@ -94,7 +93,7 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Bar */}
+      {/* Main Navigation Bar */}
       <nav className={`w-full transition-all duration-300 ${
         isScrolled 
           ? 'glass-nav shadow-md py-3 border-b border-slate-200/80 dark:border-slate-800' 
@@ -102,17 +101,17 @@ export const Navbar: React.FC = () => {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Logo - Nalanda ENT Center */}
+          {/* Logo - Prominent NEC with Nalanda ENT Center Tagline */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-medical-500 to-tealbrand-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-              <Activity className="w-6 h-6 stroke-[2.5]" />
+            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-medical-500 via-medical-600 to-tealbrand-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+              <span className="font-extrabold font-display text-lg tracking-wider">NEC</span>
             </div>
             <div>
-              <span className="text-xl sm:text-2xl font-bold font-display tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
-                NALANDA <span className="text-medical-600 dark:text-medical-400">ENT CENTER</span>
+              <span className="text-xl sm:text-2xl font-black font-display tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
+                NEC <span className="text-xs font-semibold uppercase tracking-widest text-medical-600 dark:text-medical-400 px-2 py-0.5 rounded-md bg-medical-50 dark:bg-medical-950/60 border border-medical-200/60 dark:border-medical-800/60">Clinic</span>
               </span>
-              <span className="block text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400 font-semibold">
-                Super Specialty Center
+              <span className="block text-[11px] font-bold tracking-wide text-slate-600 dark:text-slate-300">
+                Nalanda ENT Center
               </span>
             </div>
           </Link>
@@ -144,6 +143,7 @@ export const Navbar: React.FC = () => {
               Services
             </Link>
 
+            {/* Branches Dropdown */}
             <div className="relative group">
               <button
                 onClick={() => setBranchDropdownOpen(!branchDropdownOpen)}
@@ -158,7 +158,7 @@ export const Navbar: React.FC = () => {
               {branchDropdownOpen && (
                 <div 
                   onMouseLeave={() => setBranchDropdownOpen(false)}
-                  className="absolute top-full left-0 w-64 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50"
+                  className="absolute top-full left-0 w-64 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
                 >
                   <Link to="/branches" className="block px-3 py-2 text-xs uppercase tracking-wider font-bold text-slate-400 hover:text-medical-600">
                     View All Branches
@@ -258,34 +258,46 @@ export const Navbar: React.FC = () => {
             <button onClick={toggleTheme} className="p-2 rounded-xl text-slate-600 dark:text-slate-300">
               {theme === 'dark' ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-medical-600" />}
             </button>
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-xl text-slate-800 dark:text-slate-200">
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+              className="p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-transform active:scale-95"
+            >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
+        {/* Animated Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-2">
+          <div className="lg:hidden bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 fade-in duration-300 shadow-xl">
             {navLinks.map((link) => (
-              <Link key={link.path} to={link.path} className={`block px-4 py-2 rounded-lg text-sm font-medium ${isActive(link.path) ? 'bg-medical-50 dark:bg-medical-950 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
+              <Link 
+                key={link.path} 
+                to={link.path} 
+                className={`block px-4 py-2.5 rounded-xl text-base font-medium transition-all ${
+                  isActive(link.path) 
+                    ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 dark:text-medical-400 font-bold border-l-4 border-medical-600' 
+                    : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
                 {link.name}
               </Link>
             ))}
             {isAdmin && (
-              <Link to="/admin/queries" className="block px-4 py-2 rounded-lg text-sm font-bold text-amber-600 bg-amber-50">
+              <Link to="/admin/queries" className="block px-4 py-2.5 rounded-xl text-base font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border-l-4 border-amber-500">
                 Admin Queries Dashboard
               </Link>
             )}
 
             <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2">
               {isAuthenticated ? (
-                <button onClick={logout} className="py-2.5 bg-rose-50 text-rose-600 font-bold text-xs rounded-xl flex items-center justify-center gap-1">
+                <button onClick={logout} className="py-3 bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 font-bold text-sm rounded-xl flex items-center justify-center gap-1.5">
                   <LogOut className="w-4 h-4" /> Sign Out ({user?.name})
                 </button>
               ) : (
                 <div className="flex gap-2">
-                  <Link to="/login" className="flex-1 py-2.5 text-center bg-slate-100 font-semibold text-xs rounded-xl">Log In</Link>
-                  <Link to="/signup" className="flex-1 py-2.5 text-center bg-medical-600 text-white font-semibold text-xs rounded-xl">Sign Up</Link>
+                  <Link to="/login" className="flex-1 py-3 text-center bg-slate-100 dark:bg-slate-800 font-semibold text-sm rounded-xl">Log In</Link>
+                  <Link to="/signup" className="flex-1 py-3 text-center bg-medical-600 text-white font-semibold text-sm rounded-xl">Sign Up</Link>
                 </div>
               )}
             </div>

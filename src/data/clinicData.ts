@@ -119,7 +119,7 @@ export const CLINIC_INFO = {
 };
 
 export const DOCTOR_PROFILE: DoctorInfo = {
-  name: "Dr. Rajesh Kumar Nalanda",
+  name: "Dr. Arun Kumar",
   title: "Senior Consultant ENT & Skull Base Surgeon",
   qualification: "MBBS, MS (ENT), DNB (Otorhinolaryngology), FICS",
   degrees: [
@@ -130,7 +130,7 @@ export const DOCTOR_PROFILE: DoctorInfo = {
     "Fellowship in Micro-Otology & Cochlear Implant (Zurich, Switzerland)"
   ],
   experienceYears: 18,
-  biography: "Dr. Rajesh Kumar Nalanda is a renowned ENT specialist and Micro-Otologist with over 18 years of surgical excellence. Having performed over 12,000 successful ENT micro-surgeries and endoscopic sinus procedures, Dr. Nalanda is widely recognized for his precision diagnosis, compassionate patient care, and introduction of modern minimally invasive ENT techniques in Bihar.",
+  biography: "Dr. Arun Kumar is a renowned ENT specialist and Micro-Otologist with over 18 years of surgical excellence. Having performed over 12,000 successful ENT micro-surgeries and endoscopic sinus procedures, Dr. Arun Kumar is widely recognized for his precision diagnosis, compassionate patient care, and introduction of modern minimally invasive ENT techniques in Bihar.",
   languages: ["English", "Hindi", "Maithili"],
   consultationTimings: "Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM (Main Branch)",
   certifications: [
@@ -165,7 +165,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     photo: "https://images.unsplash.com/photo-1594824813571-2153349a6961?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
       "Patient triage and pre-operative preparation",
-      "Assisting Dr. Nalanda during OPD endoscopic examinations",
+      "Assisting Dr. Arun Kumar during OPD endoscopic examinations",
       "Overseeing sterilization and infection control protocols",
       "Managing nursing desk and post-operative recovery guidance"
     ],
@@ -261,7 +261,7 @@ export const BRANCHES: Branch[] = [
       "Daycare OT & Recovery Ward",
       "Ample Car Parking & Wheelchair Access"
     ],
-    doctorSchedule: "Dr. Rajesh Kumar Nalanda: Mon - Sat (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM)"
+    doctorSchedule: "Dr. Arun Kumar: Mon - Sat (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM)"
   },
   {
     id: "city-kankerbagh",
@@ -285,7 +285,7 @@ export const BRANCHES: Branch[] = [
       "Minor Dressing Room",
       "Air-Conditioned Waiting Lounge"
     ],
-    doctorSchedule: "Dr. Rajesh Kumar Nalanda: Mon - Sat (2:30 PM - 4:30 PM)"
+    doctorSchedule: "Dr. Arun Kumar: Mon - Sat (2:30 PM - 4:30 PM)"
   }
 ];
 
@@ -405,10 +405,10 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "test-1",
     patientName: "Manoj Kumar Sinha",
-    location: "Patna",
+    location: "Rajendra Nagar, Patna",
     treatment: "Microscopic Tympanoplasty (Ear Surgery)",
     rating: 5,
-    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Rajesh Kumar Nalanda performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my hearing has improved tremendously. Truly the best ENT surgeon in Patna!",
+    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Arun Kumar performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my hearing has improved tremendously. Truly the best ENT surgeon in Patna!",
     date: "14 January 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
@@ -416,10 +416,10 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "test-2",
     patientName: "Sunita Singh",
-    location: "Kankerbagh",
+    location: "Kankerbagh, Patna",
     treatment: "Endoscopic Sinus Surgery (FESS)",
     rating: 5,
-    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Nalanda explained my CT scan patiently and performed endoscopic sinus surgery. I got discharged the same evening and can breathe freely again!",
+    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Arun Kumar explained my CT scan patiently and performed endoscopic sinus surgery. I got discharged the same evening and can breathe freely again!",
     date: "28 February 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
@@ -427,10 +427,10 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "test-3",
     patientName: "Alok Jha",
-    location: "Muzaffarpur",
+    location: "Muzaffarpur, Bihar",
     treatment: "Vertigo & Epley Maneuver",
     rating: 5,
-    review: "I woke up with terrifying spinning dizziness whenever I turned my head. Dr. Nalanda diagnosed BPPV inner ear crystal issue and performed a 10-minute Epley maneuver right in the OPD. The dizziness vanished completely. Incredible experience!",
+    review: "I woke up with terrifying spinning dizziness whenever I turned my head. Dr. Arun Kumar diagnosed BPPV inner ear crystal issue and performed a 10-minute Epley maneuver right in the OPD. The dizziness vanished completely. Incredible experience!",
     date: "05 March 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
@@ -438,10 +438,10 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "test-4",
     patientName: "Pooja Verma",
-    location: "Rajendra Nagar",
+    location: "Boring Road, Patna",
     treatment: "Pediatric Adenotonsillectomy",
     rating: 5,
-    review: "My 6-year-old son had continuous mouth breathing and snoring due to enlarged adenoids. Dr. Nalanda performed Coblation surgery. The team was so gentle with him. Now he sleeps peacefully without any noise!",
+    review: "My 6-year-old son had continuous mouth breathing and snoring due to enlarged adenoids. Dr. Arun Kumar performed Coblation surgery. The team was so gentle with him. Now he sleeps peacefully without any noise!",
     date: "18 April 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200"
@@ -455,7 +455,7 @@ export const HEALTH_BLOGS: HealthBlog[] = [
     slug: "eardrum-perforation-causes-micro-repair",
     category: "Ear Care",
     date: "12 May 2026",
-    author: "Dr. Rajesh Kumar Nalanda",
+    author: "Dr. Arun Kumar",
     readTime: "5 min read",
     excerpt: "A hole in the eardrum can cause recurring ear infections and hearing loss. Learn about modern microscopic repair techniques that restore eardrum integrity without visible external scars.",
     content: [
@@ -476,7 +476,7 @@ export const HEALTH_BLOGS: HealthBlog[] = [
     slug: "chronic-sinusitis-vs-cold-fess-surgery",
     category: "Sinus & Allergy",
     date: "04 June 2026",
-    author: "Dr. Rajesh Kumar Nalanda",
+    author: "Dr. Arun Kumar",
     readTime: "6 min read",
     excerpt: "Struggling with persistent facial pressure, heavy head, and nasal blockage? Understand when sinusitis requires endoscopic sinus clearance (FESS).",
     content: [
@@ -497,7 +497,7 @@ export const HEALTH_BLOGS: HealthBlog[] = [
     slug: "sudden-dizziness-vertigo-inner-ear-bppv",
     category: "Vertigo Care",
     date: "20 July 2026",
-    author: "Dr. Rajesh Kumar Nalanda",
+    author: "Dr. Arun Kumar",
     readTime: "4 min read",
     excerpt: "Feeling like the room is spinning when you turn in bed? Learn about Benign Paroxysmal Positional Vertigo (BPPV) and how simple OPD maneuvers treat it.",
     content: [
@@ -519,7 +519,7 @@ export const FAQS: FAQItem[] = [
     id: "faq-1",
     category: "General",
     question: "Do I need an appointment before visiting Nalanda ENT Center?",
-    answer: "No online booking is required! Nalanda ENT Center operates on a direct physical walk-in registration system. Patients can register directly at the front desk desk upon arrival during OPD consultation hours (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM at Main Branch)."
+    answer: "No online booking is required! Nalanda ENT Center operates on a direct physical walk-in registration system. Patients can register directly at the front desk upon arrival during OPD consultation hours (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM at Main Branch)."
   },
   {
     id: "faq-2",
@@ -531,7 +531,7 @@ export const FAQS: FAQItem[] = [
     id: "faq-3",
     category: "Treatments",
     question: "Is eardrum repair (Tympanoplasty) surgery painful?",
-    answer: "No. Micro-otology surgeries are performed under local or general anesthesia so you feel zero pain during the procedure. At Nalanda ENT Center, Dr. Nalanda uses microscopic keyhole techniques resulting in minimal post-operative discomfort."
+    answer: "No. Micro-otology surgeries are performed under local or general anesthesia so you feel zero pain during the procedure. At Nalanda ENT Center, Dr. Arun Kumar uses microscopic keyhole techniques resulting in minimal post-operative discomfort."
   },
   {
     id: "faq-4",

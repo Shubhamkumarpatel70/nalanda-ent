@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BRANCHES } from '../data/clinicData';
-import { MapPin, Phone, Clock, MessageSquare, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Clock, ChevronRight, CheckCircle2 } from 'lucide-react';
 
 export const Branches: React.FC = () => {
   return (
@@ -87,7 +87,7 @@ export const Branches: React.FC = () => {
                   to={`/branches/${b.id}`}
                   className="flex-1 py-3 bg-medical-600 hover:bg-medical-700 text-white font-semibold text-xs rounded-xl text-center shadow transition-colors flex items-center justify-center gap-1"
                 >
-                  View Full Branch Details <ChevronRight className="w-3.5 h-3.5" />
+                  View Branch Details <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
 
                 <a
@@ -96,7 +96,7 @@ export const Branches: React.FC = () => {
                   rel="noopener noreferrer"
                   className="py-3 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-xs rounded-xl flex items-center gap-1"
                 >
-                  <MapPin className="w-3.5 h-3.5 text-medical-500" /> Maps
+                  <MapPin className="w-3.5 h-3.5 text-medical-500" /> Interactive Google Map Navigation
                 </a>
               </div>
             </div>

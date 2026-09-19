@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SPECIALTY_SERVICES } from '../data/clinicData';
-import { CheckCircle2, Phone, MessageSquare, ChevronRight, ShieldCheck, Activity } from 'lucide-react';
+import { CheckCircle2, Phone, MessageSquare, Filter } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
 
 export const Services: React.FC = () => {
@@ -11,10 +11,10 @@ export const Services: React.FC = () => {
     : SPECIALTY_SERVICES.filter(s => s.id === activeCategory);
 
   return (
-    <div className="space-y-16 pb-16">
+    <div className="space-y-12 pb-16">
       
       {/* HEADER BANNER */}
-      <section className="bg-gradient-to-b from-medical-900 via-medical-800 to-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-medical-900 via-medical-800 to-slate-900 text-white py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center space-y-4">
           <span className="inline-block bg-tealbrand-500/20 text-tealbrand-300 border border-tealbrand-500/30 text-xs uppercase font-bold tracking-widest px-3 py-1 rounded-full">
             Specialized Medical Treatments
@@ -28,32 +28,39 @@ export const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* FILTER CATEGORY PILLS */}
+      {/* MOBILE-FIRST REDESIGNED HORIZONTAL FILTER BAR */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          <button
-            onClick={() => setActiveCategory('all')}
-            className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
-              activeCategory === 'all'
-                ? 'bg-medical-600 text-white shadow-md'
-                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
-            }`}
-          >
-            All Specialties
-          </button>
-          {SPECIALTY_SERVICES.map((s) => (
+        <div className="glass-card p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider pl-2 shrink-0">
+            <Filter className="w-3.5 h-3.5 text-medical-500" /> Filter:
+          </div>
+
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none py-1 px-1 w-full text-xs font-semibold">
             <button
-              key={s.id}
-              onClick={() => setActiveCategory(s.id)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
-                activeCategory === s.id
+              onClick={() => setActiveCategory('all')}
+              className={`px-4 py-2 rounded-xl shrink-0 transition-all ${
+                activeCategory === 'all'
                   ? 'bg-medical-600 text-white shadow-md'
-                  : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
-              {s.title}
+              All Specialties ({SPECIALTY_SERVICES.length})
             </button>
-          ))}
+
+            {SPECIALTY_SERVICES.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => setActiveCategory(s.id)}
+                className={`px-4 py-2 rounded-xl shrink-0 transition-all ${
+                  activeCategory === s.id
+                    ? 'bg-medical-600 text-white shadow-md'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                }`}
+              >
+                {s.title}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -68,7 +75,6 @@ export const Services: React.FC = () => {
               idx % 2 === 1 ? 'lg:flex-row-reverse' : ''
             }`}>
               
-              {/* Image Side */}
               <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800">
                 <img
                   src={service.image}
@@ -81,9 +87,7 @@ export const Services: React.FC = () => {
                 </span>
               </div>
 
-              {/* Text Side */}
               <div className="lg:col-span-7 space-y-6">
-                
                 <div>
                   <h2 className="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
                     {service.title}
@@ -94,8 +98,6 @@ export const Services: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  
-                  {/* Symptoms Column */}
                   <div className="space-y-2 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
                     <h4 className="text-xs uppercase font-bold tracking-wider text-rose-600 dark:text-rose-400">
                       Common Symptoms Treated
@@ -110,7 +112,6 @@ export const Services: React.FC = () => {
                     </ul>
                   </div>
 
-                  {/* Treatments Column */}
                   <div className="space-y-2 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
                     <h4 className="text-xs uppercase font-bold tracking-wider text-tealbrand-600 dark:text-tealbrand-400">
                       Procedures & Care Options
@@ -124,10 +125,8 @@ export const Services: React.FC = () => {
                       ))}
                     </ul>
                   </div>
-
                 </div>
 
-                {/* Benefits Pill row */}
                 <div className="flex flex-wrap items-center gap-2 pt-1">
                   <span className="text-xs font-bold text-slate-400 dark:text-slate-500 mr-2">Key Advantages:</span>
                   {service.benefits.map((b, i) => (
@@ -137,13 +136,12 @@ export const Services: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Call CTA */}
-                <div className="pt-2 flex items-center gap-4">
+                <div className="pt-2 flex flex-wrap items-center gap-3">
                   <a
                     href={`tel:${CLINIC_INFO.emergencyNumber}`}
                     className="inline-flex items-center gap-2 bg-medical-600 hover:bg-medical-700 text-white font-semibold text-xs px-5 py-2.5 rounded-xl shadow transition-colors"
                   >
-                    <Phone className="w-3.5 h-3.5" /> Call Clinic for Consultation
+                    <Phone className="w-3.5 h-3.5" /> Call Clinic Desk
                   </a>
 
                   <a

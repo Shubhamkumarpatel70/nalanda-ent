@@ -1,6 +1,6 @@
 import React from 'react';
-import { TESTIMONIALS, CLINIC_INFO } from '../data/clinicData';
-import { Star, ShieldCheck, ThumbsUp, Quote, CheckCircle2, Phone } from 'lucide-react';
+import { TESTIMONIALS } from '../data/clinicData';
+import { Star, Quote, CheckCircle2, MapPin, Activity } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
   return (
@@ -46,7 +46,7 @@ export const Testimonials: React.FC = () => {
         </div>
       </section>
 
-      {/* TESTIMONIALS GRID */}
+      {/* TESTIMONIALS GRID - Line 1: Name, Line 2: Address, Line 3: Disease */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {TESTIMONIALS.map((t) => (
@@ -55,7 +55,6 @@ export const Testimonials: React.FC = () => {
               className="glass-card rounded-3xl p-8 border border-slate-200/80 dark:border-slate-800 shadow-lg space-y-6 flex flex-col justify-between"
             >
               <div className="space-y-4">
-                
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1 text-amber-400">
                     {[...Array(t.rating)].map((_, i) => (
@@ -73,18 +72,30 @@ export const Testimonials: React.FC = () => {
                 <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic">
                   "{t.review}"
                 </p>
-
               </div>
 
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <img src={t.patientPhoto} alt={t.patientName} className="w-11 h-11 rounded-full object-cover border-2 border-medical-500" />
-                  <div>
-                    <h3 className="text-sm font-bold font-display text-slate-900 dark:text-white">{t.patientName}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">{t.location} • <span className="text-medical-600 dark:text-medical-400 font-medium">{t.treatment}</span></p>
+              {/* Patient Card Footer: Line 1 Name, Line 2 Address, Line 3 Disease */}
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-start gap-4">
+                <img src={t.patientPhoto} alt={t.patientName} className="w-12 h-12 rounded-full object-cover border-2 border-medical-500 shrink-0 mt-1" />
+                
+                <div className="space-y-1 text-xs">
+                  {/* Line 1: Name */}
+                  <h3 className="text-base font-bold font-display text-slate-900 dark:text-white leading-tight">
+                    {t.patientName}
+                  </h3>
+
+                  {/* Line 2: Address */}
+                  <div className="text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-medical-500 shrink-0" />
+                    <span>{t.location}</span>
+                  </div>
+
+                  {/* Line 3: Disease / Treatment */}
+                  <div className="text-medical-600 dark:text-medical-400 font-semibold flex items-center gap-1">
+                    <Activity className="w-3.5 h-3.5 text-tealbrand-500 shrink-0" />
+                    <span>{t.treatment}</span>
                   </div>
                 </div>
-                <span className="text-[11px] text-slate-400">{t.date}</span>
               </div>
 
             </div>
