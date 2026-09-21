@@ -26,7 +26,7 @@ export const BranchDetail: React.FC = () => {
       <div className="bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-3 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/branches" className="inline-flex items-center gap-1 text-xs font-semibold text-medical-600 dark:text-medical-400 hover:underline">
-            <ChevronLeft className="w-4 h-4" /> Back to All Branches
+            <ChevronLeft className="w-4 h-4" /> Back to Branches
           </Link>
 
         </div>
@@ -162,7 +162,7 @@ export const BranchDetail: React.FC = () => {
             
             <div className="glass-card rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-md space-y-4">
               <h3 className="text-lg font-bold font-display text-slate-900 dark:text-white flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-medical-600" /> Interactive Google Map
+                <MapPin className="w-5 h-5 text-medical-600" /> Location
               </h3>
               
               <div className="h-72 rounded-2xl overflow-hidden shadow-inner border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
@@ -183,7 +183,7 @@ export const BranchDetail: React.FC = () => {
                 rel="noopener noreferrer"
                 className="w-full py-3 bg-medical-600 hover:bg-medical-700 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 shadow transition-colors"
               >
-                <ExternalLink className="w-4 h-4" /> Open Navigation in Google Maps App
+                <ExternalLink className="w-4 h-4" /> Open Maps
               </a>
             </div>
 
