@@ -31,8 +31,6 @@ export interface Branch {
   type: string;
   address: string;
   phone: string;
-  emergencyPhone: string;
-  whatsapp: string;
   email: string;
   workingHours: string;
   sundayHours: string;
