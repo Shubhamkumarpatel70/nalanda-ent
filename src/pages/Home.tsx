@@ -48,7 +48,7 @@ export const Home: React.FC = () => {
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                Led by <strong>{DOCTOR_PROFILE.name}</strong> ({DOCTOR_PROFILE.qualification}), featuring state-of-the-art Zeiss microscopic surgical suite, Storz HD video endoscopy, and soundproof audiology testing across 2 convenient branches in Patna.
+                Led by <strong>{DOCTOR_PROFILE.name}</strong> ({DOCTOR_PROFILE.qualification}), Consultant ENT Surgeon and Specialist in Endoscopy & Ear Microsurgery, providing specialized ENT care in Patna and Bihar Sharif.
               </p>
 
               {/* Action Buttons: Call Clinic & Get Directions aligned in the SAME LINE */}
