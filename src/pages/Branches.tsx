@@ -17,7 +17,7 @@ export const Branches: React.FC = () => {
             Our Clinic Locations in Patna
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Nalanda ENT Center operates two physical consultation centers located at Rajendra Nagar and Kankerbagh for convenient walk-in medical access.
+            Nalanda ENT Center operates two physical consultation centers located in Patna and Bihar Sharif.
           </p>
         </div>
       </section>
@@ -96,7 +96,7 @@ export const Branches: React.FC = () => {
                   rel="noopener noreferrer"
                   className="py-3 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-xs rounded-xl flex items-center gap-1"
                 >
-                  <MapPin className="w-3.5 h-3.5 text-medical-500" /> Interactive Google Map Navigation
+                  <MapPin className="w-3.5 h-3.5 text-medical-500" /> Location
                 </a>
               </div>
             </div>
