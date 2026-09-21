@@ -32,6 +32,8 @@ export interface Branch {
   address: string;
   phone: string;
   email: string;
+  emergencyPhone: string;
+  whatsapp: string;
   workingHours: string;
   sundayHours: string;
   mapEmbedUrl: string;
@@ -240,6 +242,8 @@ export const BRANCHES: Branch[] = [
     type: "Full Diagnostic & Surgical Unit",
     address: "Malahi Pakdi, Patna, Bihar, India",
     phone: "+91 94314 19665",
+    emergencyPhone: "+91 94314 19665",
+    whatsapp: "+91 94314 19665",
     email: "xyz@nalandaentcenter.in",
     workingHours: "Monday - Saturday: 9:00 AM - 8:00 PM",
     sundayHours: "Sunday: 10:00 AM - 1:00 PM (Emergency & Follow-ups Only)",
@@ -263,6 +267,8 @@ export const BRANCHES: Branch[] = [
     type: "OPD & Diagnostic Clinic",
     address: "Kaghzi Mohalla, Bihar Sharif, Nalanda, Bihar - 803101",
     phone: "+91 94314 19665",
+    emergencyPhone: "+91 94314 19665",
+    whatsapp: "+91 94314 19665",
     email: "xuz@nalandaentcenter.in",
     workingHours: "Monday - Saturday: 2:30 PM - 5:00 PM",
     sundayHours: "Sunday: Closed",
