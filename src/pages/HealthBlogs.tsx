@@ -29,7 +29,7 @@ export const HealthBlogs: React.FC = () => {
             ENT Health & Medical Guide
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Medical articles written by {DOCTOR_PROFILE.name} covering ear care, sinus infection management, hearing aid tuning, and vertigo prevention.
+            Learn about common ear, nose, and throat conditions, diagnosis, treatment options, and practical care guidance.
           </p>
         </div>
       </section>
