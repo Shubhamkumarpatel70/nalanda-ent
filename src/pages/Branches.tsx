@@ -11,10 +11,10 @@ export const Branches: React.FC = () => {
       <section className="bg-gradient-to-b from-medical-900 via-medical-800 to-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center space-y-4">
           <span className="inline-block bg-tealbrand-500/20 text-tealbrand-300 border border-tealbrand-500/30 text-xs uppercase font-bold tracking-widest px-3 py-1 rounded-full">
-            Multi-Branch Network
+            Our Clinic 
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display">
-            Our Clinic Locations in Patna
+            Our Clinic Locations
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Nalanda ENT Center operates two physical consultation centers located in Patna and Bihar Sharif.
