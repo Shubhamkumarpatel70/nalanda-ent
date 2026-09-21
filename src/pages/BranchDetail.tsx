@@ -28,7 +28,7 @@ export const BranchDetail: React.FC = () => {
           <Link to="/branches" className="inline-flex items-center gap-1 text-xs font-semibold text-medical-600 dark:text-medical-400 hover:underline">
             <ChevronLeft className="w-4 h-4" /> Back to All Branches
           </Link>
-          <span className="text-xs text-slate-500 font-medium">Branch ID: {branch.id}</span>
+
         </div>
       </div>
 
