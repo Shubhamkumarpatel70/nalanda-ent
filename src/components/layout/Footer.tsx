@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
               />
               <div>
                 <span className="text-xl font-bold font-display tracking-tight text-white flex items-center gap-1">
-                  NALANDA <span className="text-medical-400">ENT</span>
+                  NALANDA <span className="text-medical-400">ENT</span> CENTER
                 </span>
                 <span className="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold">
                   Super Specialty Center
@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
                 <ShieldCheck className="w-4 h-4 text-emerald-400" /> State-of-the-Art Sterilized Infrastructure
               </div>
               <div className="flex items-center gap-2 text-medical-400 font-medium">
-                <Heart className="w-4 h-4 text-medical-400" /> Over 50,000+ Happy Patients Served
+                <Heart className="w-4 h-4 text-medical-400" /> Over 5,000+ Happy Patients Served
               </div>
             </div>
           </div>
@@ -111,39 +111,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Column 4: Emergency & Direct Helpline */}
-          <div className="space-y-3">
-            <h3 className="text-base font-semibold font-display text-white tracking-wide border-l-2 border-rose-500 pl-3">
-              Emergency & Consultation
-            </h3>
-            <p className="text-xs text-slate-400">
-              For emergency ENT cases (severe epistaxis, acute ear pain, foreign body removal), reach out directly:
-            </p>
-
-            <div className="space-y-2 pt-1">
-              <a
-                href={`tel:${CLINIC_INFO.emergencyNumber}`}
-                className="flex items-center gap-3 bg-gradient-to-r from-rose-600/80 to-rose-700/80 hover:from-rose-600 hover:to-rose-700 text-white p-3 rounded-xl border border-rose-500/30 transition-all group"
-              >
-                <Phone className="w-5 h-5 text-white group-hover:animate-bounce" />
-                <div>
-                  <div className="text-[10px] uppercase tracking-wider text-rose-200">Emergency Helpline</div>
-                  <div className="text-sm font-bold text-white">{CLINIC_INFO.emergencyNumber}</div>
-                </div>
-              </a>
-
-              <a
-                href={`https://wa.me/${CLINIC_INFO.whatsappNumber.replace(/[^0-9]/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-slate-800 hover:bg-slate-700 text-slate-200 p-3 rounded-xl border border-slate-700 transition-all"
-              >
-                <MessageSquare className="w-5 h-5 text-emerald-400" />
-                <div>
-                  <div className="text-[10px] uppercase tracking-wider text-slate-400">WhatsApp Desk</div>
-                  <div className="text-sm font-semibold text-emerald-400">Chat for Directions & Info</div>
-                </div>
-              </a>
-            </div>
+          
 
             <div className="pt-2 text-xs text-slate-400 flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-medical-400" />
