@@ -23,10 +23,10 @@ export const Gallery: React.FC = () => {
             Visual Experience
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display">
-            Clinic Infrastructure & Equipment Gallery
+            Clinic Infrastructure & Gallery
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Take a virtual tour of our sterilized operating rooms, Zeiss microscope setup, soundproof audiology booth, and waiting lounges.
+            Take a look inside Nalanda ENT Center and explore our clinical environment, consultation areas, and patient facilities.
           </p>
         </div>
       </section>
