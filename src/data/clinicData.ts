@@ -238,7 +238,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
 export const BRANCHES: Branch[] = [
   {
     id: "main-malahi-pakdi",
-    name: "Nalanda ENT Center",
+    name: "Nalanda ENT Center, Patna",
     type: "Patna",
     address: "Malahi Pakdi, Patna, Bihar, India",
     phone: "+91 94314 19665",
@@ -263,7 +263,7 @@ export const BRANCHES: Branch[] = [
   },
   {
     id: "bihar-sharif",
-    name: "Nalanda ENT Center",
+    name: "Nalanda ENT Center, Bihar Sharif",
     type: "Bihar Sharif",
     address: "Kaghzi Mohalla, Bihar Sharif, Nalanda, Bihar - 803101",
     phone: "+91 94314 19665",
