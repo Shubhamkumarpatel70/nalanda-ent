@@ -120,18 +120,16 @@ export const CLINIC_INFO = {
 
 export const DOCTOR_PROFILE: DoctorInfo = {
   name: "Dr. Arun Kumar",
-  title: "Senior Consultant ENT & Skull Base Surgeon",
-  qualification: "MBBS, MS (ENT), DNB (Otorhinolaryngology), FICS",
+  title: "Consultant ENT Surgeon",
+  qualification: "MBBS, MS (ENT)",
   degrees: [
-    "MBBS - Patna Medical College & Hospital (PMCH)",
-    "MS (ENT) - All India Institute of Medical Sciences (AIIMS, New Delhi)",
-    "DNB (ENT) - National Board of Examinations",
-    "Fellowship in Advanced Endoscopic Sinus Surgery (Bordeaux, France)",
-    "Fellowship in Micro-Otology & Cochlear Implant (Zurich, Switzerland)"
-  ],
-  experienceYears: 18,
+  "MBBS - Patna Medical College & Hospital (PMCH), Patna",
+  "MS (ENT) - Patna Medical College & Hospital (PMCH), Patna",
+  "Senior Resident - AAA Hospital, New Delhi"
+],
+  experienceYears: 20,
   biography: "Dr. Arun Kumar is a renowned ENT specialist and Micro-Otologist with over 18 years of surgical excellence. Having performed over 12,000 successful ENT micro-surgeries and endoscopic sinus procedures, Dr. Arun Kumar is widely recognized for his precision diagnosis, compassionate patient care, and introduction of modern minimally invasive ENT techniques in Bihar.",
-  languages: ["English", "Hindi", "Maithili"],
+  languages: ["English", "Hindi"],
   consultationTimings: "Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM (Main Branch)",
   certifications: [
     "Life Member - Association of Otolaryngologists of India (AOI)",
@@ -239,14 +237,12 @@ export const STAFF_MEMBERS: StaffMember[] = [
 
 export const BRANCHES: Branch[] = [
   {
-    id: "main-rajendra-nagar",
-    name: "Main Super-Specialty Center",
+    id: "main-malahi-pakdi",
+    name: "Nalanda ENT Center",
     type: "Full Diagnostic & Surgical Unit",
-    address: "Plot 42, Health Plaza, Rajendra Nagar Main Road, Near Overbridge, Patna - 800016",
-    phone: "+91 612 268 9090",
-    emergencyPhone: "+91 98765 43210",
-    whatsapp: "+91 98765 43210",
-    email: "rajendranagar@nalandaentcenter.com",
+    address: "Malahi Pakdi, Patna, Bihar, India",
+    phone: "+91 94314 19665",
+    email: "xyz@nalandaentcenter.in",
     workingHours: "Monday - Saturday: 9:00 AM - 8:00 PM",
     sundayHours: "Sunday: 10:00 AM - 1:00 PM (Emergency & Follow-ups Only)",
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.8761234567!2d85.141234!3d25.601234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58d123456789%3A0x123456789abcdef!2sRajendra%20Nagar%2C%20Patna!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin",
@@ -264,14 +260,12 @@ export const BRANCHES: Branch[] = [
     doctorSchedule: "Dr. Arun Kumar: Mon - Sat (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM)"
   },
   {
-    id: "city-kankerbagh",
-    name: "City OPD & Hearing Care Branch",
+    id: "bihar-sharif",
+    name: "Nalanda ENT Center",
     type: "OPD & Diagnostic Clinic",
-    address: "2nd Floor, Apex Medicare Building, Kankerbagh Main Road, Opposite Colony Park, Patna - 800020",
-    phone: "+91 612 234 5678",
-    emergencyPhone: "+91 98765 43210",
-    whatsapp: "+91 98765 43210",
-    email: "kankerbagh@nalandaentcenter.com",
+    address: "Kaghzi Mohalla, Bihar Sharif, Nalanda, Bihar - 803101",
+    phone: "+91 94314 19665",
+    email: "xuz@nalandaentcenter.in",
     workingHours: "Monday - Saturday: 2:30 PM - 5:00 PM",
     sundayHours: "Sunday: Closed",
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.9000000000!2d85.150000!3d25.605000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58d987654321%3A0xabcdef123456789!2sKankerbagh%2C%20Patna!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin",
