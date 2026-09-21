@@ -250,15 +250,23 @@ export const Contact: React.FC = () => {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="flex items-start gap-3 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
-                      <Phone className="w-5 h-5 text-tealbrand-500 shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-bold text-xs uppercase text-slate-400">Clinic Phone:</div>
-                        <a href={`tel:${branch.phone}`} className="font-bold text-slate-900 dark:text-white hover:underline pt-0.5 block">{branch.phone}</a>
-                      </div>
-                    </div>
-                    </div>
-                </div>
+  <div className="flex items-start gap-3 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+    <Phone className="w-5 h-5 text-tealbrand-500 shrink-0 mt-0.5" />
+    <div>
+      <div className="font-bold text-xs uppercase text-slate-400">
+        Clinic Phone:
+      </div>
+      <a
+        href={`tel:${branch.phone}`}
+        className="font-bold text-slate-900 dark:text-white hover:underline pt-0.5 block"
+      >
+        {branch.phone}
+      </a>
+    </div>
+  </div>
+</div>
+
+<div className="flex flex-wrap gap-3 pt-2">
 
                 <div className="flex flex-wrap gap-3 pt-2">
                   <a
