@@ -257,7 +257,7 @@ export const Contact: React.FC = () => {
                         <a href={`tel:${branch.phone}`} className="font-bold text-slate-900 dark:text-white hover:underline pt-0.5 block">{branch.phone}</a>
                       </div>
                     </div>
-                    
+                    </div>
                 </div>
 
                 <div className="flex flex-wrap gap-3 pt-2">
