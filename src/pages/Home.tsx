@@ -40,11 +40,11 @@ export const Home: React.FC = () => {
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-medical-100/80 dark:bg-medical-950/80 border border-medical-200 dark:border-medical-800 text-medical-800 dark:text-medical-300 text-xs font-semibold tracking-wide">
                 <Sparkles className="w-4 h-4 text-medical-600 dark:text-medical-400" />
-                <span>Premier Super Specialty Ear, Nose & Throat Center</span>
+                <span>NALANDA ENT CENTER</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-slate-900 dark:text-white leading-[1.15]">
-                Advanced German Micro-Otology & <span className="text-gradient-primary dark:text-gradient-dark">Endoscopic ENT Care</span>
+                Consultant ENT Surgeon & Specialist in <span className="text-gradient-primary dark:text-gradient-dark">Endoscopic ENT Care</span>
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
@@ -77,7 +77,6 @@ export const Home: React.FC = () => {
                 <span>•</span>
                 <span>Mon - Sat: 10 AM - 8 PM</span>
                 <span>•</span>
-                <span>Emergency Support Available</span>
               </div>
 
             </div>
@@ -98,7 +97,7 @@ export const Home: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <span className="inline-block bg-medical-600 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full mb-1">
-                        Senior ENT Consultant
+                        Consultant ENT Surgeon 
                       </span>
                       <h3 className="text-xl font-bold font-display">{DOCTOR_PROFILE.name}</h3>
                       <p className="text-xs text-slate-200">{DOCTOR_PROFILE.qualification}</p>
@@ -107,12 +106,12 @@ export const Home: React.FC = () => {
 
                   <div className="grid grid-cols-2 gap-3 text-xs">
                     <div className="p-3 rounded-xl bg-medical-50 dark:bg-medical-950/50 border border-medical-100 dark:border-medical-900/50">
-                      <div className="font-bold text-lg text-medical-700 dark:text-medical-300">18+ Years</div>
+                      <div className="font-bold text-lg text-medical-700 dark:text-medical-300">20+ Years</div>
                       <div className="text-slate-600 dark:text-slate-400">Surgical Experience</div>
                     </div>
 
                     <div className="p-3 rounded-xl bg-tealbrand-50 dark:bg-tealbrand-950/50 border border-tealbrand-100 dark:border-tealbrand-900/50">
-                      <div className="font-bold text-lg text-tealbrand-700 dark:text-tealbrand-300">12,000+</div>
+                      <div className="font-bold text-lg text-tealbrand-700 dark:text-tealbrand-300">150+</div>
                       <div className="text-slate-600 dark:text-slate-400">Surgeries Performed</div>
                     </div>
                   </div>
@@ -142,12 +141,12 @@ export const Home: React.FC = () => {
         <div className="bg-gradient-to-r from-medical-900 via-medical-800 to-tealbrand-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">18+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">20+</div>
               <div className="text-xs sm:text-sm text-slate-300 font-medium">Years of Medical Excellence</div>
             </div>
 
             <div className="space-y-1 pt-4 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-extrabold font-display text-tealbrand-300">50,000+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold font-display text-tealbrand-300">5,000+</div>
               <div className="text-xs sm:text-sm text-slate-300 font-medium">Happy Patients Treated</div>
             </div>
 
@@ -174,7 +173,7 @@ export const Home: React.FC = () => {
             Why Patients Trust Nalanda ENT Center
           </p>
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            Delivering international-standard ENT diagnostic precision, compassionate care, and transparent medical ethics.
+            Providing specialized ENT care with precise diagnosis, compassionate treatment, and transparent medical practices.
           </p>
         </div>
 
@@ -182,34 +181,30 @@ export const Home: React.FC = () => {
           {[
             {
               icon: Award,
-              title: "Senior AIIMS Alumni Doctor",
+              title: "Experienced ENT Specialist",
               desc: `Consultation by ${DOCTOR_PROFILE.name} (${DOCTOR_PROFILE.qualification}), with over ${DOCTOR_PROFILE.experienceYears}+ years of advanced surgical expertise.`
             },
             {
               icon: Zap,
-              title: "German Microscopic Precision",
-              desc: "Equipped with Carl Zeiss microscopes for sutureless eardrum repair and delicate middle ear surgery."
+              title: "Advanced Ear Microsurgery",
+              desc: "Specialized ENT care with expertise in microsurgery and endoscopic procedures."
             },
             {
               icon: Activity,
-              title: "Karl Storz HD Endoscopy",
-              desc: "Real-time high-definition monitor display during sinus and vocal cord evaluations for instant accurate diagnostic visual."
+              title: "Advanced ENT Endoscopy",
+              desc: "Clear endoscopic evaluation for detailed assessment of ear, nose and throat conditions."
             },
             {
               icon: ShieldCheck,
-              title: "Strict Sterilization Protocols",
-              desc: "Hospital-grade autoclave sterilizations and laminar airflow day-care theater for maximum infection prevention."
+              title: "Patient safety & Hygiene",
+              desc: "Maintaining high standards of cleanliness, hygiene, and sterilization throughout patient care."
             },
             {
               icon: Users,
-              title: "Patient-Friendly Staff",
+              title: "Patient-Centred Care",
               desc: "Warm nursing officers, experienced audiologists, and friendly front desk guidance ensuring zero stress."
             },
-            {
-              icon: Phone,
-              title: "Emergency Care Support",
-              desc: "Dedicated helpline for acute ENT emergencies like severe nosebleeds, ear trauma, and pediatric airway issues."
-            },
+          
           ].map((feature, idx) => {
             const Icon = feature.icon;
             return (
@@ -236,13 +231,13 @@ export const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center space-y-3 max-w-2xl mx-auto">
           <span className="text-xs uppercase font-bold tracking-widest text-medical-600 dark:text-medical-400">
-            Multi-Branch Healthcare Network
+            Our Clinic Locations 
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-slate-900 dark:text-white">
-            Visit Our Clinic Branches
+            Visit Our ENT Clinic
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            Convenient physical walk-in consultation centers located at Rajendra Nagar & Kankerbagh.
+            Convenient consultation facilities serving patients in Patna and Bihar Sharif.
           </p>
         </div>
 
@@ -301,7 +296,7 @@ export const Home: React.FC = () => {
                     rel="noopener noreferrer"
                     className="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-xs rounded-xl flex items-center gap-1"
                   >
-                    <MapPin className="w-3.5 h-3.5 text-medical-500" /> Map
+                    <MapPin className="w-3.5 h-3.5 text-medical-500" /> Location
                   </a>
                 </div>
               </div>
@@ -360,10 +355,10 @@ export const Home: React.FC = () => {
         <div className="bg-gradient-to-r from-medical-600 to-tealbrand-600 rounded-3xl p-8 sm:p-12 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-2 text-center md:text-left">
             <h3 className="text-2xl sm:text-3xl font-bold font-display">
-              Need Immediate ENT Care or Consultation?
+              Need ENT Care or Consultation?
             </h3>
             <p className="text-sm text-medical-100 max-w-xl">
-              Visit Nalanda ENT Center directly at Rajendra Nagar or Kankerbagh. Physical walk-in registrations are open daily.
+              Visit Nalanda ENT Center for consultation with {DOCTOR_PROFILE.name} in Patna and Bihar Sharif.
             </p>
           </div>
 
