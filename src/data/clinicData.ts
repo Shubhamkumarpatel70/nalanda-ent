@@ -245,7 +245,7 @@ export const BRANCHES: Branch[] = [
     emergencyPhone: "+91 94314 19665",
     whatsapp: "+91 94314 19665",
     email: "xyz@nalandaentcenter.in",
-    workingHours: "Monday - Saturday: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM",
+    workingHours: "Monday - Saturday: Closed",
     sundayHours: "Sunday: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM",
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.527136784388!2d85.15770289999999!3d25.5934116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58854842f329%3A0xfe63a0f4d6988c8b!2sNalanda%20ENT%20Center!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
     googleMapsUrl: "https://maps.app.goo.gl/areABayhDY6kRvpL9",
