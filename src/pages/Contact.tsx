@@ -189,7 +189,7 @@ export const Contact: React.FC = () => {
                     <Phone className="w-4 h-4" /> Call {branch.name}
                   </a>
                   <a href={branch.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex-1 py-3 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 font-semibold text-xs rounded-xl text-center shadow-sm transition-colors flex items-center justify-center gap-2">
-                    <ExternalLink className="w-4 h-4 text-medical-500" /> Open in Google Maps
+                    <ExternalLink className="w-4 h-4 text-medical-500" /> Open Locations
                   </a>
                 </div>
               </div>
