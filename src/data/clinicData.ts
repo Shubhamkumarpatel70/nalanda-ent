@@ -110,11 +110,11 @@ export const CLINIC_INFO = {
   name: "Nalanda ENT Center",
   tagline: "Premier Super Specialty Ear, Nose & Throat Healthcare",
   established: 2008,
-  totalPatientsServed: "50,000+",
-  yearsOfExcellence: 18,
+  totalPatientsServed: "5,000+",
+  yearsOfExcellence: 20,
   successRate: "99.2%",
-  emergencyNumber: "+91 98765 43210",
-  whatsappNumber: "+91 98765 43210",
+  emergencyNumber: "+91 94314 19665",
+  whatsappNumber: "+91 94314 19665",
   email: "care@nalandaentcenter.com",
 };
 
@@ -128,9 +128,9 @@ export const DOCTOR_PROFILE: DoctorInfo = {
   "Senior Resident - AAA Hospital, New Delhi"
 ],
   experienceYears: 20,
-  biography: "Dr. Arun Kumar is a renowned ENT specialist and Micro-Otologist with over 18 years of surgical excellence. Having performed over 12,000 successful ENT micro-surgeries and endoscopic sinus procedures, Dr. Arun Kumar is widely recognized for his precision diagnosis, compassionate patient care, and introduction of modern minimally invasive ENT techniques in Bihar.",
-  languages: ["English", "Hindi"],
-  consultationTimings: "Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM (Main Branch)",
+  biography: "Dr. Arun Kumar is a Consultant ENT Surgeon with qualifications in MBBS and MS (ENT) from Patna Medical College & Hospital (PMCH), Patna. He specializes in ENT consultation, endoscopy, and ear microsurgery, providing patient-focused care for ear, nose, and throat conditions.",
+languages: ["English", "Hindi"],
+  consultationTimings: "Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM",
   certifications: [
     "Life Member - Association of Otolaryngologists of India (AOI)",
     "Certified Endoscopic Sinus & Skull Base Surgeon",
@@ -239,16 +239,15 @@ export const BRANCHES: Branch[] = [
   {
     id: "main-malahi-pakdi",
     name: "Nalanda ENT Center",
-    type: "Full Diagnostic & Surgical Unit",
+    type: "Patna",
     address: "Malahi Pakdi, Patna, Bihar, India",
     phone: "+91 94314 19665",
     emergencyPhone: "+91 94314 19665",
     whatsapp: "+91 94314 19665",
     email: "xyz@nalandaentcenter.in",
-    workingHours: "Monday - Saturday: 9:00 AM - 8:00 PM",
-    sundayHours: "Sunday: 10:00 AM - 1:00 PM (Emergency & Follow-ups Only)",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.8761234567!2d85.141234!3d25.601234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58d123456789%3A0x123456789abcdef!2sRajendra%20Nagar%2C%20Patna!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin",
-    googleMapsUrl: "https://maps.google.com/?q=Rajendra+Nagar+Patna+Nalanda+ENT",
+    workingHours: "Sunday: 10:00 AM - 8:00 PM",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.527136784388!2d85.15770289999999!3d25.5934116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58854842f329%3A0xfe633c43895853ec!2sNALANDA%20ENT%20CENTRE!5e1!3m2!1sen!2sin!4v1790014486089!5m2!1sen!2sin",
+    googleMapsUrl: "https://maps.app.goo.gl/areABayhDY6kRvpL9",
     image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=800",
     isMainBranch: true,
     facilitiesAvailable: [
@@ -259,21 +258,21 @@ export const BRANCHES: Branch[] = [
       "Daycare OT & Recovery Ward",
       "Ample Car Parking & Wheelchair Access"
     ],
-    doctorSchedule: "Dr. Arun Kumar: Mon - Sat (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM)"
+    doctorSchedule: "Dr. Arun Kumar: Sunday (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM)"
   },
   {
     id: "bihar-sharif",
     name: "Nalanda ENT Center",
-    type: "OPD & Diagnostic Clinic",
+    type: "Bihar Sharif",
     address: "Kaghzi Mohalla, Bihar Sharif, Nalanda, Bihar - 803101",
     phone: "+91 94314 19665",
     emergencyPhone: "+91 94314 19665",
     whatsapp: "+91 94314 19665",
     email: "xuz@nalandaentcenter.in",
-    workingHours: "Monday - Saturday: 2:30 PM - 5:00 PM",
+    workingHours: "Monday - Saturday: 10:00 AM - 8:00 PM",
     sundayHours: "Sunday: Closed",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.9000000000!2d85.150000!3d25.605000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58d987654321%3A0xabcdef123456789!2sKankerbagh%2C%20Patna!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin",
-    googleMapsUrl: "https://maps.google.com/?q=Kankerbagh+Patna+Nalanda+ENT",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3487.682383762534!2d85.5165475!3d25.206854999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f2f3571c3a7063%3A0xfe4de8fd2e9ecbde!2sNALANDA%20ENT%20Clinic%20Dr%20Arun%20Kumar%20MBBBS%2C%20M.S!5e1!3m2!1sen!2sin!4v1790014849414!5m2!1sen!2sin",
+    googleMapsUrl: "https://maps.app.goo.gl/z5xfzUETZ2QrwwRX7",
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
     isMainBranch: false,
     facilitiesAvailable: [
