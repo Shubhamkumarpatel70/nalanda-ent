@@ -36,7 +36,7 @@ export const About: React.FC = () => {
             About Nalanda ENT Center
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Delivering excellence in Micro-Otology, Endoscopic Sinus Surgery, and Hearing Rehabilitation since {CLINIC_INFO.established}.
+            Specialized ENT Care You Can Trust.
           </p>
         </div>
       </section>
@@ -47,16 +47,16 @@ export const About: React.FC = () => {
           
           <div className="space-y-6">
             <span className="text-xs uppercase font-bold tracking-widest text-medical-600 dark:text-medical-400">
-              Our Legacy & Mission
+              Our Mission
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white leading-tight">
-              Pioneering Advanced ENT Surgical Care with Human Compassion
+              Specialized ENT Care with Compassion and Precision 
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               Founded by {DOCTOR_PROFILE.name} in {CLINIC_INFO.established}, Nalanda ENT Center was established with a clear vision: to bring high-precision German microscopic ear surgery and German video endoscopic diagnostics to Patna at affordable costs.
             </p>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              Over the past 18+ years, our clinic has treated over 50,000 patients across Bihar and neighbouring regions, establishing an unblemished reputation for surgical success, hygiene, and ethical medical advice.
+              Over the past 20+ years, our clinic has treated over 5,000 patients across Bihar and neighbouring regions, establishing an unblemished reputation for surgical success, hygiene, and ethical medical advice.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-2">
@@ -64,7 +64,7 @@ export const About: React.FC = () => {
                 <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-white text-sm">
                   <ShieldCheck className="w-5 h-5 text-medical-600" /> Hygiene Standard
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">100% Autoclave Sterilization & Clean Ward Environment</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">High Standards of Hygiene & Sterilization</p>
               </div>
 
               <div className="p-4 rounded-2xl bg-tealbrand-50 dark:bg-tealbrand-950/60 border border-tealbrand-100 dark:border-tealbrand-900/60">
@@ -86,7 +86,7 @@ export const About: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
                 <div className="text-xs font-semibold text-tealbrand-300">Modern Medical Infrastructure</div>
-                <div className="text-lg font-bold font-display">Rajendra Nagar Super-Specialty Center</div>
+                <div className="text-lg font-bold font-display">Malahi Pakdi NALANDA ENT CENTER</div>
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@ export const About: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <span className="inline-block bg-medical-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-1">
-                    Senior ENT Surgeon
+                    Consultant ENT Surgeon
                   </span>
                   <h3 className="text-xl font-bold font-display">{DOCTOR_PROFILE.name}</h3>
                   <p className="text-xs text-slate-200">{DOCTOR_PROFILE.qualification}</p>
