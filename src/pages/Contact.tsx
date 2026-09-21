@@ -78,7 +78,7 @@ export const Contact: React.FC = () => {
             Contact & Location Guidance
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Nalanda ENT Center operates on a physical walk-in registration basis. Visit either of our 2 branches in Patna or send an inquiry below.
+            Visit Nalanda ENT Center for in-person ENT consultation in Patna and Bihar Sharif, or send your inquiry using the form below.
           </p>
         </div>
       </section>
@@ -97,21 +97,7 @@ export const Contact: React.FC = () => {
                 Patients register manually at the reception desk upon physical arrival during OPD consultation hours.
               </p>
             </div>
-
-            <div className="glass-card rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-md space-y-4 text-xs">
-              <h4 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                <ShieldAlert className="w-4 h-4 text-rose-500" /> Acute ENT Emergency Desk
-              </h4>
-              <p className="text-slate-600 dark:text-slate-300">
-                For severe epistaxis (nosebleed), ear trauma, or child airway emergencies, call immediately:
-              </p>
-              <a
-                href={`tel:${CLINIC_INFO.emergencyNumber}`}
-                className="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-center shadow block"
-              >
-                Call {CLINIC_INFO.emergencyNumber}
-              </a>
-            </div>
+            
           </div>
 
           <div className="lg:col-span-7">
@@ -258,7 +244,7 @@ export const Contact: React.FC = () => {
                   <div className="flex items-start gap-3 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
                     <MapPin className="w-5 h-5 text-medical-500 shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-xs uppercase text-slate-400">Physical Address:</div>
+                      <div className="font-bold text-xs uppercase text-slate-400">Address:</div>
                       <div className="font-semibold text-slate-900 dark:text-white pt-0.5">{branch.address}</div>
                     </div>
                   </div>
@@ -271,15 +257,7 @@ export const Contact: React.FC = () => {
                         <a href={`tel:${branch.phone}`} className="font-bold text-slate-900 dark:text-white hover:underline pt-0.5 block">{branch.phone}</a>
                       </div>
                     </div>
-
-                    <div className="flex items-start gap-3 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
-                      <MessageSquare className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-bold text-xs uppercase text-slate-400">WhatsApp Desk:</div>
-                        <a href={`https://wa.me/${branch.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="font-bold text-emerald-600 dark:text-emerald-400 hover:underline pt-0.5 block">Chat Assistant</a>
-                      </div>
-                    </div>
-                  </div>
+                    
                 </div>
 
                 <div className="flex flex-wrap gap-3 pt-2">
@@ -303,7 +281,7 @@ export const Contact: React.FC = () => {
 
               <div className="lg:col-span-6 space-y-3">
                 <div className="font-bold text-xs uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-medical-500" /> Interactive Google Map Navigation
+                  <MapPin className="w-4 h-4 text-medical-500" /> Locations
                 </div>
                 <div className="h-[360px] rounded-2xl overflow-hidden shadow-inner border border-slate-200 dark:border-slate-700">
                   <iframe
