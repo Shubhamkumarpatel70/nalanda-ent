@@ -40,12 +40,12 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed">
-              Premier Ear, Nose & Throat clinic in Patna equipped with microscopic otology, Storz video endoscopy, and soundproof audiology unit. Physical walk-in consultation center.
+              Specialized Ear, Nose & Throat care in Patna, with expertise in ear microsurgery and endoscopic ENT procedures. Physical walk-in consultation available..
             </p>
 
             <div className="pt-2 flex flex-col gap-2 text-xs">
               <div className="flex items-center gap-2 text-emerald-400 font-medium">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" /> State-of-the-Art Sterilized Infrastructure
+                <ShieldCheck className="w-4 h-4 text-emerald-400" /> Clean & Safe Clinical Environment
               </div>
               <div className="flex items-center gap-2 text-medical-400 font-medium">
                 <Heart className="w-4 h-4 text-medical-400" /> Over 5,000+ Happy Patients Served
@@ -61,11 +61,9 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm">
               {[
                 { name: 'About Clinic & Doctor', path: '/about' },
-                { name: 'ENT Specialty Services', path: '/services' },
                 { name: 'Advanced Facilities', path: '/facilities' },
                 { name: 'Our Clinic Branches', path: '/branches' },
                 { name: 'Photo & Facility Gallery', path: '/gallery' },
-                { name: 'Patient Testimonials', path: '/testimonials' },
                 { name: 'ENT Health Blogs', path: '/blogs' },
                 { name: 'Frequently Asked Questions', path: '/faq' },
                 { name: 'Contact & Directions', path: '/contact' },
