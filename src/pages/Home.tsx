@@ -75,7 +75,7 @@ export const Home: React.FC = () => {
                   <CheckCircle2 className="w-4 h-4" /> Physical Walk-in Registration
                 </span>
                 <span>•</span>
-                <span>Mon - Sat: 10 AM - 8 PM</span>
+                <span>Mon - Sat: 09 AM - 8 PM</span>
                 <span>•</span>
               </div>
 
@@ -111,7 +111,7 @@ export const Home: React.FC = () => {
                     </div>
 
                     <div className="p-3 rounded-xl bg-tealbrand-50 dark:bg-tealbrand-950/50 border border-tealbrand-100 dark:border-tealbrand-900/50">
-                      <div className="font-bold text-lg text-tealbrand-700 dark:text-tealbrand-300">150+</div>
+                      <div className="font-bold text-lg text-tealbrand-700 dark:text-tealbrand-300">5000+</div>
                       <div className="text-slate-600 dark:text-slate-400">Surgeries Performed</div>
                     </div>
                   </div>
@@ -146,7 +146,7 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="space-y-1 pt-4 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-extrabold font-display text-tealbrand-300">5,000+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold font-display text-tealbrand-300">10,000+</div>
               <div className="text-xs sm:text-sm text-slate-300 font-medium">Happy Patients Treated</div>
             </div>
 
