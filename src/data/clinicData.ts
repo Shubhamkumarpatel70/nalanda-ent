@@ -623,14 +623,14 @@ export const FAQS: FAQItem[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-1",
-    title: "Clinic Exterior & Entrance",
+    title: "Nalanda ENT Center, Patna",
     category: "Building",
     image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963578/Nalanda-Ent-Center/IMG_20261002_231632_dal10k.jpg",
     description: "Modern multi-storey healthcare building at Rajendra Nagar with dedicated parking."
   },
   {
     id: "gal-2",
-    title: "Clinic Exterior & Entrance",
+    title: "Nalanda ENT Center,Bihar Sharif",
     category: "Building",
     image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963646/Nalanda-Ent-Center/IMG_20261002_232108_xwnbo7.jpg",
     description: "Modern multi-storey healthcare building at Rajendra Nagar with dedicated parking."
