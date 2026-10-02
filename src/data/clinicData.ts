@@ -145,7 +145,8 @@ export const DOCTOR_PROFILE: DoctorInfo = {
     "Laser Voice & Vocal Cord Surgery",
     "Vertigo, Tinnitus & Balance Disorders Treatment",
     "Soundproof Audiology & Hearing Rehabilitation",
-    "Pediatric ENT & Adenotonsillectomy"
+    "Pediatric ENT & Adenotonsillectomy",
+    "Neck, Thyroid"
   ],
   image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800"
 };
@@ -315,7 +316,9 @@ export const BRANCHES: Branch[] = [
       "In-House Pharmacy & Diagnostic Counter",
       "Daycare OT & Recovery Ward",
       "Ample Car Parking & Wheelchair Access",
-      "O.T bed"
+      "O.T bed",
+      "Karl Storz",
+      "Bronchoscopy"
     ],
     doctorSchedule: "Dr. Arun Kumar: Sunday (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM)"
   },
@@ -338,8 +341,16 @@ export const BRANCHES: Branch[] = [
       "ENT OPD Consultation Room",
       "Video Nasal & Laryngeal Endoscopy",
       "Hearing Aid Trial Desk",
-      "Minor Dressing Room",
-      "Air-Conditioned Waiting Lounge"
+      "Air-Conditioned Waiting Lounge",
+      "Zeiss Microscopic Surgical Suite",
+      "Soundproof Audiology Chamber",
+      "High-Definition Video Endoscopy Unit",
+      "In-House Pharmacy & Diagnostic Counter",
+      "Daycare OT & Recovery Ward",
+      "Ample Car Parking & Wheelchair Access",
+      "O.T bed",
+      "Karl Storz",
+      "Bronchoscopy"
     ],
     doctorSchedule: "Dr. Arun Kumar: Mon - Sat (2:30 PM - 4:30 PM)"
   }
@@ -614,39 +625,67 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-1",
     title: "Clinic Exterior & Entrance",
     category: "Building",
-    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=800",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963578/Nalanda-Ent-Center/IMG_20261002_231632_dal10k.jpg",
     description: "Modern multi-storey healthcare building at Rajendra Nagar with dedicated parking."
   },
   {
     id: "gal-2",
-    title: "Air-Conditioned Patient Waiting Lounge",
-    category: "Reception",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
-    description: "Spacious, hygienic waiting area with digital tokens and drinking water amenities."
+    title: "Clinic Exterior & Entrance",
+    category: "Building",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963646/Nalanda-Ent-Center/IMG_20261002_232108_xwnbo7.jpg",
+    description: "Modern multi-storey healthcare building at Rajendra Nagar with dedicated parking."
   },
   {
     id: "gal-3",
-    title: "Zeiss Micro-Otology Operating Station",
-    category: "Equipment",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
-    description: "Advanced German microscope unit used for precision microscopic eardrum repair."
+    title: "Air-Conditioned Patient Waiting Lounge",
+    category: "Reception",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790962492/Nalanda-Ent-Center/IMG20261002173427_fquejj.jpg",
+    description: "Spacious, hygienic waiting area with digital tokens and drinking water amenities."
   },
   {
     id: "gal-4",
-    title: "Endoscopic Consultation & Video Examination",
-    category: "Treatment Room",
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
-    description: "HD video monitor setup for live endoscopic nasal and vocal cord examination."
+    title: "Zeiss Micro-Otology Operating Station",
+    category: "Equipment",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790962378/Nalanda-Ent-Center/IMG20261002172517_grd3ub.jpg",
+    description: "Advanced German microscope unit used for precision microscopic eardrum repair."
   },
   {
     id: "gal-5",
+    title: "Zeiss Micro-Otology Operating Station",
+    category: "Equipment",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790962378/Nalanda-Ent-Center/IMG20261002172517_grd3ub.jpg",
+    description: "Advanced German microscope unit used for precision microscopic eardrum repair."
+  },
+  {
+    id: "gal-6",
+    title: "Endoscopic Consultation & Video Examination",
+    category: "Treatment Room",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790961599/Nalanda-Ent-Center/IMG-20261002-WA0002_t82rg2.jpg",
+    description: "HD video monitor setup for live endoscopic nasal and vocal cord examination."
+  },
+  {
+    id: "gal-7",
+    title: "Endoscopic Consultation & Video Examination",
+    category: "Treatment Room",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790961604/Nalanda-Ent-Center/IMG-20261002-WA0003_rftzvh.jpg",
+    description: "HD video monitor setup for live endoscopic nasal and vocal cord examination."
+  },
+  {
+    id: "gal-8",
+    title: "Endoscopic Consultation & Video Examination",
+    category: "Treatment Room",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790961601/Nalanda-Ent-Center/IMG-20261002-WA0005_atv1bv.jpg",
+    description: "HD video monitor setup for live endoscopic nasal and vocal cord examination."
+  },
+  {
+    id: "gal-9",
     title: "Soundproof Acoustic Audiology Booth",
     category: "Equipment",
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
     description: "ISO-calibrated soundproof booth for hearing testing and digital hearing aid trials."
   },
   {
-    id: "gal-6",
+    id: "gal-10",
     title: "Clinical Nursing & Staff Team",
     category: "Staff",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
