@@ -110,12 +110,12 @@ export const CLINIC_INFO = {
   name: "Nalanda ENT Center",
   tagline: "Premier Super Specialty Ear, Nose & Throat Healthcare",
   established: 2008,
-  totalPatientsServed: "5,000+",
+  totalPatientsServed: "10,000+",
   yearsOfExcellence: 20,
   successRate: "99.2%",
-  emergencyNumber: "+91 94314 19665",
-  whatsappNumber: "+91 94314 19665",
-  email: "care@nalandaentcenter.com",
+  emergencyNumber: "+91 94304 63465",
+  whatsappNumber: "+91 94304 63465",
+  email: "nalandaentcenter@gmail.com",
 };
 
 export const DOCTOR_PROFILE: DoctorInfo = {
@@ -132,15 +132,8 @@ export const DOCTOR_PROFILE: DoctorInfo = {
   languages: ["English", "Hindi"],
   consultationTimings: "Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM",
   certifications: [
-    "Life Member - Association of Otolaryngologists of India (AOI)",
-    "Certified Endoscopic Sinus & Skull Base Surgeon",
-    "Member - Indian Academy of Otolaryngology",
-    "International Member - European Rhinologic Society"
-  ],
-  awards: [
-    "Best ENT Surgeon Award - Healthcare Excellence Summit 2023",
-    "Excellence in Micro-Otology Surgery - AIIMS Alumni Forum 2021",
-    "Distinguished Medical Service Medal - State Health Society 2019"
+    "Vertigo - Certificate 2023",
+    "RediENT - Certificate of completion 2024-25"
   ],
   areasOfExpertise: [
     "Microscopic Tympanoplasty & Mastoidectomy",
@@ -156,9 +149,9 @@ export const DOCTOR_PROFILE: DoctorInfo = {
 export const STAFF_MEMBERS: StaffMember[] = [
   {
     id: "staff-1",
-    name: "Sunita Sharma",
-    designation: "Head Clinic Coordinator & Senior Nursing Officer",
-    roleCategory: "Nursing",
+    name: "Indrodeo Kumar",
+    designation: "O.T assistant",
+    roleCategory: "O.T assistant",
     experience: "12 Years",
     photo: "https://images.unsplash.com/photo-1594824813571-2153349a6961?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -172,9 +165,9 @@ export const STAFF_MEMBERS: StaffMember[] = [
   },
   {
     id: "staff-2",
-    name: "Ravi Prakash",
-    designation: "Senior Audiologist & Speech Pathologist",
-    roleCategory: "Audiology & Lab",
+    name: "Rounish Kumar",
+    designation: "Clinic management",
+    roleCategory: "Reception",
     experience: "9 Years",
     photo: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -183,14 +176,14 @@ export const STAFF_MEMBERS: StaffMember[] = [
       "Speech Therapy evaluation for children and adults",
       "Otoacoustic Emissions (OAE) & BERA screening"
     ],
-    languagesSpoken: ["Hindi", "English", "Maithili"],
+    languagesSpoken: ["Hindi", "English"],
     bio: "Ravi holds a Master's degree in Audiology and Speech-Language Pathology. He specializes in precise diagnostic audiograms and custom hearing aid fittings."
   },
   {
     id: "staff-3",
-    name: "Priya Verma",
-    designation: "Patient Relations Executive & Front Desk Manager",
-    roleCategory: "Reception",
+    name: "Raushan Kumar",
+    designation: "OPD Management",
+    roleCategory: "OPD Management",
     experience: "6 Years",
     photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -204,9 +197,9 @@ export const STAFF_MEMBERS: StaffMember[] = [
   },
   {
     id: "staff-4",
-    name: "Amit Kumar Roy",
-    designation: "ENT Surgical Technician & Equipment Care Specialist",
-    roleCategory: "Technician",
+    name: "Suraj Kumar",
+    designation: "Nursing Staff",
+    roleCategory: "Nursing",
     experience: "8 Years",
     photo: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -220,9 +213,69 @@ export const STAFF_MEMBERS: StaffMember[] = [
   },
   {
     id: "staff-5",
-    name: "Anjali Kumari",
-    designation: "In-House Pharmacy & Supplies Manager",
-    roleCategory: "Administration",
+    name: "Dinesh Kumar",
+    designation: "Staff",
+    roleCategory: "Medical Staff",
+    experience: "7 Years",
+    photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
+    responsibilities: [
+      "Dispensing prescribed ENT nasal sprays, ear drops, and medications",
+      "Counseling patients on proper ear drop and nasal spray administration",
+      "Inventory tracking of specialized ENT pharmaceutical supplies"
+    ],
+    languagesSpoken: ["Hindi", "English"],
+    bio: "Anjali ensures patients receive authentic prescribed ENT medications directly at the clinic pharmacy counter with clear dosage instructions."
+  },
+  {
+    id: "staff-6",
+    name: "Rajesh Kumar",
+    designation: "Staff",
+    roleCategory: "Medical Staff",
+    experience: "7 Years",
+    photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
+    responsibilities: [
+      "Dispensing prescribed ENT nasal sprays, ear drops, and medications",
+      "Counseling patients on proper ear drop and nasal spray administration",
+      "Inventory tracking of specialized ENT pharmaceutical supplies"
+    ],
+    languagesSpoken: ["Hindi", "English"],
+    bio: "Anjali ensures patients receive authentic prescribed ENT medications directly at the clinic pharmacy counter with clear dosage instructions."
+  },
+  {
+    id: "staff-7",
+    name: "Sanjeet Kumar",
+    designation: "Staff",
+    roleCategory: "Nursing Staff",
+    experience: "7 Years",
+    photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
+    responsibilities: [
+      "Dispensing prescribed ENT nasal sprays, ear drops, and medications",
+      "Counseling patients on proper ear drop and nasal spray administration",
+      "Inventory tracking of specialized ENT pharmaceutical supplies"
+    ],
+    languagesSpoken: ["Hindi", "English"],
+    bio: "Anjali ensures patients receive authentic prescribed ENT medications directly at the clinic pharmacy counter with clear dosage instructions."
+  },
+  {
+    id: "staff-8",
+    name: "Shyam Kishor",
+    designation: "Audiologist",
+    roleCategory: "Audiologist",
+    experience: "7 Years",
+    photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
+    responsibilities: [
+      "Dispensing prescribed ENT nasal sprays, ear drops, and medications",
+      "Counseling patients on proper ear drop and nasal spray administration",
+      "Inventory tracking of specialized ENT pharmaceutical supplies"
+    ],
+    languagesSpoken: ["Hindi", "English"],
+    bio: "Anjali ensures patients receive authentic prescribed ENT medications directly at the clinic pharmacy counter with clear dosage instructions."
+  },
+  {
+    id: "staff-9",
+    name: "Sangeeta Sinha",
+    designation: "Audiologist",
+    roleCategory: "Audiologist",
     experience: "7 Years",
     photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -237,16 +290,16 @@ export const STAFF_MEMBERS: StaffMember[] = [
 
 export const BRANCHES: Branch[] = [
   {
-    id: "main-malahi-pakdi",
+    id: "main-malahi-pakri",
     name: "Nalanda ENT Center, Patna",
     type: "Patna",
-    address: "Malahi Pakdi, Patna, Bihar, India",
-    phone: "+91 94314 19665",
-    emergencyPhone: "+91 94314 19665",
-    whatsapp: "+91 94314 19665",
+    address: "Malahi Pakri, Patna, Bihar, India",
+    phone: "+91 94304 63465",
+    emergencyPhone: "+91 94304 63465",
+    whatsapp: "+91 94304 63465",
     email: "xyz@nalandaentcenter.in",
-    workingHours: "Monday - Saturday: Closed",
-    sundayHours: "Sunday: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM",
+    workingHours: "Monday - Saturday: 05:00 AM - 09:00 AM",
+    sundayHours: "Sunday: 09:00 AM - 8:00 PM",
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.527136784388!2d85.15770289999999!3d25.5934116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58854842f329%3A0xfe63a0f4d6988c8b!2sNalanda%20ENT%20Center!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
     googleMapsUrl: "https://maps.app.goo.gl/areABayhDY6kRvpL9",
     image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=800",
@@ -257,7 +310,8 @@ export const BRANCHES: Branch[] = [
       "High-Definition Video Endoscopy Unit",
       "In-House Pharmacy & Diagnostic Counter",
       "Daycare OT & Recovery Ward",
-      "Ample Car Parking & Wheelchair Access"
+      "Ample Car Parking & Wheelchair Access",
+      "O.T bed 
     ],
     doctorSchedule: "Dr. Arun Kumar: Sunday (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM)"
   },
@@ -266,9 +320,9 @@ export const BRANCHES: Branch[] = [
     name: "Nalanda ENT Center, Bihar Sharif",
     type: "Bihar Sharif",
     address: "Kaghzi Mohalla, Bihar Sharif, Nalanda, Bihar - 803101",
-    phone: "+91 94314 19665",
-    emergencyPhone: "+91 94314 19665",
-    whatsapp: "+91 94314 19665",
+    phone: "+91 94304 63465",
+    emergencyPhone: "+91 94304 63465",
+    whatsapp: "+91 94304 63465",
     email: "xuz@nalandaentcenter.in",
     workingHours: "Monday - Saturday: 10:00 AM - 8:00 PM",
     sundayHours: "Sunday: Closed",
