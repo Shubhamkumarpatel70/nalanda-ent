@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
                 <ShieldCheck className="w-4 h-4 text-emerald-400" /> Clean & Safe Clinical Environment
               </div>
               <div className="flex items-center gap-2 text-medical-400 font-medium">
-                <Heart className="w-4 h-4 text-medical-400" /> Over 5,000+ Happy Patients Served
+                <Heart className="w-4 h-4 text-medical-400" /> Over 10,000+ Happy Patients Served
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <div className="pt-2 text-xs text-slate-400 flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-medical-400" />
-              <span>OPD Walk-in: Mon - Sat 10 AM - 8 PM</span>
+              <span>OPD Walk-in: Mon - Sat 09 AM - 8 PM</span>
             </div>
           </div>
 
