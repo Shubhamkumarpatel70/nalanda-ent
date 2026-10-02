@@ -303,11 +303,11 @@ export const BRANCHES: Branch[] = [
     emergencyPhone: "+91 94304 63465",
     whatsapp: "+91 94304 63465",
     email: "xyz@nalandaentcenter.in",
-    workingHours: "Monday - Saturday: 05:00 AM - 09:00 AM",
+    workingHours: "Tuesday, Thursday, Saturday: 05:00 PM - 09:00 PM",
     sundayHours: "Sunday: 09:00 AM - 8:00 PM",
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.527136784388!2d85.15770289999999!3d25.5934116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58854842f329%3A0xfe63de32c01c1a3f!2sNalanda%20ENT%20Center!5e0!3m2!1sen!2sin!4v1234567890",
     googleMapsUrl: "https://maps.app.goo.gl/areABayhDY6kRvpL9",
-    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=800",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963578/Nalanda-Ent-Center/IMG_20261002_231632_dal10k.jpg",
     isMainBranch: true,
     facilitiesAvailable: [
       "Zeiss Microscopic Surgical Suite",
@@ -335,7 +335,7 @@ export const BRANCHES: Branch[] = [
     sundayHours: "Sunday: Closed",
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3487.682383762534!2d85.5165475!3d25.206854999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f2f3571c3a7063%3A0xfe4c7d7c8e9f0a1b!2sNalanda%20ENT%20Center!5e0!3m2!1sen!2sin!4v1234567890",
     googleMapsUrl: "https://maps.app.goo.gl/z5xfzUETZ2QrwwRX7",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963646/Nalanda-Ent-Center/IMG_20261002_232108_xwnbo7.jpg",
     isMainBranch: false,
     facilitiesAvailable: [
       "ENT OPD Consultation Room",
