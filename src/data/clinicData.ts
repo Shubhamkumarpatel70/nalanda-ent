@@ -128,12 +128,16 @@ export const DOCTOR_PROFILE: DoctorInfo = {
   "Senior Resident - AAA Hospital, New Delhi"
 ],
   experienceYears: 20,
-  biography: "Dr. Arun Kumar is a Consultant ENT Surgeon with qualifications in MBBS and MS (ENT) from Patna Medical College & Hospital (PMCH), Patna. He specializes in ENT consultation, endoscopy, and surgical care for ear, nose, and throat disorders. With over 20 years of clinical experience, he is known for precise diagnosis and patient-friendly treatment planning across both routine and advanced ENT conditions.",
+  biography: "Dr. Arun Kumar is a Consultant ENT Surgeon with qualifications in MBBS and MS (ENT) from Patna Medical College & Hospital (PMCH), Patna. He specializes in ENT consultation, endoscopy, an[...]",
   languages: ["English", "Hindi"],
   consultationTimings: "Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM",
   certifications: [
     "Vertigo - Certificate 2023",
     "RediENT - Certificate of completion 2024-25"
+  ],
+  awards: [
+    "Best ENT Surgeon Award 2023",
+    "Excellence in Patient Care Award 2022"
   ],
   areasOfExpertise: [
     "Microscopic Tympanoplasty & Mastoidectomy",
@@ -151,7 +155,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-1",
     name: "Indrodeo Kumar",
     designation: "O.T assistant",
-    roleCategory: "O.T assistant",
+    roleCategory: "Technician",
     experience: "12 Years",
     photo: "https://images.unsplash.com/photo-1594824813571-2153349a6961?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -183,7 +187,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-3",
     name: "Raushan Kumar",
     designation: "OPD Management",
-    roleCategory: "OPD Management",
+    roleCategory: "Administration",
     experience: "6 Years",
     photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -215,7 +219,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-5",
     name: "Dinesh Kumar",
     designation: "Staff",
-    roleCategory: "Medical Staff",
+    roleCategory: "Audiology & Lab",
     experience: "7 Years",
     photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -230,7 +234,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-6",
     name: "Rajesh Kumar",
     designation: "Staff",
-    roleCategory: "Medical Staff",
+    roleCategory: "Audiology & Lab",
     experience: "7 Years",
     photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -245,7 +249,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-7",
     name: "Sanjeet Kumar",
     designation: "Staff",
-    roleCategory: "Nursing Staff",
+    roleCategory: "Nursing",
     experience: "7 Years",
     photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -260,7 +264,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-8",
     name: "Shyam Kishor",
     designation: "Audiologist",
-    roleCategory: "Audiologist",
+    roleCategory: "Audiology & Lab",
     experience: "7 Years",
     photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -275,7 +279,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-9",
     name: "Sangeeta Sinha",
     designation: "Audiologist",
-    roleCategory: "Audiologist",
+    roleCategory: "Audiology & Lab",
     experience: "7 Years",
     photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
@@ -300,7 +304,7 @@ export const BRANCHES: Branch[] = [
     email: "xyz@nalandaentcenter.in",
     workingHours: "Monday - Saturday: 05:00 AM - 09:00 AM",
     sundayHours: "Sunday: 09:00 AM - 8:00 PM",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.527136784388!2d85.15770289999999!3d25.5934116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58854842f329%3A0xfe63a0f4d6988c8b!2sNalanda%20ENT%20Center!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.527136784388!2d85.15770289999999!3d25.5934116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58854842f329%3A0xfe63[...]",
     googleMapsUrl: "https://maps.app.goo.gl/areABayhDY6kRvpL9",
     image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=800",
     isMainBranch: true,
@@ -326,7 +330,7 @@ export const BRANCHES: Branch[] = [
     email: "xuz@nalandaentcenter.in",
     workingHours: "Monday - Saturday: 10:00 AM - 8:00 PM",
     sundayHours: "Sunday: Closed",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3487.682383762534!2d85.5165475!3d25.206854999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f2f3571c3a7063%3A0xfe4b9c7ccf6d7e1a!2sBihar%20Sharif!5e0!3m2!1sen!2sin!4v1710000000001!5m2!1sen!2sin",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3487.682383762534!2d85.5165475!3d25.206854999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f2f3571c3a7063%3A0xfe4[...]",
     googleMapsUrl: "https://maps.app.goo.gl/z5xfzUETZ2QrwwRX7",
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
     isMainBranch: false,
@@ -347,9 +351,9 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     title: "Ear Care & Micro-Otology",
     iconName: "Ear",
     shortDesc: "Advanced treatment for ear discharge, eardrum perforation, hearing loss, and ringing in ears (tinnitus).",
-    fullDescription: "Micro-Otology at Nalanda ENT Center focuses on restoring hearing and eliminating chronic ear infections using high-precision German Zeiss microscopes. We specialize in sutureless microscopic repair of eardrum perforations, mastoid surgeries, and minimally invasive ear procedures aimed at long-term hearing restoration.",
+    fullDescription: "Micro-Otology at Nalanda ENT Center focuses on restoring hearing and eliminating chronic ear infections using high-precision German Zeiss microscopes. We specialize in sutureless[...]",
     symptoms: ["Ear discharge / suppuration", "Eardrum hole / perforation", "Gradual or sudden hearing loss", "Tinnitus (buzzing / ringing sound)", "Ear pain or sensation of fullness"],
-    treatments: ["Microscopic Tympanoplasty (Eardrum Repair)", "Mastoidectomy Surgery for Chronic Otitis", "Stapedectomy for Otosclerosis", "Ear Wax Removal via Microsuction", "Grommet Insertion for Fluid Ear"],
+    treatments: ["Microscopic Tympanoplasty (Eardrum Repair)", "Mastoidectomy Surgery for Chronic Otitis", "Stapedectomy for Otosclerosis", "Ear Wax Removal via Microsuction", "Grommet Insertion for F[...]"],
     benefits: ["Minimally invasive keyhole approach", "High surgical hearing restoration rate", "Sutureless microscopic repair option", "Faster post-operative healing"],
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
   },
@@ -358,9 +362,9 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     title: "Sinus & Endoscopic Rhinology",
     iconName: "Activity",
     shortDesc: "Endoscopic sinus surgery (FESS), nasal polyp removal, septum correction (septoplasty), and allergic rhinitis management.",
-    fullDescription: "Chronic sinusitis and nasal blockages significantly affect breathing and quality of life. We utilize HD Storz endoscopic video technology to clear blocked sinuses without any external cuts or scars, improving airflow and reducing long-term allergy symptom burden.",
-    symptoms: ["Chronic nasal blockage & difficulty breathing", "Facial pain, pressure & sinus headache", "Persistent post-nasal drip & cough", "Loss of smell (Anosmia)", "Frequent sneezing & nasal allergy symptoms"],
-    treatments: ["Functional Endoscopic Sinus Surgery (FESS)", "Septoplasty for Deviated Nasal Septum (DNS)", "Endoscopic Nasal Polyp Excision", "Turbinate Reduction for Allergic Rhinitis", "Epistaxis Control & Nasal Packing"],
+    fullDescription: "Chronic sinusitis and nasal blockages significantly affect breathing and quality of life. We utilize HD Storz endoscopic video technology to clear blocked sinuses without any ext[...]",
+    symptoms: ["Chronic nasal blockage & difficulty breathing", "Facial pain, pressure & sinus headache", "Persistent post-nasal drip & cough", "Loss of smell (Anosmia)", "Frequent sneezing & nasal al[...]"],
+    treatments: ["Functional Endoscopic Sinus Surgery (FESS)", "Septoplasty for Deviated Nasal Septum (DNS)", "Endoscopic Nasal Polyp Excision", "Turbinate Reduction for Allergic Rhinitis", "Epistaxis[...]"],
     benefits: ["Zero facial scars or incisions", "Same-day daycare recovery options", "Direct HD camera visual accuracy", "Long-term relief from chronic sinus pain"],
     image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800"
   },
@@ -369,9 +373,9 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     title: "Throat, Voice & Laryngology",
     iconName: "Mic",
     shortDesc: "Micro-laryngeal voice surgery, chronic tonsillitis treatment, snoring evaluation, and swallowing difficulty care.",
-    fullDescription: "Your voice is vital. We diagnose and treat vocal cord polyps, nodules, hoarseness, chronic tonsillitis, and sleep apnea with advanced micro-laryngeal techniques and video laryngoscopy.",
-    symptoms: ["Persistent hoarseness or voice change", "Chronic throat pain or recurrent tonsillitis", "Difficulty swallowing (dysphagia)", "Sensation of lump in throat", "Loud snoring & sleep apnea"],
-    treatments: ["Micro-Laryngeal Surgery (MLS) for Vocal Cord Polyps", "Coblation Adenotonsillectomy", "Video Laryngoscopy Evaluation", "Foreign Body Removal from Throat", "Gastroesophageal Reflux Management"],
+    fullDescription: "Your voice is vital. We diagnose and treat vocal cord polyps, nodules, hoarseness, chronic tonsillitis, and sleep apnea with advanced micro-laryngeal techniques and video laryngo[...]",
+    symptoms: ["Persistent hoarseness or voice change", "Chronic throat pain or recurrent tonsillitis", "Difficulty swallowing (dysphagia)", "Sensation of lump in throat", "Loud snoring & sleep apnea"[...]"],
+    treatments: ["Micro-Laryngeal Surgery (MLS) for Vocal Cord Polyps", "Coblation Adenotonsillectomy", "Video Laryngoscopy Evaluation", "Foreign Body Removal from Throat", "Gastroesophageal Reflux Ma[...]"],
     benefits: ["Preservation of natural voice quality", "Reduced post-operative throat discomfort", "Precision removal of vocal cord lesions"],
     image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800"
   },
@@ -380,9 +384,9 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     title: "Audiology & Hearing Aid Clinic",
     iconName: "Headphones",
     shortDesc: "Diagnostic Pure Tone Audiometry (PTA), Impedance testing, BERA, and digital programmable hearing aid fitting.",
-    fullDescription: "Our soundproof audiology booth provides precise baseline evaluations for age-related hearing loss, noise-induced damage, and pediatric hearing screening, accompanied by trials of digital hearing aids and rehabilitation guidance.",
+    fullDescription: "Our soundproof audiology booth provides precise baseline evaluations for age-related hearing loss, noise-induced damage, and pediatric hearing screening, accompanied by trials of[...]",
     symptoms: ["Difficulty hearing in noisy environments", "Asking others to repeat sentences", "Turning TV volume higher than normal", "Dizziness coupled with hearing drop"],
-    treatments: ["Pure Tone Audiometry (PTA)", "Tympanometry & Acoustic Reflex Test", "Brainstem Evoked Response Audiometry (BERA)", "Digital Hearing Aid Consultation & Trial", "Customized Ear Plugs & Noise Protection"],
+    treatments: ["Pure Tone Audiometry (PTA)", "Tympanometry & Acoustic Reflex Test", "Brainstem Evoked Response Audiometry (BERA)", "Digital Hearing Aid Consultation & Trial", "Customized Ear Plugs &[...]"],
     benefits: ["Standardized soundproof testing room", "Latest invisible CIC & RIC hearing aids", "Comprehensive speech therapy guidance"],
     image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
   },
@@ -391,7 +395,7 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     title: "Vertigo & Balance Disorder Clinic",
     iconName: "Compass",
     shortDesc: "Specialized assessment and rehabilitation maneuvers for BPPV, Meniere's disease, and vestibular neuronitis.",
-    fullDescription: "Dizziness and vertigo can be frightening. Most vertigo stems from inner ear crystal displacement (BPPV). We provide systematic positioning tests and canalith repositioning maneuvers to help patients regain balance quickly.",
+    fullDescription: "Dizziness and vertigo can be frightening. Most vertigo stems from inner ear crystal displacement (BPPV). We provide systematic positioning tests and canalith repositioning maneuv[...]",
     symptoms: ["Spinning sensation when turning in bed", "Loss of balance while walking", "Nausea associated with head movement", "Ringing or fullness in ear with dizziness"],
     treatments: ["Epley & Semont Repositioning Maneuvers", "Vestibular Rehabilitation Therapy (VRT)", "Inner Ear Pressure Management", "Medical Care for Meniere's Disease"],
     benefits: ["Non-invasive bed-side maneuvers", "Immediate dizziness relief in BPPV", "Targeted inner ear balance protocols"],
@@ -402,7 +406,7 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     title: "Pediatric ENT Care",
     iconName: "Smile",
     shortDesc: "Child-friendly care for enlarged adenoids, tonsils, mouth breathing, glue ear, and airway problems.",
-    fullDescription: "Children require a gentle, comforting medical touch. We treat pediatric ear infections, snoring due to enlarged adenoids, tongue tie, and speech delay with high safety standards and family-friendly guidance.",
+    fullDescription: "Children require a gentle, comforting medical touch. We treat pediatric ear infections, snoring due to enlarged adenoids, tongue tie, and speech delay with high safety standards [...]",
     symptoms: ["Mouth breathing during sleep in children", "Loud snoring & restless sleep", "Frequent earaches & fluid accumulation", "Recurrent high fever with sore throat"],
     treatments: ["Gentle Pediatric Endoscopy", "Coblation Adenoidectomy", "Grommet Placement for Glue Ear", "Frenulectomy for Tongue-Tie"],
     benefits: ["Gentle, non-intimidating clinic environment", "Minimal pediatric blood loss techniques", "Improved sleep and daytime child alertness"],
@@ -460,7 +464,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Rajendra Nagar, Patna",
     treatment: "Microscopic Tympanoplasty (Ear Surgery)",
     rating: 5,
-    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Arun Kumar performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my hearing has improved significantly.",
+    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Arun Kumar performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my hearing[...]",
     date: "14 January 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
@@ -471,7 +475,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Kankerbagh, Patna",
     treatment: "Endoscopic Sinus Surgery (FESS)",
     rating: 5,
-    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Arun Kumar explained my CT scan patiently and performed endoscopic sinus surgery. I got discharged the same day and recovered quickly.",
+    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Arun Kumar explained my CT scan patiently and performed endoscopic sinus surgery. I got discharged the same [...]",
     date: "28 February 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
@@ -482,7 +486,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Muzaffarpur, Bihar",
     treatment: "Vertigo & Epley Maneuver",
     rating: 5,
-    review: "I woke up with terrifying spinning dizziness whenever I turned my head. Dr. Arun Kumar diagnosed BPPV inner ear crystal issue and performed a 10-minute Epley maneuver right in the OPD. Thanks to this, I can now sleep comfortably without vertigo.",
+    review: "I woke up with terrifying spinning dizziness whenever I turned my head. Dr. Arun Kumar diagnosed BPPV inner ear crystal issue and performed a 10-minute Epley maneuver right in the OPD. Th[...]",
     date: "05 March 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
@@ -493,7 +497,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Boring Road, Patna",
     treatment: "Pediatric Adenotonsillectomy",
     rating: 5,
-    review: "My 6-year-old son had continuous mouth breathing and snoring due to enlarged adenoids. Dr. Arun Kumar performed Coblation surgery. The team was so gentle with him. Now he sleeps peacefully and feels much more energetic.",
+    review: "My 6-year-old son had continuous mouth breathing and snoring due to enlarged adenoids. Dr. Arun Kumar performed Coblation surgery. The team was so gentle with him. Now he sleeps peacefull[...]",
     date: "18 April 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200"
@@ -509,11 +513,11 @@ export const HEALTH_BLOGS: HealthBlog[] = [
     date: "12 May 2026",
     author: "Dr. Arun Kumar",
     readTime: "5 min read",
-    excerpt: "A hole in the eardrum can cause recurring ear infections and hearing loss. Learn about modern microscopic repair techniques that restore eardrum integrity without visible external scars.",
+    excerpt: "A hole in the eardrum can cause recurring ear infections and hearing loss. Learn about modern microscopic repair techniques that restore eardrum integrity without visible external scars.[...]",
     content: [
-      "The tympanic membrane (eardrum) is a thin, delicate barrier separating the ear canal from the middle ear cavity. Perforations can result from chronic ear infections, sudden loud blasts, or trauma.",
+      "The tympanic membrane (eardrum) is a thin, delicate barrier separating the ear canal from the middle ear cavity. Perforations can result from chronic ear infections, sudden loud blasts, or traum[...]",
       "Key Warning Symptoms: Recurrent yellow/white ear discharge, muffled hearing, buzzing sound (tinnitus), or pain when water enters the ear.",
-      "Modern Surgical Treatment: Tympanoplasty is a precise micro-surgical procedure where a small graft of natural tissue is placed under the eardrum defect using a Zeiss operating microscope. Sutureless techniques help reduce scarring and speed recovery."
+      "Modern Surgical Treatment: Tympanoplasty is a precise micro-surgical procedure where a small graft of natural tissue is placed under the eardrum defect using a Zeiss operating microscope. Sutur[...]"
     ],
     keyTakeaways: [
       "Never insert cotton buds or sharp pins into the ear canal.",
@@ -534,7 +538,7 @@ export const HEALTH_BLOGS: HealthBlog[] = [
     content: [
       "While a common cold resolves within 7-10 days, chronic sinusitis persists for over 12 weeks despite routine anti-allergic medication.",
       "When sinus drainage pathways become blocked due to deviated septum (DNS) or nasal polyps, trapped mucus becomes infected, causing facial headache, post-nasal drip, and loss of smell.",
-      "FESS (Functional Endoscopic Sinus Surgery) utilizes high-definition German video endoscopes to gently open blocked sinus ostia, restoring natural ventilation without any facial cuts or external scars."
+      "FESS (Functional Endoscopic Sinus Surgery) utilizes high-definition German video endoscopes to gently open blocked sinus ostia, restoring natural ventilation without any facial cuts or ext[...]"
     ],
     keyTakeaways: [
       "Use saline nasal sprays regularly to flush indoor dust and allergens.",
@@ -571,37 +575,37 @@ export const FAQS: FAQItem[] = [
     id: "faq-1",
     category: "General",
     question: "Do I need an appointment before visiting Nalanda ENT Center?",
-    answer: "No online booking is required! Nalanda ENT Center operates on a direct physical walk-in registration system. Patients can register directly at the front desk upon arrival during OPD consultation hours."
+    answer: "No online booking is required! Nalanda ENT Center operates on a direct physical walk-in registration system. Patients can register directly at the front desk upon arrival during OPD consu[...]"
   },
   {
     id: "faq-2",
     category: "General",
     question: "Where are your clinic branches located in Patna?",
-    answer: "We have two branches: 1) Main Super-Specialty Center at Rajendra Nagar (Plot 42, Health Plaza Main Road), and 2) City OPD Branch at Kankerbagh (Apex Medicare Building). You can check full location details and maps on our contact page."
+    answer: "We have two branches: 1) Main Super-Specialty Center at Rajendra Nagar (Plot 42, Health Plaza Main Road), and 2) City OPD Branch at Kankerbagh (Apex Medicare Building). You can check full[...]"
   },
   {
     id: "faq-3",
     category: "Treatments",
     question: "Is eardrum repair (Tympanoplasty) surgery painful?",
-    answer: "No. Micro-otology surgeries are performed under local or general anesthesia so you feel zero pain during the procedure. At Nalanda ENT Center, Dr. Arun Kumar uses microscopic keyhole techniques to reduce discomfort and promote faster recovery."
+    answer: "No. Micro-otology surgeries are performed under local or general anesthesia so you feel zero pain during the procedure. At Nalanda ENT Center, Dr. Arun Kumar uses microscopic keyhole tech[...]"
   },
   {
     id: "faq-4",
     category: "Treatments",
     question: "Will endoscopic sinus surgery leave any marks on my face?",
-    answer: "Not at all. Functional Endoscopic Sinus Surgery (FESS) is performed entirely through the nostrils using high-definition video cameras. There are absolutely no external cuts, incisions, or facial scars."
+    answer: "Not at all. Functional Endoscopic Sinus Surgery (FESS) is performed entirely through the nostrils using high-definition video cameras. There are absolutely no external cuts, incisions, or[...]"
   },
   {
     id: "faq-5",
     category: "Audiology",
     question: "How long does a hearing test (Audiometry) take?",
-    answer: "A standard Pure Tone Audiometry (PTA) in our soundproof acoustic chamber takes approximately 15 to 20 minutes. You will receive an official diagnostic audiogram graph immediately along with interpretation."
+    answer: "A standard Pure Tone Audiometry (PTA) in our soundproof acoustic chamber takes approximately 15 to 20 minutes. You will receive an official diagnostic audiogram graph immediately along wi[...]"
   },
   {
     id: "faq-6",
     category: "Emergency",
     question: "What should I do in case of an acute ENT emergency (e.g. foreign body in ear/throat or severe nosebleed)?",
-    answer: "Call our Emergency Support Line directly at +91 98765 43210. Our emergency desk handles acute nosebleeds (epistaxis), foreign object ingestion in children, and sudden hearing loss on priority."
+    answer: "Call our Emergency Support Line directly at +91 98765 43210. Our emergency desk handles acute nosebleeds (epistaxis), foreign object ingestion in children, and sudden hearing loss on prio[...]"
   }
 ];
 
