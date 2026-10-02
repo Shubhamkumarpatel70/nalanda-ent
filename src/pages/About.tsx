@@ -86,7 +86,7 @@ export const About: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
                 <div className="text-xs font-semibold text-tealbrand-300">Modern Medical Infrastructure</div>
-                <div className="text-lg font-bold font-display">Malahi Pakdi NALANDA ENT CENTER</div>
+                <div className="text-lg font-bold font-display">Malahi Pakri, NALANDA ENT CENTER</div>
               </div>
             </div>
           </div>
