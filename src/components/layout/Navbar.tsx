@@ -12,12 +12,11 @@ import {
   Clock, 
   LogOut,
   ShieldCheck,
-  LogIn,
-  Stethoscope
+  LogIn
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
-import { CLINIC_INFO, BRANCHES, SPECIALTY_SERVICES } from '../../data/clinicData';
+import { CLINIC_INFO, BRANCHES, SPECIALTY_SERVICES, FACILITIES } from '../../data/clinicData';
 
 export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -25,11 +24,10 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [branchDropdownOpen, setBranchDropdownOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [othersDropdownOpen, setOthersDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [mobileBranchOpen, setMobileBranchOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileOthersOpen, setMobileOthersOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -43,7 +41,6 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setBranchDropdownOpen(false);
-    setServicesDropdownOpen(false);
     setOthersDropdownOpen(false);
     setUserDropdownOpen(false);
   }, [location.pathname]);
@@ -134,41 +131,6 @@ export const Navbar: React.FC = () => {
               About
             </Link>
 
-            {/* Desktop Services Dropdown */}
-            <div className="relative group">
-              <button
-                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                onMouseEnter={() => setServicesDropdownOpen(true)}
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center gap-1 ${
-                  location.pathname.startsWith('/services') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                }`}
-              >
-                Services <ChevronDown className="w-4 h-4 opacity-70" />
-              </button>
-
-              {servicesDropdownOpen && (
-                <div 
-                  onMouseLeave={() => setServicesDropdownOpen(false)}
-                  className="absolute top-full left-0 w-72 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2"
-                >
-                  <div className="px-3 py-2 text-xs uppercase tracking-wider font-bold text-slate-400 hover:text-medical-600">
-                    Specialty Services
-                  </div>
-                  <div className="h-px bg-slate-100 dark:bg-slate-800 my-1" />
-                  {SPECIALTY_SERVICES.map((service) => (
-                    <Link 
-                      key={service.id} 
-                      to={`/services#${service.id}`} 
-                      className="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    >
-                      <div className="text-xs font-semibold text-slate-900 dark:text-slate-100">{service.title}</div>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">{service.shortDesc}</p>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
             {/* Desktop Branch Dropdown */}
             <div className="relative group">
               <button
@@ -210,13 +172,13 @@ export const Navbar: React.FC = () => {
               Gallery
             </Link>
 
-            {/* Desktop Others Dropdown (Reviews, Blogs, FAQ) */}
+            {/* Desktop Others Dropdown (Services, Reviews, Blogs, FAQ) */}
             <div className="relative group">
               <button
                 onClick={() => setOthersDropdownOpen(!othersDropdownOpen)}
                 onMouseEnter={() => setOthersDropdownOpen(true)}
                 className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center gap-1 ${
-                  ['/testimonials', '/blogs', '/faq'].some(p => location.pathname.startsWith(p))
+                  ['/services', '/testimonials', '/blogs', '/faq'].some(p => location.pathname.startsWith(p))
                     ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold'
                     : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
@@ -227,8 +189,29 @@ export const Navbar: React.FC = () => {
               {othersDropdownOpen && (
                 <div 
                   onMouseLeave={() => setOthersDropdownOpen(false)}
-                  className="absolute top-full left-0 w-56 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2"
+                  className="absolute top-full left-0 w-72 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2"
                 >
+                  <div className="px-3 py-2 text-xs uppercase tracking-wider font-bold text-slate-400">
+                    Services
+                  </div>
+                  <div className="h-px bg-slate-100 dark:bg-slate-800 my-1" />
+                  {SPECIALTY_SERVICES.map((service) => (
+                    <Link 
+                      key={service.id} 
+                      to={`/services#${service.id}`} 
+                      className="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    >
+                      <div className="text-xs font-semibold text-slate-900 dark:text-slate-100">{service.title}</div>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">{service.shortDesc}</p>
+                    </Link>
+                  ))}
+                  
+                  <div className="h-px bg-slate-100 dark:bg-slate-800 my-2" />
+                  <div className="px-3 py-2 text-xs uppercase tracking-wider font-bold text-slate-400">
+                    More
+                  </div>
+                  <div className="h-px bg-slate-100 dark:bg-slate-800 my-1" />
+                  
                   <Link 
                     to="/testimonials" 
                     className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/testimonials') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
@@ -349,32 +332,6 @@ export const Navbar: React.FC = () => {
               About
             </Link>
             
-            {/* Mobile Services Dropdown Accordion */}
-            <div className="space-y-1">
-              <button
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-              >
-                <span>Services</span>
-                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180 text-medical-600' : ''}`} />
-              </button>
-
-              {mobileServicesOpen && (
-                <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/60 dark:border-slate-800 ml-2">
-                  {SPECIALTY_SERVICES.map((service) => (
-                    <Link
-                      key={service.id}
-                      to={`/services#${service.id}`}
-                      className="block px-3 py-2 text-sm text-slate-800 dark:text-slate-200 hover:text-medical-600 flex items-center gap-2"
-                    >
-                      <Stethoscope className="w-4 h-4 text-medical-500 shrink-0" />
-                      <span>{service.title}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-            
             {/* Mobile Branch Dropdown Accordion */}
             <div className="space-y-1">
               <button
@@ -413,15 +370,48 @@ export const Navbar: React.FC = () => {
             <Link to="/gallery" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/gallery') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
               Gallery
             </Link>
-            <Link to="/testimonials" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/testimonials') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
-              Reviews & Testimonials
-            </Link>
-            <Link to="/blogs" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/blogs') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
-              Health Blogs
-            </Link>
-            <Link to="/faq" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/faq') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
-              FAQ
-            </Link>
+
+            {/* Mobile Others Dropdown Accordion */}
+            <div className="space-y-1">
+              <button
+                onClick={() => setMobileOthersOpen(!mobileOthersOpen)}
+                className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+              >
+                <span>Others</span>
+                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${mobileOthersOpen ? 'rotate-180 text-medical-600' : ''}`} />
+              </button>
+
+              {mobileOthersOpen && (
+                <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/60 dark:border-slate-800 ml-2">
+                  <div className="px-3 py-2 text-xs uppercase font-bold tracking-wider text-slate-600 dark:text-slate-400">
+                    Services
+                  </div>
+                  {SPECIALTY_SERVICES.map((service) => (
+                    <Link
+                      key={service.id}
+                      to={`/services#${service.id}`}
+                      className="block px-3 py-2 text-sm text-slate-800 dark:text-slate-200 hover:text-medical-600"
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                  <div className="h-px bg-slate-200 dark:bg-slate-700 my-2" />
+                  <div className="px-3 py-2 text-xs uppercase font-bold tracking-wider text-slate-600 dark:text-slate-400">
+                    More
+                  </div>
+                  <Link to="/testimonials" className={`block px-3 py-2 text-sm font-medium ${isActive('/testimonials') ? 'text-medical-600 font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-medical-600'}`}>
+                    Reviews & Testimonials
+                  </Link>
+                  <Link to="/blogs" className={`block px-3 py-2 text-sm font-medium ${isActive('/blogs') ? 'text-medical-600 font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-medical-600'}`}>
+                    Health Blogs
+                  </Link>
+                  <Link to="/faq" className={`block px-3 py-2 text-sm font-medium ${isActive('/faq') ? 'text-medical-600 font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-medical-600'}`}>
+                    FAQ
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link to="/contact" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/contact') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
               Contact
             </Link>
