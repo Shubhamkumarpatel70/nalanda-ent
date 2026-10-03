@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
                 <ShieldCheck className="w-4 h-4 text-emerald-400" /> Clean & Safe Clinical Environment
               </div>
               <div className="flex items-center gap-2 text-medical-400 font-medium">
-                <Heart className="w-4 h-4 text-medical-400" /> Over 10,000+ Happy Patients Served
+                <Heart className="w-4 h-4 text-medical-400" /> Over {CLINIC_INFO.totalPatientsServed} Happy Patients Served
               </div>
             </div>
           </div>
