@@ -224,7 +224,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-5",
     name: "Dinesh Kumar",
     designation: "Clinic Staff",
-    roleCategory: "Clinic Support",
+    roleCategory: "Reception",
     experience: "7 Years",
     photo:
       "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
@@ -241,7 +241,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-6",
     name: "Rajesh Kumar",
     designation: "Clinic Staff",
-    roleCategory: "Clinic Support",
+    roleCategory: "Reception",
     experience: "7 Years",
     photo:
       "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
@@ -258,7 +258,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-7",
     name: "Sanjeet Kumar",
     designation: "Clinic Staff",
-    roleCategory: "Clinic Support",
+    roleCategory: "Reception",
     experience: "7 Years",
     photo:
       "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
@@ -275,7 +275,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-8",
     name: "Shyam Kishor",
     designation: "Audiologist",
-    roleCategory: "Audiology & Diagnostics",
+    roleCategory: "Audiology & Lab",
     experience: "7 Years",
     photo:
       "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
@@ -292,7 +292,7 @@ export const STAFF_MEMBERS: StaffMember[] = [
     id: "staff-9",
     name: "Sangeeta Sinha",
     designation: "Audiologist",
-    roleCategory: "Audiology & Diagnostics",
+    roleCategory: "Audiology & Lab",
     experience: "7 Years",
     photo:
       "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
@@ -319,7 +319,7 @@ export const BRANCHES: Branch[] = [
     email: "xyz@nalandaentcenter.in",
     workingHours: "Tuesday, Thursday, Saturday: 05:00 PM - 09:00 PM",
     sundayHours: "Sunday: 09:00 AM - 8:00 PM",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.527136784388!2d85.15770289999999!3d25.5934116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58854842f329%3A0xfe63de32c01c1a3f!2sNalanda%20ENT%20Center!5e0!3m2!1sen!2sin!4v1234567890",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.527136784388!2d85.15770289999999!3d25.5934116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58854842f329%3A0xfe63d7c7c8e9f0a1b!2sNalanda%20ENT%20Center!5e0!3m2!1sen!2sin!4v1234567890",
     googleMapsUrl: "https://maps.app.goo.gl/areABayhDY6kRvpL9",
     image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963578/Nalanda-Ent-Center/IMG_20261002_231632_dal10k.jpg",
     isMainBranch: true,
@@ -376,7 +376,7 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     title: "Ear Care & Micro-Otology",
     iconName: "Ear",
     shortDesc: "Advanced treatment for ear discharge, eardrum perforation, hearing loss, and ringing in ears (tinnitus).",
-    fullDescription: "Micro-Otology at Nalanda ENT Center focuses on restoring hearing and eliminating chronic ear infections using high-precision German Zeiss microscopes. We specialize in sutureless repair techniques.",
+    fullDescription: "Micro-Otology at Nalanda ENT Center focuses on restoring hearing and eliminating chronic ear infections using high-precision German Zeiss microscopes. We specialize in sutureless microscopic repair techniques.",
     symptoms: ["Ear discharge / suppuration", "Eardrum hole / perforation", "Gradual or sudden hearing loss", "Tinnitus (buzzing / ringing sound)", "Ear pain or sensation of fullness"],
     treatments: ["Microscopic Tympanoplasty (Eardrum Repair)", "Mastoidectomy Surgery for Chronic Otitis", "Stapedectomy for Otosclerosis", "Ear Wax Removal via Microsuction", "Grommet Insertion for Fluid Drainage"],
     benefits: ["Minimally invasive keyhole approach", "High surgical hearing restoration rate", "Sutureless microscopic repair option", "Faster post-operative healing"],
@@ -606,7 +606,7 @@ export const FAQS: FAQItem[] = [
     id: "faq-2",
     category: "General",
     question: "Where are your clinic branches located in Patna?",
-    answer: "We have two branches: 1) Main Super-Specialty Center at Rajendra Nagar (Plot 42, Health Plaza Main Road), and 2) City OPD Branch at Kankerbagh (Apex Medicare Building). You can check full details on our Branches page."
+    answer: "We have two branches: 1) Main Super-Specialty Center at Rajendra Nagar (Plot 42, Health Plaza Main Road), and 2) City OPD Branch at Kankarbagh (Apex Medicare Building). You can check full details on our Branches page."
   },
   {
     id: "faq-3",
@@ -618,7 +618,7 @@ export const FAQS: FAQItem[] = [
     id: "faq-4",
     category: "Treatments",
     question: "Will endoscopic sinus surgery leave any marks on my face?",
-    answer: "Not at all. Functional Endoscopic Sinus Surgery (FESS) is performed entirely through the nostrils using high-definition video cameras. There are absolutely no external cuts, incisions, or scarring."
+    answer: "Not at all. Functional Endoscopic Sinus Surgery (FESS) is performed entirely through the nostrils using high-definition video cameras. There are absolutely no external cuts, incisions, or visible scarring."
   },
   {
     id: "faq-5",
@@ -644,7 +644,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "gal-2",
-    title: "Nalanda ENT Center,Bihar Sharif",
+    title: "Nalanda ENT Center, Bihar Sharif",
     category: "Building",
     image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963646/Nalanda-Ent-Center/IMG_20261002_232108_xwnbo7.jpg",
     description: "Modern multi-storey healthcare building at Rajendra Nagar with dedicated parking."
