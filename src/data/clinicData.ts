@@ -348,7 +348,7 @@ export const BRANCHES: Branch[] = [
       "Daycare OT & Recovery Ward",
       "Ample Car Parking & Wheelchair Access",
       "O.T bed",
-      "Karl Storz",
+      "Karl Storz - Endoscopy System",
       "Bronchoscopy"
     ],
     doctorSchedule: "Dr. Arun Kumar: Sunday (10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM)"
