@@ -23,7 +23,7 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
         <button
           onClick={onClose}
           aria-label="Close Staff Profile"
-          className="sticky top-3 right-3 float-right z-20 w-9 h-9 rounded-full bg-slate-100/90 dark:bg-slate-800/90 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors shadow-md backdrop-blur-xs"
+          className="sticky top-3 right-3 float-right z-20 w-9 h-9 rounded-full bg-slate-100/90 dark:bg-slate-800/90 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 focus:outline-none flex items-center justify-center"
         >
           <X className="w-5 h-5" />
         </button>
@@ -52,7 +52,7 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
           <div className="md:col-span-3 p-5 sm:p-7 space-y-4">
             
             <div className="hidden md:block">
-              <span className="inline-block text-[10px] uppercase font-bold tracking-wider text-medical-700 dark:text-medical-300 bg-medical-50 dark:bg-medical-950/80 px-2.5 py-1 rounded-full border border-medical-200 dark:border-medical-800">
+              <span className="inline-block text-[10px] uppercase font-bold tracking-wider text-medical-700 dark:text-medical-300 bg-medical-50 dark:bg-medical-950/80 px-2.5 py-1 rounded-full border border-medical-100/60">
                 {staff.roleCategory}
               </span>
               <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white mt-1">
@@ -98,6 +98,22 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
                 ))}
               </ul>
             </div>
+
+            {/* Services / Facilities (new) */}
+            {staff.servicesOffered && staff.servicesOffered.length > 0 && (
+              <div>
+                <h4 className="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-slate-500 mb-2">
+                  Services & Facilities
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {staff.servicesOffered.map((s, i) => (
+                    <span key={i} className="text-xs bg-slate-100 dark:bg-slate-800/80 px-2 py-1 rounded-lg text-slate-700 dark:text-slate-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="pt-2">
               <button
