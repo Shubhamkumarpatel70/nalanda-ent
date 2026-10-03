@@ -12,11 +12,12 @@ import {
   Clock, 
   LogOut,
   ShieldCheck,
-  LogIn
+  LogIn,
+  Stethoscope
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
-import { CLINIC_INFO, BRANCHES } from '../../data/clinicData';
+import { CLINIC_INFO, BRANCHES, SPECIALTY_SERVICES } from '../../data/clinicData';
 
 export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -24,9 +25,11 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [branchDropdownOpen, setBranchDropdownOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [othersDropdownOpen, setOthersDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [mobileBranchOpen, setMobileBranchOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -40,6 +43,7 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setBranchDropdownOpen(false);
+    setServicesDropdownOpen(false);
     setOthersDropdownOpen(false);
     setUserDropdownOpen(false);
   }, [location.pathname]);
@@ -129,14 +133,41 @@ export const Navbar: React.FC = () => {
             >
               About
             </Link>
-            <Link
-              to="/services"
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                isActive('/services') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-              }`}
-            >
-              Services
-            </Link>
+
+            {/* Desktop Services Dropdown */}
+            <div className="relative group">
+              <button
+                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                onMouseEnter={() => setServicesDropdownOpen(true)}
+                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center gap-1 ${
+                  location.pathname.startsWith('/services') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                Services <ChevronDown className="w-4 h-4 opacity-70" />
+              </button>
+
+              {servicesDropdownOpen && (
+                <div 
+                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                  className="absolute top-full left-0 w-72 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2"
+                >
+                  <div className="px-3 py-2 text-xs uppercase tracking-wider font-bold text-slate-400 hover:text-medical-600">
+                    Specialty Services
+                  </div>
+                  <div className="h-px bg-slate-100 dark:bg-slate-800 my-1" />
+                  {SPECIALTY_SERVICES.map((service) => (
+                    <Link 
+                      key={service.id} 
+                      to={`/services#${service.id}`} 
+                      className="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    >
+                      <div className="text-xs font-semibold text-slate-900 dark:text-slate-100">{service.title}</div>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">{service.shortDesc}</p>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Desktop Branch Dropdown */}
             <div className="relative group">
@@ -153,7 +184,7 @@ export const Navbar: React.FC = () => {
               {branchDropdownOpen && (
                 <div 
                   onMouseLeave={() => setBranchDropdownOpen(false)}
-                  className="absolute top-full left-0 w-64 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+                  className="absolute top-full left-0 w-64 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2"
                 >
                   <Link to="/branches" className="block px-3 py-2 text-xs uppercase tracking-wider font-bold text-slate-400 hover:text-medical-600">
                     View All Branches
@@ -171,7 +202,13 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            <Link to="/gallery" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/gallery') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>Gallery</Link>
+            <Link to="/facilities" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/facilities') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>
+              Facilities
+            </Link>
+
+            <Link to="/gallery" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/gallery') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>
+              Gallery
+            </Link>
 
             {/* Desktop Others Dropdown (Reviews, Blogs, FAQ) */}
             <div className="relative group">
@@ -190,23 +227,23 @@ export const Navbar: React.FC = () => {
               {othersDropdownOpen && (
                 <div 
                   onMouseLeave={() => setOthersDropdownOpen(false)}
-                  className="absolute top-full left-0 w-56 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200 space-y-1"
+                  className="absolute top-full left-0 w-56 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2"
                 >
                   <Link 
                     to="/testimonials" 
-                    className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/testimonials') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                    className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/testimonials') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
                   >
                     Reviews & Testimonials
                   </Link>
                   <Link 
                     to="/blogs" 
-                    className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/blogs') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                    className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/blogs') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
                   >
                     Health Blogs
                   </Link>
                   <Link 
                     to="/faq" 
-                    className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/faq') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                    className={`block px-3 py-2 rounded-lg text-xs font-semibold ${isActive('/faq') ? 'text-medical-600 font-bold bg-slate-50 dark:bg-slate-800' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
                   >
                     Frequently Asked Questions
                   </Link>
@@ -214,10 +251,12 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            <Link to="/contact" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/contact') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>Contact</Link>
+            <Link to="/contact" className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive('/contact') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>
+              Contact
+            </Link>
             
             {isAdmin && (
-              <Link to="/admin/queries" className={`px-3 py-2 text-sm font-bold rounded-lg transition-colors flex items-center gap-1 ${isActive('/admin/queries') ? 'bg-amber-500 text-white' : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/50'}`}>
+              <Link to="/admin/queries" className={`px-3 py-2 text-sm font-bold rounded-lg transition-colors flex items-center gap-1 ${isActive('/admin/queries') ? 'bg-amber-500 text-white' : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30'}`}>
                 <ShieldCheck className="w-4 h-4" /> Admin Queries
               </Link>
             )}
@@ -236,7 +275,7 @@ export const Navbar: React.FC = () => {
               <div className="relative">
                 <button
                   onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                  className="flex items-center gap-2 p-1.5 pl-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700"
+                  className="flex items-center gap-2 p-1.5 pl-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-800"
                 >
                   <div className="w-6 h-6 rounded-full bg-medical-600 text-white flex items-center justify-center text-xs font-bold uppercase">
                     {user?.name.charAt(0)}
@@ -302,10 +341,39 @@ export const Navbar: React.FC = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 fade-in duration-300 shadow-xl">
-            <Link to="/" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Home</Link>
-            <Link to="/about" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/about') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>About</Link>
-            <Link to="/services" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/services') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Services</Link>
+          <div className="lg:hidden bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 fade-in">
+            <Link to="/" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
+              Home
+            </Link>
+            <Link to="/about" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/about') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
+              About
+            </Link>
+            
+            {/* Mobile Services Dropdown Accordion */}
+            <div className="space-y-1">
+              <button
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+              >
+                <span>Services</span>
+                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180 text-medical-600' : ''}`} />
+              </button>
+
+              {mobileServicesOpen && (
+                <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/60 dark:border-slate-800 ml-2">
+                  {SPECIALTY_SERVICES.map((service) => (
+                    <Link
+                      key={service.id}
+                      to={`/services#${service.id}`}
+                      className="block px-3 py-2 text-sm text-slate-800 dark:text-slate-200 hover:text-medical-600 flex items-center gap-2"
+                    >
+                      <Stethoscope className="w-4 h-4 text-medical-500 shrink-0" />
+                      <span>{service.title}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             
             {/* Mobile Branch Dropdown Accordion */}
             <div className="space-y-1">
@@ -339,11 +407,24 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            <Link to="/gallery" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/gallery') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Gallery</Link>
-            <Link to="/testimonials" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/testimonials') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Reviews</Link>
-            <Link to="/blogs" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/blogs') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Health Blogs</Link>
-            <Link to="/faq" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/faq') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>FAQ</Link>
-            <Link to="/contact" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/contact') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>Contact</Link>
+            <Link to="/facilities" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/facilities') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
+              Facilities
+            </Link>
+            <Link to="/gallery" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/gallery') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
+              Gallery
+            </Link>
+            <Link to="/testimonials" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/testimonials') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
+              Reviews & Testimonials
+            </Link>
+            <Link to="/blogs" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/blogs') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
+              Health Blogs
+            </Link>
+            <Link to="/faq" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/faq') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
+              FAQ
+            </Link>
+            <Link to="/contact" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/contact') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
+              Contact
+            </Link>
             
             {isAdmin && (
               <Link to="/admin/queries" className="block px-4 py-2.5 rounded-xl text-base font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border-l-4 border-amber-500">
