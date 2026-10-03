@@ -128,7 +128,7 @@ export const DOCTOR_PROFILE: DoctorInfo = {
     "Senior Resident - AAA Hospital, New Delhi"
   ],
   experienceYears: 20,
-  biography: "Dr. Arun Kumar is a Consultant ENT Surgeon with MBBS and MS (ENT) qualifications. He specializes in ENT consultation, endoscopy, micro-otology and comprehensive ear, nose and throat[...]
+  biography: "Dr. Arun Kumar is a Consultant ENT Surgeon with MBBS and MS (ENT) qualifications. He specializes in ENT consultation, endoscopy, micro-otology and comprehensive ear, nose and throat care with over 20 years of clinical experience.",
   languages: ["English", "Hindi"],
   consultationTimings: "Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM",
   certifications: [
@@ -394,7 +394,7 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     shortDesc: "Advanced treatment for ear discharge, eardrum perforation, hearing loss, and tinnitus.",
     fullDescription: "Micro-Otology at Nalanda ENT Center focuses on restoring hearing and treating chronic ear infections using high-precision microscopes and microsurgical techniques.",
     symptoms: ["Ear discharge / suppuration", "Eardrum perforation", "Gradual or sudden hearing loss", "Tinnitus", "Ear pain or fullness"],
-    treatments: ["Microscopic Tympanoplasty (Eardrum Repair)", "Mastoidectomy for Chronic Otitis", "Stapedectomy for Otosclerosis", "Microsuction Earwax Removal", "Grommet Insertion for Glue Ear"[...]
+    treatments: ["Microscopic Tympanoplasty (Eardrum Repair)", "Mastoidectomy for Chronic Otitis", "Stapedectomy for Otosclerosis", "Microsuction Earwax Removal", "Grommet Insertion for Glue Ear"],
     benefits: ["Minimally invasive keyhole approach", "Efficient surgical hearing restoration", "Sutureless microscopic repair option", "Faster post-operative healing"],
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
   },
@@ -427,7 +427,7 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     shortDesc: "Pure Tone Audiometry (PTA), impedance testing, BERA, and programmable hearing aid fitting.",
     fullDescription: "Our soundproof audiology booth provides accurate evaluations for hearing loss, pediatric screening, and hearing aid trials.",
     symptoms: ["Difficulty hearing in noisy environments", "Asking others to repeat", "Turning up TV volume", "Dizziness with hearing change"],
-    treatments: ["Pure Tone Audiometry (PTA)", "Tympanometry & Acoustic Reflex Test", "Brainstem Evoked Response Audiometry (BERA)", "Digital Hearing Aid Consultation & Trial", "Otoacoustic Emiss[...]
+    treatments: ["Pure Tone Audiometry (PTA)", "Tympanometry & Acoustic Reflex Test", "Brainstem Evoked Response Audiometry (BERA)", "Digital Hearing Aid Consultation & Trial", "Otoacoustic Emissions (OAE)"],
     benefits: ["Standardized soundproof testing room", "Latest invisible CIC & RIC hearing aids", "Comprehensive speech therapy guidance"],
     image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
   },
@@ -505,7 +505,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Rajendra Nagar, Patna",
     treatment: "Microscopic Tympanoplasty (Ear Surgery)",
     rating: 5,
-    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Arun Kumar performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my he[...]
+    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Arun Kumar performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my hearing has improved significantly. Highly recommended!",
     date: "14 January 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
@@ -516,7 +516,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Kankerbagh, Patna",
     treatment: "Endoscopic Sinus Surgery (FESS)",
     rating: 5,
-    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Arun Kumar explained my CT scan patiently and performed endoscopic sinus surgery. I recovered quickly a[...]
+    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Arun Kumar explained my CT scan patiently and performed endoscopic sinus surgery. I recovered quickly and have been headache-free since. Thank you!",
     date: "28 February 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
@@ -554,11 +554,11 @@ export const HEALTH_BLOGS: HealthBlog[] = [
     date: "12 May 2026",
     author: "Dr. Arun Kumar",
     readTime: "5 min read",
-    excerpt: "A hole in the eardrum can cause recurring ear infections and hearing loss. Learn about modern microscopic repair techniques that restore eardrum integrity without visible external s[...]
+    excerpt: "A hole in the eardrum can cause recurring ear infections and hearing loss. Learn about modern microscopic repair techniques that restore eardrum integrity without visible external scars.",
     content: [
-      "The tympanic membrane (eardrum) is a thin, delicate barrier separating the ear canal from the middle ear cavity. Perforations can result from chronic ear infections, sudden loud blasts, or[...]
+      "The tympanic membrane (eardrum) is a thin, delicate barrier separating the ear canal from the middle ear cavity. Perforations can result from chronic ear infections, sudden loud blasts, or direct trauma to the ear canal.",
       "Key Warning Symptoms: Recurrent yellow/white ear discharge, muffled hearing, buzzing sound (tinnitus), or pain when water enters the ear.",
-      "Modern Surgical Treatment: Tympanoplasty is a precise micro-surgical procedure where a small graft of natural tissue is placed under the eardrum defect using an operating microscope. This [...]
+      "Modern Surgical Treatment: Tympanoplasty is a precise micro-surgical procedure where a small graft of natural tissue is placed under the eardrum defect using an operating microscope. This technique restores both hearing and protects against water entry."
     ],
     keyTakeaways: [
       "Never insert cotton buds or sharp pins into the ear canal.",
@@ -640,7 +640,7 @@ export const FAQS: FAQItem[] = [
     id: "faq-5",
     category: "Audiology",
     question: "How long does a hearing test (Audiometry) take?",
-    answer: "A standard Pure Tone Audiometry (PTA) in our soundproof acoustic chamber takes approximately 15 to 20 minutes. You will receive a diagnostic audiogram and brief counseling after the [...]
+    answer: "A standard Pure Tone Audiometry (PTA) in our soundproof acoustic chamber takes approximately 15 to 20 minutes. You will receive a diagnostic audiogram and brief counseling after the test."
   },
   {
     id: "faq-6",
