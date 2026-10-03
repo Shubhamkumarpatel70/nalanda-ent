@@ -1,5 +1,5 @@
 import React from 'react';
-import { TESTIMONIALS } from '../data/clinicData';
+import { TESTIMONIALS, CLINIC_INFO } from '../data/clinicData';
 import { Star, Quote, CheckCircle2, MapPin, Activity } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
@@ -33,7 +33,7 @@ export const Testimonials: React.FC = () => {
           </div>
 
           <div className="space-y-2 border-t md:border-t-0 md:border-l md:border-r border-white/10 pt-4 md:pt-0 px-4">
-            <div className="text-3xl font-bold font-display text-emerald-300">1,00,000+</div>
+            <div className="text-3xl font-bold font-display text-emerald-300">{CLINIC_INFO.totalPatientsServed}</div>
             <div className="text-sm text-slate-300 font-semibold">Patients Successfully Treated</div>
             <div className="text-xs text-slate-400">Across Patna & Bihar</div>
           </div>
@@ -62,7 +62,7 @@ export const Testimonials: React.FC = () => {
                     ))}
                   </div>
 
-                  <span className="flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
+                  <span className="flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/20">
                     <CheckCircle2 className="w-3.5 h-3.5" /> Verified Patient
                   </span>
                 </div>
