@@ -128,7 +128,7 @@ export const DOCTOR_PROFILE: DoctorInfo = {
     "Senior Resident - AAA Hospital, New Delhi"
   ],
   experienceYears: 20,
-  biography: "Dr. Arun Kumar is a Consultant ENT Surgeon with MBBS and MS (ENT) qualifications. He specializes in ENT consultation, endoscopy, micro-otology and comprehensive ear, nose and throat care with over 20 years of clinical experience.",
+  biography: "Dr. Arun Kumar is a Consultant ENT Surgeon with MBBS and MS (ENT) qualifications. He specializes in ENT consultation, endoscopy, micro-otology and comprehensive ear, nose and throat[...]",
   languages: ["English", "Hindi"],
   consultationTimings: "Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM",
   certifications: [
@@ -427,7 +427,7 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     shortDesc: "Pure Tone Audiometry (PTA), impedance testing, BERA, and programmable hearing aid fitting.",
     fullDescription: "Our soundproof audiology booth provides accurate evaluations for hearing loss, pediatric screening, and hearing aid trials.",
     symptoms: ["Difficulty hearing in noisy environments", "Asking others to repeat", "Turning up TV volume", "Dizziness with hearing change"],
-    treatments: ["Pure Tone Audiometry (PTA)", "Tympanometry & Acoustic Reflex Test", "Brainstem Evoked Response Audiometry (BERA)", "Digital Hearing Aid Consultation & Trial", "Otoacoustic Emissions (OAE)"],
+    treatments: ["Pure Tone Audiometry (PTA)", "Tympanometry & Acoustic Reflex Test", "Brainstem Evoked Response Audiometry (BERA)", "Digital Hearing Aid Consultation & Trial", "Otoacoustic Emissions"],
     benefits: ["Standardized soundproof testing room", "Latest invisible CIC & RIC hearing aids", "Comprehensive speech therapy guidance"],
     image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
   },
@@ -505,7 +505,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Rajendra Nagar, Patna",
     treatment: "Microscopic Tympanoplasty (Ear Surgery)",
     rating: 5,
-    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Arun Kumar performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my hearing has improved significantly. Highly recommended!",
+    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Arun Kumar performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my hearing is restored. The entire team was professional and caring.",
     date: "14 January 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
@@ -516,7 +516,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Kankerbagh, Patna",
     treatment: "Endoscopic Sinus Surgery (FESS)",
     rating: 5,
-    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Arun Kumar explained my CT scan patiently and performed endoscopic sinus surgery. I recovered quickly and have been headache-free since. Thank you!",
+    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Arun Kumar explained my CT scan patiently and performed endoscopic sinus surgery. I recovered quickly and now breathe normally without medicines.",
     date: "28 February 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
@@ -556,9 +556,9 @@ export const HEALTH_BLOGS: HealthBlog[] = [
     readTime: "5 min read",
     excerpt: "A hole in the eardrum can cause recurring ear infections and hearing loss. Learn about modern microscopic repair techniques that restore eardrum integrity without visible external scars.",
     content: [
-      "The tympanic membrane (eardrum) is a thin, delicate barrier separating the ear canal from the middle ear cavity. Perforations can result from chronic ear infections, sudden loud blasts, or direct trauma to the ear canal.",
+      "The tympanic membrane (eardrum) is a thin, delicate barrier separating the ear canal from the middle ear cavity. Perforations can result from chronic ear infections, sudden loud blasts, or trauma.",
       "Key Warning Symptoms: Recurrent yellow/white ear discharge, muffled hearing, buzzing sound (tinnitus), or pain when water enters the ear.",
-      "Modern Surgical Treatment: Tympanoplasty is a precise micro-surgical procedure where a small graft of natural tissue is placed under the eardrum defect using an operating microscope. This technique restores both hearing and protects against water entry."
+      "Modern Surgical Treatment: Tympanoplasty is a precise micro-surgical procedure where a small graft of natural tissue is placed under the eardrum defect using an operating microscope. This restores the integrity of the membrane."
     ],
     keyTakeaways: [
       "Never insert cotton buds or sharp pins into the ear canal.",
@@ -626,24 +626,30 @@ export const FAQS: FAQItem[] = [
   },
   {
     id: "faq-3",
+    category: "General",
+    question: "What is the ENT consultation fee?",
+    answer: "The ENT consultation fee with Dr. Arun Kumar is ₹500. This includes a thorough examination and diagnostic counseling. No additional charges are applicable for the consultation."
+  },
+  {
+    id: "faq-4",
     category: "Treatments",
     question: "Is eardrum repair (Tympanoplasty) surgery painful?",
     answer: "Micro-otology surgeries are performed under local or general anesthesia, so patients do not feel pain during the procedure."
   },
   {
-    id: "faq-4",
+    id: "faq-5",
     category: "Treatments",
     question: "Will endoscopic sinus surgery leave any marks on my face?",
     answer: "No. Functional Endoscopic Sinus Surgery (FESS) is performed through the nostrils using video endoscopes and leaves no external cuts or scars."
   },
   {
-    id: "faq-5",
+    id: "faq-6",
     category: "Audiology",
     question: "How long does a hearing test (Audiometry) take?",
     answer: "A standard Pure Tone Audiometry (PTA) in our soundproof acoustic chamber takes approximately 15 to 20 minutes. You will receive a diagnostic audiogram and brief counseling after the test."
   },
   {
-    id: "faq-6",
+    id: "faq-7",
     category: "Emergency",
     question: "What should I do in case of an acute ENT emergency?",
     answer: "Call our Emergency Support Line at +91 94304 63465. Our emergency desk handles acute nosebleeds, foreign object ingestion in children, and sudden hearing loss on priority."
