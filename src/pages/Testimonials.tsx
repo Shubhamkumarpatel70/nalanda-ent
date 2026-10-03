@@ -33,9 +33,9 @@ export const Testimonials: React.FC = () => {
           </div>
 
           <div className="space-y-2 border-t md:border-t-0 md:border-l md:border-r border-white/10 pt-4 md:pt-0 px-4">
-            <div className="text-3xl font-bold font-display text-emerald-300">50,000+</div>
+            <div className="text-3xl font-bold font-display text-emerald-300">1,00,000+</div>
             <div className="text-sm text-slate-300 font-semibold">Patients Successfully Treated</div>
-            <div className="text-xs text-slate-400">Across Patna, Muzaffarpur & Bihar</div>
+            <div className="text-xs text-slate-400">Across Patna & Bihar</div>
           </div>
 
           <div className="space-y-2 border-t md:border-t-0 border-white/10 pt-4 md:pt-0">
