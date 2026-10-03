@@ -113,7 +113,6 @@ export const CLINIC_INFO = {
   established: 2008,
   totalPatientsServed: "1,00,000+",
   yearsOfExcellence: 20,
-  successRate: "99.2%",
   emergencyNumber: "+91 94304 63465",
   whatsappNumber: "+91 94304 63465",
   email: "nalandaentcenter@gmail.com",
@@ -129,7 +128,7 @@ export const DOCTOR_PROFILE: DoctorInfo = {
     "Senior Resident - AAA Hospital, New Delhi"
   ],
   experienceYears: 20,
-  biography: "Dr. Arun Kumar is a Consultant ENT Surgeon with MBBS and MS (ENT) qualifications. He specializes in ENT consultation, endoscopy, micro-otology and comprehensive ear, nose and throat care.",
+  biography: "Dr. Arun Kumar is a Consultant ENT Surgeon with MBBS and MS (ENT) qualifications. He specializes in ENT consultation, endoscopy, micro-otology and comprehensive ear, nose and throat[...]
   languages: ["English", "Hindi"],
   consultationTimings: "Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:00 PM",
   certifications: [
@@ -395,8 +394,8 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     shortDesc: "Advanced treatment for ear discharge, eardrum perforation, hearing loss, and tinnitus.",
     fullDescription: "Micro-Otology at Nalanda ENT Center focuses on restoring hearing and treating chronic ear infections using high-precision microscopes and microsurgical techniques.",
     symptoms: ["Ear discharge / suppuration", "Eardrum perforation", "Gradual or sudden hearing loss", "Tinnitus", "Ear pain or fullness"],
-    treatments: ["Microscopic Tympanoplasty (Eardrum Repair)", "Mastoidectomy for Chronic Otitis", "Stapedectomy for Otosclerosis", "Microsuction Earwax Removal", "Grommet Insertion for Glue Ear"],
-    benefits: ["Minimally invasive keyhole approach", "High surgical hearing restoration rate", "Sutureless microscopic repair option", "Faster post-operative healing"],
+    treatments: ["Microscopic Tympanoplasty (Eardrum Repair)", "Mastoidectomy for Chronic Otitis", "Stapedectomy for Otosclerosis", "Microsuction Earwax Removal", "Grommet Insertion for Glue Ear"[...]
+    benefits: ["Minimally invasive keyhole approach", "Efficient surgical hearing restoration", "Sutureless microscopic repair option", "Faster post-operative healing"],
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -428,7 +427,7 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     shortDesc: "Pure Tone Audiometry (PTA), impedance testing, BERA, and programmable hearing aid fitting.",
     fullDescription: "Our soundproof audiology booth provides accurate evaluations for hearing loss, pediatric screening, and hearing aid trials.",
     symptoms: ["Difficulty hearing in noisy environments", "Asking others to repeat", "Turning up TV volume", "Dizziness with hearing change"],
-    treatments: ["Pure Tone Audiometry (PTA)", "Tympanometry & Acoustic Reflex Test", "Brainstem Evoked Response Audiometry (BERA)", "Digital Hearing Aid Consultation & Trial", "Otoacoustic Emissions (OAE)"],
+    treatments: ["Pure Tone Audiometry (PTA)", "Tympanometry & Acoustic Reflex Test", "Brainstem Evoked Response Audiometry (BERA)", "Digital Hearing Aid Consultation & Trial", "Otoacoustic Emiss[...]
     benefits: ["Standardized soundproof testing room", "Latest invisible CIC & RIC hearing aids", "Comprehensive speech therapy guidance"],
     image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
   },
@@ -440,7 +439,7 @@ export const SPECIALTY_SERVICES: SpecialtyService[] = [
     fullDescription: "We provide systematic positioning tests and canalith repositioning maneuvers for inner ear vertigo disorders.",
     symptoms: ["Spinning sensation", "Loss of balance", "Nausea with head movement", "Ringing in ear"],
     treatments: ["Epley & Semont Repositioning Maneuvers", "Vestibular Rehabilitation Therapy", "Inner Ear Pressure Management", "Medical care for Meniere's Disease"],
-    benefits: ["Non-invasive bedside maneuvers", "Immediate relief in many BPPV cases", "Targeted balance protocols"],
+    benefits: ["Non-invasive bedside maneuvers", "Quick response in many BPPV cases", "Targeted balance protocols"],
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
   },
   {
@@ -494,7 +493,7 @@ export const FACILITIES: Facility[] = [
     title: "In-House ENT Pharmacy Counter",
     iconName: "ShieldCheck",
     description: "Stocked with specialized ENT nasal sprays, ear drops, anti-allergic formulations, and anti-vertigo medications for immediate access after consultation.",
-    highlights: ["100% authentic pharmaceuticals", "Direct guidance on nasal spray usage", "Reasonable MRP pricing"],
+    highlights: ["Authentic pharmaceuticals", "Direct guidance on nasal spray usage", "Reasonable MRP pricing"],
     image: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=800"
   }
 ];
@@ -506,7 +505,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Rajendra Nagar, Patna",
     treatment: "Microscopic Tympanoplasty (Ear Surgery)",
     rating: 5,
-    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Arun Kumar performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my hearing has improved.",
+    review: "I had chronic ear discharge and a large hole in my eardrum for 5 years. Dr. Arun Kumar performed a microscopic surgery at Nalanda ENT Center. Today my ear is completely dry and my he[...]
     date: "14 January 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
@@ -517,7 +516,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Kankerbagh, Patna",
     treatment: "Endoscopic Sinus Surgery (FESS)",
     rating: 5,
-    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Arun Kumar explained my CT scan patiently and performed endoscopic sinus surgery. I recovered quickly and my symptoms improved.",
+    review: "I suffered from severe morning sinus headaches and blocked nose for years. Dr. Arun Kumar explained my CT scan patiently and performed endoscopic sinus surgery. I recovered quickly a[...]
     date: "28 February 2026",
     verified: true,
     patientPhoto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
@@ -555,16 +554,16 @@ export const HEALTH_BLOGS: HealthBlog[] = [
     date: "12 May 2026",
     author: "Dr. Arun Kumar",
     readTime: "5 min read",
-    excerpt: "A hole in the eardrum can cause recurring ear infections and hearing loss. Learn about modern microscopic repair techniques that restore eardrum integrity without visible external scars.",
+    excerpt: "A hole in the eardrum can cause recurring ear infections and hearing loss. Learn about modern microscopic repair techniques that restore eardrum integrity without visible external s[...]
     content: [
-      "The tympanic membrane (eardrum) is a thin, delicate barrier separating the ear canal from the middle ear cavity. Perforations can result from chronic ear infections, sudden loud blasts, or trauma.",
+      "The tympanic membrane (eardrum) is a thin, delicate barrier separating the ear canal from the middle ear cavity. Perforations can result from chronic ear infections, sudden loud blasts, or[...]
       "Key Warning Symptoms: Recurrent yellow/white ear discharge, muffled hearing, buzzing sound (tinnitus), or pain when water enters the ear.",
-      "Modern Surgical Treatment: Tympanoplasty is a precise micro-surgical procedure where a small graft of natural tissue is placed under the eardrum defect using an operating microscope. This restores the barrier and improves hearing in many cases."
+      "Modern Surgical Treatment: Tympanoplasty is a precise micro-surgical procedure where a small graft of natural tissue is placed under the eardrum defect using an operating microscope. This [...]
     ],
     keyTakeaways: [
       "Never insert cotton buds or sharp pins into the ear canal.",
       "Keep ear dry during bathing using silicon earplugs if you have an eardrum hole.",
-      "Timely tympanoplasty surgery prevents permanent hearing nerve damage."
+      "Timely tympanoplasty surgery supports hearing protection."
     ],
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
   },
@@ -599,14 +598,14 @@ export const HEALTH_BLOGS: HealthBlog[] = [
     readTime: "4 min read",
     excerpt: "Feeling like the room is spinning when you turn in bed? Learn about Benign Paroxysmal Positional Vertigo (BPPV) and how simple OPD maneuvers treat it.",
     content: [
-      "Vertigo is often mistaken for general weakness or high blood pressure, but over 70% of sudden spinning dizziness originates inside the vestibular balance organs of the inner ear.",
+      "Vertigo is often mistaken for general weakness or high blood pressure, but sudden spinning dizziness commonly originates inside the vestibular balance organs of the inner ear.",
       "BPPV occurs when micro calcium crystals (otoconia) detach and drift into the semicircular canals, sending false movement signals to the brain.",
       "Treatment: Specialized repositioning maneuvers like the Epley Maneuver guide the crystals back to their resting chamber within minutes."
     ],
     keyTakeaways: [
       "Avoid sudden violent head turns during acute vertigo episodes.",
       "Seek immediate ENT evaluation to differentiate inner ear vertigo from neurological stroke.",
-      "Epley maneuver achieves over 90% resolution rate in BPPV."
+      "Epley maneuver is effective for many BPPV cases."
     ],
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
   }
@@ -622,8 +621,8 @@ export const FAQS: FAQItem[] = [
   {
     id: "faq-2",
     category: "General",
-    question: "Where are your clinic branches located in Patna?",
-    answer: "We have two branches: Main Super-Specialty Center at Rajendra Nagar and a City OPD Branch at Kankarbagh. Check the branches section for full addresses and timings."
+    question: "Where are your clinic branches located?",
+    answer: "We have two locations: Main Super-Specialty Center at Malahi Pakri, Patna and our second branch at Kaghzi Mohalla, Bihar Sharif. Check the branches section for full addresses and timings."
   },
   {
     id: "faq-3",
@@ -641,13 +640,13 @@ export const FAQS: FAQItem[] = [
     id: "faq-5",
     category: "Audiology",
     question: "How long does a hearing test (Audiometry) take?",
-    answer: "A standard Pure Tone Audiometry (PTA) in our soundproof acoustic chamber takes approximately 15 to 20 minutes. You will receive a diagnostic audiogram and brief counseling after the test."
+    answer: "A standard Pure Tone Audiometry (PTA) in our soundproof acoustic chamber takes approximately 15 to 20 minutes. You will receive a diagnostic audiogram and brief counseling after the [...]
   },
   {
     id: "faq-6",
     category: "Emergency",
     question: "What should I do in case of an acute ENT emergency?",
-    answer: "Call our Emergency Support Line at +91 98765 43210. Our emergency desk handles acute nosebleeds, foreign object ingestion in children, and sudden hearing loss on priority."
+    answer: "Call our Emergency Support Line at +91 94304 63465. Our emergency desk handles acute nosebleeds, foreign object ingestion in children, and sudden hearing loss on priority."
   }
 ];
 
@@ -657,14 +656,14 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Nalanda ENT Center, Patna",
     category: "Building",
     image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963578/Nalanda-Ent-Center/IMG_20261002_231632_dal10k.jpg",
-    description: "Modern multi-storey healthcare building at Rajendra Nagar with dedicated parking."
+    description: "Modern multi-storey healthcare building at Malahi Pakri with dedicated parking."
   },
   {
     id: "gal-2",
     title: "Nalanda ENT Center, Bihar Sharif",
     category: "Building",
     image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790963646/Nalanda-Ent-Center/IMG_20261002_232108_xwnbo7.jpg",
-    description: "Modern multi-storey healthcare building at Rajendra Nagar with dedicated parking."
+    description: "Modern multi-storey healthcare building at Bihar Sharif with dedicated parking."
   },
   {
     id: "gal-3",
@@ -682,41 +681,34 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "gal-5",
-    title: "Zeiss Micro-Otology Operating Station",
-    category: "Equipment",
-    image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790962378/Nalanda-Ent-Center/IMG20261002172517_grd3ub.jpg",
-    description: "Advanced German microscope unit used for precision microscopic eardrum repair."
-  },
-  {
-    id: "gal-6",
     title: "Endoscopic Consultation & Video Examination",
     category: "Treatment Room",
     image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790961599/Nalanda-Ent-Center/IMG-20261002-WA0002_t82rg2.jpg",
     description: "HD video monitor setup for live endoscopic nasal and vocal cord examination."
   },
   {
-    id: "gal-7",
+    id: "gal-6",
     title: "Endoscopic Consultation & Video Examination",
     category: "Treatment Room",
     image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790961604/Nalanda-Ent-Center/IMG-20261002-WA0003_rftzvh.jpg",
     description: "HD video monitor setup for live endoscopic nasal and vocal cord examination."
   },
   {
-    id: "gal-8",
+    id: "gal-7",
     title: "Endoscopic Consultation & Video Examination",
     category: "Treatment Room",
     image: "https://res.cloudinary.com/df9m0nyqz/image/upload/v1790961601/Nalanda-Ent-Center/IMG-20261002-WA0005_atv1bv.jpg",
     description: "HD video monitor setup for live endoscopic nasal and vocal cord examination."
   },
   {
-    id: "gal-9",
+    id: "gal-8",
     title: "Soundproof Acoustic Audiology Booth",
     category: "Equipment",
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
     description: "ISO-calibrated soundproof booth for hearing testing and digital hearing aid trials."
   },
   {
-    id: "gal-10",
+    id: "gal-9",
     title: "Clinical Nursing & Staff Team",
     category: "Staff",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
