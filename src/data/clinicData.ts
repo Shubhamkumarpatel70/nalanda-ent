@@ -110,7 +110,7 @@ export const CLINIC_INFO = {
   name: "Nalanda ENT Center",
   tagline: "Premier Super Specialty Ear, Nose & Throat Healthcare",
   established: 2008,
-  totalPatientsServed: "10,000+",
+  totalPatientsServed: "1,00,000+",
   yearsOfExcellence: 20,
   successRate: "99.2%",
   emergencyNumber: "+91 94304 63465",
@@ -155,34 +155,36 @@ export const STAFF_MEMBERS: StaffMember[] = [
   {
     id: "staff-1",
     name: "Indrodeo Kumar",
-    designation: "O.T assistant",
+    designation: "O.T. Assistant",
     roleCategory: "Technician",
     experience: "12 Years",
-    photo: "https://images.unsplash.com/photo-1594824813571-2153349a6961?auto=format&fit=crop&q=80&w=600",
+    photo:
+      "https://images.unsplash.com/photo-1594824813571-2153349a6961?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
-      "Patient triage and pre-operative preparation",
-      "Assisting Dr. Arun Kumar during OPD endoscopic examinations",
-      "Overseeing sterilization and infection control protocols",
-      "Managing nursing desk and post-operative recovery guidance"
+      "Preparing the operation theatre and equipment before procedures",
+      "Assisting the doctor and surgical team during ENT procedures",
+      "Following instrument sterilization and infection-control protocols",
+      "Supporting patient preparation and post-procedure care"
     ],
     languagesSpoken: ["Hindi", "English"],
-    bio: "Sunita has been managing patient care at Nalanda ENT Center for over a decade. Her warmth, vigilance, and strict hygiene standards ensure every patient feels comfortable and safe."
+    bio: "Indrodeo Kumar supports the clinical team with operation theatre preparation, procedure assistance, and infection-control practices."
   },
   {
     id: "staff-2",
     name: "Rounish Kumar",
-    designation: "Clinic management",
-    roleCategory: "Reception",
+    designation: "Clinic Management",
+    roleCategory: "Administration",
     experience: "9 Years",
-    photo: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600",
+    photo:
+      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
-      "Pure Tone Audiometry (PTA) & Impedance Audiometry",
-      "Digital Hearing Aid Fitting & Acoustic Tuning",
-      "Speech Therapy evaluation for children and adults",
-      "Otoacoustic Emissions (OAE) & BERA screening"
+      "Coordinating daily clinic operations",
+      "Managing patient registration and clinic records",
+      "Supporting reception and patient-flow management",
+      "Helping coordinate communication between patients and clinic staff"
     ],
     languagesSpoken: ["Hindi", "English"],
-    bio: "Ravi holds a Master's degree in Audiology and Speech-Language Pathology. He specializes in precise diagnostic audiograms and custom hearing aid fittings."
+    bio: "Rounish Kumar supports the day-to-day management of the clinic, helping coordinate patient services, records, and administrative activities."
   },
   {
     id: "staff-3",
@@ -190,15 +192,16 @@ export const STAFF_MEMBERS: StaffMember[] = [
     designation: "OPD Management",
     roleCategory: "Administration",
     experience: "6 Years",
-    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+    photo:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
-      "Welcoming walk-in patients and manual registration",
-      "Guiding patients to OPD consultation rooms",
-      "Handling telephone inquiries & branch navigation support",
-      "Managing insurance claim documentation assistance"
+      "Welcoming walk-in patients and assisting with registration",
+      "Guiding patients to the appropriate consultation area",
+      "Handling routine telephone inquiries",
+      "Helping patients with clinic and branch information"
     ],
     languagesSpoken: ["Hindi", "English"],
-    bio: "Priya is the friendly face of Nalanda ENT Center. She manages registration efficiently and ensures minimal waiting time for all visiting patients."
+    bio: "Raushan Kumar assists with outpatient department operations, patient registration, and coordination to help ensure a smooth clinic visit."
   },
   {
     id: "staff-4",
@@ -206,90 +209,101 @@ export const STAFF_MEMBERS: StaffMember[] = [
     designation: "Nursing Staff",
     roleCategory: "Nursing",
     experience: "8 Years",
-    photo: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=600",
+    photo:
+      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
-      "Maintenance & calibration of Zeiss microscopes and Storz video endoscopes",
-      "Sterilization of surgical instruments via Autoclave",
-      "Daycare OT theater preparation and setup",
-      "Assisting surgical team during minor ENT procedures"
+      "Preparing clinical equipment and procedure areas",
+      "Supporting instrument cleaning and sterilization protocols",
+      "Assisting the clinical team during ENT procedures, as assigned",
+      "Supporting patient preparation and recovery under clinical supervision"
     ],
     languagesSpoken: ["Hindi", "English"],
-    bio: "Amit ensures that all advanced diagnostic optics and endoscopic tools operate at 100% precision with hospital-grade sterility."
+    bio: "Suraj Kumar supports clinical and nursing activities, including procedure-area preparation, patient assistance, and adherence to hygiene protocols."
   },
   {
     id: "staff-5",
     name: "Dinesh Kumar",
-    designation: "Staff",
-    roleCategory: "Audiology & Lab",
+    designation: "Clinic Staff",
+    roleCategory: "Clinic Support",
     experience: "7 Years",
-    photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
+    photo:
+      "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
-      "Dispensing prescribed ENT nasal sprays, ear drops, and medications",
-      "Counseling patients on proper ear drop and nasal spray administration",
-      "Inventory tracking of specialized ENT pharmaceutical supplies"
+      "Supporting routine clinic operations",
+      "Helping maintain organized patient and clinic records",
+      "Assisting with patient guidance and coordination",
+      "Supporting other administrative tasks as assigned"
     ],
     languagesSpoken: ["Hindi", "English"],
-    bio: "Anjali ensures patients receive authentic prescribed ENT medications directly at the clinic pharmacy counter with clear dosage instructions."
+    bio: "Dinesh Kumar assists with routine clinic support activities and helps maintain an organized and patient-friendly environment."
   },
   {
     id: "staff-6",
     name: "Rajesh Kumar",
-    designation: "Staff",
-    roleCategory: "Audiology & Lab",
+    designation: "Clinic Staff",
+    roleCategory: "Clinic Support",
     experience: "7 Years",
-    photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
+    photo:
+      "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
-      "Dispensing prescribed ENT nasal sprays, ear drops, and medications",
-      "Counseling patients on proper ear drop and nasal spray administration",
-      "Inventory tracking of specialized ENT pharmaceutical supplies"
+      "Assisting patients with general clinic navigation",
+      "Supporting daily clinic operations",
+      "Helping maintain orderly clinical and administrative areas",
+      "Coordinating routine tasks with the clinic team"
     ],
     languagesSpoken: ["Hindi", "English"],
-    bio: "Anjali ensures patients receive authentic prescribed ENT medications directly at the clinic pharmacy counter with clear dosage instructions."
+    bio: "Rajesh Kumar supports daily clinic activities and helps patients navigate the clinic during their visit."
   },
   {
     id: "staff-7",
     name: "Sanjeet Kumar",
-    designation: "Staff",
-    roleCategory: "Nursing",
+    designation: "Clinic Staff",
+    roleCategory: "Clinic Support",
     experience: "7 Years",
-    photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
+    photo:
+      "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
-      "Dispensing prescribed ENT nasal sprays, ear drops, and medications",
-      "Counseling patients on proper ear drop and nasal spray administration",
-      "Inventory tracking of specialized ENT pharmaceutical supplies"
+      "Supporting patient movement and clinic coordination",
+      "Helping prepare rooms and supplies for routine activities",
+      "Maintaining cleanliness and order in assigned areas",
+      "Assisting the clinic team with assigned support tasks"
     ],
     languagesSpoken: ["Hindi", "English"],
-    bio: "Anjali ensures patients receive authentic prescribed ENT medications directly at the clinic pharmacy counter with clear dosage instructions."
+    bio: "Sanjeet Kumar assists the clinic team with patient coordination and routine support activities to help maintain an organized care environment."
   },
   {
     id: "staff-8",
     name: "Shyam Kishor",
     designation: "Audiologist",
-    roleCategory: "Audiology & Lab",
+    roleCategory: "Audiology & Diagnostics",
     experience: "7 Years",
-    photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
+    photo:
+      "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
-      "Dispensing prescribed ENT nasal sprays, ear drops, and medications",
-      "Counseling patients on proper ear drop and nasal spray administration",
-      "Inventory tracking of specialized ENT pharmaceutical supplies"
+      "Conducting hearing assessments within professional scope",
+      "Supporting audiological evaluation and reporting",
+      "Explaining hearing-test procedures to patients",
+      "Maintaining audiology equipment and patient test records"
     ],
     languagesSpoken: ["Hindi", "English"],
-    bio: "Anjali ensures patients receive authentic prescribed ENT medications directly at the clinic pharmacy counter with clear dosage instructions."
+    bio: "Shyam Kishor supports audiology and hearing-assessment services, helping patients understand the testing process and their evaluation results."
   },
   {
     id: "staff-9",
     name: "Sangeeta Sinha",
     designation: "Audiologist",
-    roleCategory: "Audiology & Lab",
+    roleCategory: "Audiology & Diagnostics",
     experience: "7 Years",
-    photo: "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
+    photo:
+      "https://images.unsplash.com/photo-1580281657557-2a69d00dc942?auto=format&fit=crop&q=80&w=600",
     responsibilities: [
-      "Dispensing prescribed ENT nasal sprays, ear drops, and medications",
-      "Counseling patients on proper ear drop and nasal spray administration",
-      "Inventory tracking of specialized ENT pharmaceutical supplies"
+      "Conducting hearing assessments within professional scope",
+      "Supporting audiological evaluation and reporting",
+      "Guiding patients through hearing-test procedures",
+      "Maintaining audiology equipment and patient test records"
     ],
     languagesSpoken: ["Hindi", "English"],
-    bio: "Anjali ensures patients receive authentic prescribed ENT medications directly at the clinic pharmacy counter with clear dosage instructions."
+    bio: "Sangeeta Sinha supports audiology services and patient guidance during hearing assessments, with a focus on clear communication and organized clinical records."
   }
 ];
 
