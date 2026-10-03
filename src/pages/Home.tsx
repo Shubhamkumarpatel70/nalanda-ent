@@ -146,7 +146,7 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="space-y-1 pt-4 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-extrabold font-display text-tealbrand-300">10,000+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold font-display text-tealbrand-300">1,00,000+</div>
               <div className="text-xs sm:text-sm text-slate-300 font-medium">Happy Patients Treated</div>
             </div>
 
