@@ -1,6 +1,9 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { createHash } from 'crypto';
+import { ContactQuery } from '../models/ContactQuery.js';
+import { EmailRestriction } from '../models/EmailRestriction.js';
 import { User } from '../models/User.js';
 import { AccountDeletionRequest } from '../models/AccountDeletionRequest.js';
 import { isMongoConnected, readFallbackDB, writeFallbackDB } from '../db.js';
@@ -57,10 +60,24 @@ authRouter.post('/signup', async (req, res) => {
       return res.status(400).json({ error: 'Password must be at least 6 characters long.' });
     }
 
+    const normalizedEmail = String(email).trim().toLowerCase();
+    const emailHash = createHash('sha256').update(normalizedEmail).digest('hex');
+    const now = new Date();
+    if (isMongoConnected) {
+      const blocked = await EmailRestriction.findOne({ emailHash, expiresAt: { $gt: now } }).lean();
+      if (blocked) return res.status(403).json({ code: 'EMAIL_RESTRICTED', error: 'This email cannot be used for 90 days after the previous account deletion. Please use another email address.', expiresAt: blocked.expiresAt });
+    } else {
+      const fallback = readFallbackDB();
+      fallback.emailRestrictions = (fallback.emailRestrictions || []).filter(item => new Date(item.expiresAt) > now);
+      writeFallbackDB(fallback);
+      const blocked = fallback.emailRestrictions.find(item => item.emailHash === emailHash);
+      if (blocked) return res.status(403).json({ code: 'EMAIL_RESTRICTED', error: 'This email cannot be used for 90 days after the previous account deletion. Please use another email address.', expiresAt: blocked.expiresAt });
+    }
+
     let newUserObj;
 
     if (isMongoConnected) {
-      const existingUser = await User.findOne({ email: email.toLowerCase() });
+      const existingUser = await User.findOne({ email: normalizedEmail });
       if (existingUser) {
         return res.status(400).json({ error: 'An account with this email already exists.' });
       }
@@ -77,7 +94,7 @@ authRouter.post('/signup', async (req, res) => {
       newUserObj = { id: created._id.toString(), name: created.name, email: created.email, phone: created.phone || '', role: created.role };
     } else {
       const db = readFallbackDB();
-      const existingUser = db.users.find(u => u.email.toLowerCase() === email.toLowerCase());
+      const existingUser = db.users.find(u => u.email.toLowerCase() === normalizedEmail);
       if (existingUser) {
         return res.status(400).json({ error: 'An account with this email already exists.' });
       }
