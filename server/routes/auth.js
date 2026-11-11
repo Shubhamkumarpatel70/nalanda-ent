@@ -237,11 +237,11 @@ authRouter.patch('/account-deletion/:id', authenticateToken, requireAdmin, async
       const request = await AccountDeletionRequest.findById(req.params.id);
       if (!request) return res.status(404).json({ error: 'Request not found.' });
       if (status === 'Completed' && request.status !== 'Completed') {
+        const completedAt = new Date();
+        const purgeAt = new Date(completedAt.getTime() + 90 * 24 * 60 * 60 * 1000);
         const account = await User.findById(request.userId).select('email phone');
         if (account) {
           const emailHash = createHash('sha256').update(String(account.email).trim().toLowerCase()).digest('hex');
-          const completedAt = new Date();
-          const purgeAt = new Date(completedAt.getTime() + 90 * 24 * 60 * 60 * 1000);
           await EmailRestriction.findOneAndUpdate({ emailHash }, { emailHash, expiresAt: purgeAt }, { upsert: true, new: true });
           const digits = String(account.phone || '').replace(/\D/g, '').slice(-10);
           const phonePattern = digits ? new RegExp(digits.split('').join('\\D*') + '$') : null;
@@ -270,11 +270,11 @@ authRouter.patch('/account-deletion/:id', authenticateToken, requireAdmin, async
     const request = db.deletionRequests.find(r => (r.id || r._id) === req.params.id);
     if (!request) return res.status(404).json({ error: 'Request not found.' });
     if (status === 'Completed' && request.status !== 'Completed') {
+      const completedAt = new Date();
+      const purgeAt = new Date(completedAt.getTime() + 90 * 24 * 60 * 60 * 1000);
       const account = db.users.find(u => (u.id || u._id) === request.userId);
       if (account) {
         const emailHash = createHash('sha256').update(String(account.email).trim().toLowerCase()).digest('hex');
-        const completedAt = new Date();
-        const purgeAt = new Date(completedAt.getTime() + 90 * 24 * 60 * 60 * 1000);
         const expiresAt = purgeAt.toISOString();
         db.emailRestrictions = db.emailRestrictions.filter(item => item.emailHash !== emailHash);
         db.emailRestrictions.push({ emailHash, expiresAt });
