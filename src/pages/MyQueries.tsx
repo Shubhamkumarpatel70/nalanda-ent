@@ -17,6 +17,12 @@ interface PatientQuery {
   createdAt: string;
 }
 
+const formatIndiaDate = (value: string) => {
+  const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true }).formatToParts(new Date(value));
+  const get = (type: string) => parts.find(part => part.type === type)?.value || '';
+  return `${get('day')}-${get('month')}-${get('year')}, ${get('hour')}:${get('minute')} ${get('dayPeriod').toUpperCase()} IST`;
+};
+
 export const MyQueries: React.FC<{ embedded?: boolean }> = ({ embedded = false }) => {
   const { token, user } = useAuth();
   const [queries, setQueries] = useState<PatientQuery[]>([]);
@@ -87,7 +93,7 @@ export const MyQueries: React.FC<{ embedded?: boolean }> = ({ embedded = false }
           queries.length === 0 ? <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-10 sm:p-14 text-center space-y-3"><MessageSquare className="w-10 h-10 mx-auto text-slate-400" /><h2 className="text-xl font-bold text-slate-900 dark:text-white">No matching queries found</h2><p className="text-sm text-slate-500 max-w-lg mx-auto">Queries appear here when the email address or mobile number in your contact form matches the details saved in your patient account.</p><Link to="/contact" className="inline-flex mt-2 rounded-xl bg-medical-600 px-5 py-3 text-sm font-semibold text-white">Submit a Contact Query</Link></div> :
           <div className="space-y-4">{queries.map(q => <article key={q.id} className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-7 shadow-sm space-y-5">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-              <div><p className="text-xs uppercase tracking-wider font-bold text-medical-600 dark:text-medical-400">{q.subject}</p><h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-1">{q.name}</h2><p className="text-xs text-slate-500 mt-1 flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> Submitted {new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true}).format(new Date(q.createdAt)) + ' IST'}</p></div>
+              <div><p className="text-xs uppercase tracking-wider font-bold text-medical-600 dark:text-medical-400">{q.subject}</p><h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-1">{q.name}</h2><p className="text-xs text-slate-500 mt-1 flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> Submitted {formatIndiaDate(q.createdAt)}</p></div>
               <span className={`inline-flex w-fit items-center rounded-full border px-3 py-1 text-xs font-bold ${statusStyle[q.status] || statusStyle.New}`}>{q.status}</span>
             </div>
             <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-wrap">{q.message}</p>
