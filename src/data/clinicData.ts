@@ -627,8 +627,8 @@ export const FAQS: FAQItem[] = [
   {
     id: "faq-3",
     category: "General",
-    question: "What is the ENT consultation fee?",
-    answer: "The ENT consultation fee with Dr. Arun Kumar is ₹500. This includes a thorough examination and diagnostic counseling. No additional charges are applicable for the consultation."
+    question: "What is the ENT doctor consultation fee at Nalanda ENT Center in Patna and Bihar Sharif?",
+    answer: "The ENT consultation fee with Dr. Arun Kumar at Nalanda ENT Center is ₹500 (Five Hundred Indian Rupees). Patients can visit the Patna or Bihar Sharif clinic for an in-person ENT consultation. Any investigations, hearing tests, procedures, or medicines required are charged separately, if applicable."
   },
   {
     id: "faq-4",
