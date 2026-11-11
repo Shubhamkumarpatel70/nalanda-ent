@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { API_BASE_URL } from '../config/api';
-import { User as UserIcon, Mail, Lock, Activity, ArrowRight } from 'lucide-react';
+import { User as UserIcon, Mail, Lock, Activity, ArrowRight, Phone } from 'lucide-react';
 
 export const Signup: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -35,7 +36,7 @@ export const Signup: React.FC = () => {
       const res = await fetch(`${API_BASE_URL}/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ name, email, phone, password })
       });
 
       const data = await res.json();
@@ -110,6 +111,15 @@ export const Signup: React.FC = () => {
                 className="w-full pl-9 pr-4 py-3 bg-slate-50 dark:bg-slate-800 rounded-xl text-xs text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-medical-500"
               />
             </div>
+          </div>
+
+          <div className="space-y-1">
+            <label className="font-bold text-slate-700 dark:text-slate-300">Mobile Number (for query matching)</label>
+            <div className="relative">
+              <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <input type="tel" inputMode="numeric" placeholder="Your contact mobile number" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full pl-9 pr-4 py-3 bg-slate-50 dark:bg-slate-800 rounded-xl text-xs text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-medical-500" />
+            </div>
+            <p className="text-[11px] text-slate-500">Use the same email or mobile number entered in your contact form.</p>
           </div>
 
           <div className="space-y-1">
