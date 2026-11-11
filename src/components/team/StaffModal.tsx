@@ -1,5 +1,5 @@
-import React from 'react';
-import { X, CheckCircle, Languages, Briefcase } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { X, CheckCircle, Languages, Briefcase, GraduationCap, ShieldCheck } from 'lucide-react';
 import { StaffMember } from '../../data/clinicData';
 
 interface StaffModalProps {
@@ -8,126 +8,108 @@ interface StaffModalProps {
 }
 
 export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
+  useEffect(() => {
+    if (!staff) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [staff, onClose]);
+
   if (!staff) return null;
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/75 backdrop-blur-sm animate-in fade-in duration-200"
-      onClick={onClose}
+    <div
+      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-950/75 p-3 backdrop-blur-md animate-in fade-in duration-200 sm:p-6"
+      onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}
     >
-      <div 
-        className="relative w-full max-w-2xl max-h-[85vh] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-y-auto border border-slate-200 dark:border-slate-800 animate-in zoom-in-95 duration-200"
-        onClick={(e) => e.stopPropagation()}
+      <section
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="staff-profile-title"
+        className="relative my-auto grid w-full max-w-4xl grid-cols-1 overflow-hidden rounded-3xl border border-white/20 bg-white shadow-[0_30px_100px_-30px_rgba(0,0,0,.6)] animate-in zoom-in-95 duration-200 dark:border-slate-700 dark:bg-slate-900 md:grid-cols-5"
       >
-        {/* Sticky Close Button */}
         <button
+          type="button"
           onClick={onClose}
-          aria-label="Close Staff Profile"
-          className="sticky top-3 right-3 float-right z-20 w-9 h-9 rounded-full bg-slate-100/90 dark:bg-slate-800/90 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 focus:outline-none flex items-center justify-center"
+          aria-label="Close staff profile"
+          className="absolute right-3 top-3 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-lg transition hover:rotate-90 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-medical-500 dark:border-slate-700 dark:bg-slate-800/95 dark:text-white dark:hover:bg-slate-700"
         >
-          <X className="w-5 h-5" />
+          <X className="h-5 w-5" />
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-0 clear-both">
-          
-          {/* Photo Side */}
-          <div className="md:col-span-2 relative min-h-[200px] sm:min-h-[260px] md:min-h-full bg-slate-100 dark:bg-slate-800">
-            <img
-              src={staff.photo || '/logo.png'}
-              alt={staff.name}
-              onError={(e) => { e.currentTarget.src = '/logo.png'; }}
-              className="w-full h-full object-cover max-h-[280px] md:max-h-none"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent md:hidden" />
-            <div className="absolute bottom-3 left-3 right-3 md:hidden text-white">
-              <span className="text-[10px] uppercase font-bold tracking-wider text-medical-300 bg-medical-950/80 px-2 py-0.5 rounded-full">
-                {staff.roleCategory}
-              </span>
-              <h3 className="text-lg font-bold font-display mt-0.5">{staff.name}</h3>
-              <p className="text-xs text-slate-200">{staff.designation}</p>
-            </div>
-          </div>
-
-          {/* Details Side */}
-          <div className="md:col-span-3 p-5 sm:p-7 space-y-4">
-            
-            <div className="hidden md:block">
-              <span className="inline-block text-[10px] uppercase font-bold tracking-wider text-medical-700 dark:text-medical-300 bg-medical-50 dark:bg-medical-950/80 px-2.5 py-1 rounded-full border border-medical-100/60">
-                {staff.roleCategory}
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white mt-1">
-                {staff.name}
-              </h3>
-              <p className="text-xs font-semibold text-medical-600 dark:text-medical-400">
-                {staff.designation}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2 text-xs">
-              <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-lg text-slate-700 dark:text-slate-300">
-                <Briefcase className="w-3.5 h-3.5 text-medical-500" />
-                <span className="font-semibold">{staff.experience} Experience</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-lg text-slate-700 dark:text-slate-300">
-                <Languages className="w-3.5 h-3.5 text-tealbrand-500" />
-                <span>{staff.languagesSpoken.join(', ')}</span>
-              </div>
-            </div>
-
-            {/* Bio */}
-            <div>
-              <h4 className="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-slate-500 mb-1">
-                Medical Role Overview
-              </h4>
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                {staff.bio}
-              </p>
-            </div>
-
-            {/* Responsibilities */}
-            <div>
-              <h4 className="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-slate-500 mb-2">
-                Clinical Responsibilities
-              </h4>
-              <ul className="space-y-1.5">
-                {staff.responsibilities.map((resp, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{resp}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services / Facilities (new) */}
-            {staff.servicesOffered && staff.servicesOffered.length > 0 && (
-              <div>
-                <h4 className="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-slate-500 mb-2">
-                  Services & Facilities
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {staff.servicesOffered.map((s, i) => (
-                    <span key={i} className="text-xs bg-slate-100 dark:bg-slate-800/80 px-2 py-1 rounded-lg text-slate-700 dark:text-slate-300">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="pt-2">
-              <button
-                onClick={onClose}
-                className="w-full py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-xs rounded-xl transition-colors"
-              >
-                Close Profile
-              </button>
-            </div>
-
+        <div className="relative min-h-[240px] bg-slate-100 dark:bg-slate-800 md:col-span-2 md:min-h-[560px]">
+          <img
+            src={staff.photo || '/logo.png'}
+            alt={staff.name}
+            onError={(event) => { event.currentTarget.src = '/logo.png'; }}
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent md:bg-gradient-to-t" />
+          <div className="absolute bottom-5 left-5 right-5 text-white">
+            <span className="inline-flex rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-wider backdrop-blur">
+              {staff.roleCategory}
+            </span>
+            <h2 id="staff-profile-title" className="mt-3 text-2xl font-extrabold font-display">{staff.name}</h2>
+            <p className="mt-1 text-sm text-slate-200">{staff.designation}</p>
           </div>
         </div>
 
-      </div>
+        <div className="max-h-[min(78vh,720px)] space-y-6 overflow-y-auto p-5 sm:p-8 md:col-span-3">
+          <div className="pr-10">
+            <p className="text-[10px] font-bold uppercase tracking-[.2em] text-teal-600 dark:text-teal-400">Team member profile</p>
+            <h3 className="mt-1 text-xl font-bold text-slate-900 dark:text-white">Professional Overview</h3>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800/70">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300"><Briefcase className="h-5 w-5" /></span>
+              <span><span className="block text-[10px] text-slate-500 dark:text-slate-400">Experience</span><strong className="text-sm text-slate-900 dark:text-white">{staff.experience}</strong></span>
+            </div>
+            <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800/70">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-100 text-teal-700 dark:bg-teal-950 dark:text-teal-300"><Languages className="h-5 w-5" /></span>
+              <span><span className="block text-[10px] text-slate-500 dark:text-slate-400">Languages</span><strong className="text-sm text-slate-900 dark:text-white">{staff.languagesSpoken.join(', ')}</strong></span>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"><ShieldCheck className="h-4 w-4 text-teal-600" /> Medical Role Overview</h4>
+            <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">{staff.bio}</p>
+          </div>
+
+          <div>
+            <h4 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"><CheckCircle className="h-4 w-4 text-emerald-500" /> Clinical Responsibilities</h4>
+            <ul className="space-y-3">
+              {staff.responsibilities.map((responsibility, index) => (
+                <li key={index} className="flex items-start gap-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
+                  <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-emerald-500" /><span>{responsibility}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {staff.servicesOffered && staff.servicesOffered.length > 0 && (
+            <div>
+              <h4 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"><GraduationCap className="h-4 w-4 text-sky-600" /> Services & Clinical Skills</h4>
+              <div className="flex flex-wrap gap-2">
+                {staff.servicesOffered.map((service, index) => (
+                  <span key={index} className="rounded-full border border-sky-100 bg-sky-50 px-3 py-1.5 text-xs font-medium text-sky-800 dark:border-sky-900 dark:bg-sky-950/60 dark:text-sky-200">{service}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <button type="button" onClick={onClose} className="w-full rounded-xl bg-gradient-to-r from-medical-700 to-tealbrand-600 py-3 text-sm font-bold text-white shadow-lg shadow-sky-900/10 transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-medical-500">
+            Close Profile
+          </button>
+        </div>
+      </section>
     </div>
   );
 };
