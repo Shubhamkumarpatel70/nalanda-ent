@@ -1,5 +1,6 @@
 import express from 'express';
 import { ContactQuery } from '../models/ContactQuery.js';
+import { User } from '../models/User.js';
 import { isMongoConnected, readFallbackDB, writeFallbackDB } from '../db.js';
 import { authenticateToken, requireAdmin } from './auth.js';
 
@@ -139,5 +140,39 @@ contactRouter.patch('/:id', authenticateToken, requireAdmin, async (req, res) =>
   } catch (err) {
     console.error('Update Query Status Error:', err);
     return res.status(500).json({ error: 'Server error updating query status.' });
+  }
+});
+
+
+// Authenticated patient dashboard: match contact submissions by account email OR mobile.
+contactRouter.get('/mine', authenticateToken, async (req, res) => {
+  try {
+    const user = isMongoConnected
+      ? await User.findById(req.user.id).select('email phone')
+      : readFallbackDB().users.find(u => (u.id || u._id) === req.user.id);
+    if (!user) return res.status(404).json({ error: 'User account not found.' });
+
+    const email = String(user.email || '').trim().toLowerCase();
+    const phone = String(user.phone || '').replace(/\D/g, '').slice(-10);
+    const normalizePhone = value => String(value || '').replace(/\D/g, '').slice(-10);
+    const matches = query => {
+      const queryEmail = String(query.email || '').trim().toLowerCase();
+      const queryPhone = normalizePhone(query.phone);
+      return (email && queryEmail && email === queryEmail) || (phone && queryPhone && phone === queryPhone);
+    };
+
+    const records = isMongoConnected
+      ? await ContactQuery.find().sort({ createdAt: -1 })
+      : (readFallbackDB().queries || []).slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    const queries = records.filter(matches).map(q => ({
+      id: q._id ? q._id.toString() : q.id,
+      name: q.name, email: q.email, phone: q.phone,
+      branchPreference: q.branchPreference, subject: q.subject,
+      message: q.message, status: q.status, createdAt: q.createdAt, updatedAt: q.updatedAt
+    }));
+    return res.json({ queries });
+  } catch (err) {
+    console.error('Fetch My Queries Error:', err);
+    return res.status(500).json({ error: 'Server error while fetching your queries.' });
   }
 });
