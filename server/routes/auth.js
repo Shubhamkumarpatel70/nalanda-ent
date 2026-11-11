@@ -74,6 +74,7 @@ authRouter.post('/signup', async (req, res) => {
         id: `usr-${Date.now()}`,
         name,
         email: email.toLowerCase(),
+        phone: phone ? String(phone).replace(/\D/g, '').slice(-10) : '',
         passwordHash,
         role: 'user',
         createdAt: new Date().toISOString()
