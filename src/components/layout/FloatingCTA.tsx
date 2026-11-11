@@ -18,12 +18,12 @@ export const FloatingCTA: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-end">
+    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 sm:right-6 z-40 flex flex-col gap-2.5 sm:gap-3 items-end">
       {/* Floating Call Button */}
       <a
         href={`tel:${CLINIC_INFO.emergencyNumber}`}
         aria-label="Call Clinic Directly"
-        className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-medical-600 to-medical-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-glow hover:scale-110 active:scale-95 transition-all group relative"
+        className="w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-r from-medical-600 to-medical-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-glow hover:scale-110 active:scale-95 transition-all group relative"
       >
         <Phone className="w-6 h-6 group-hover:rotate-12 transition-transform" />
         <span className="absolute right-16 top-1/2 -translate-y-1/2 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md">
