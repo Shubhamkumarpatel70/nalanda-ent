@@ -19,7 +19,8 @@ import {
   CLINIC_INFO, 
   DOCTOR_PROFILE, 
   BRANCHES, 
-  TESTIMONIALS 
+  TESTIMONIALS,
+  SPECIALTY_SERVICES
 } from '../data/clinicData';
 
 export const Home: React.FC = () => {
@@ -27,7 +28,7 @@ export const Home: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 pb-12">
       
       {/* 1. HERO SECTION */}
-      <section className="home-hero relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 bg-gradient-to-b from-medical-50/60 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      <section className="home-hero relative overflow-hidden pt-10 pb-20 lg:pt-20 lg:pb-28 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-cyan-100 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
         
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-medical-400/10 dark:bg-medical-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-tealbrand-400/10 dark:bg-tealbrand-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -224,6 +225,28 @@ export const Home: React.FC = () => {
               </div>
             );
           })}
+        </div>
+      </section>
+
+
+      {/* Specialist services preview — sourced from the clinic's existing content */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div className="max-w-2xl space-y-2">
+            <span className="text-xs uppercase font-bold tracking-[.2em] text-medical-600 dark:text-medical-400">ENT specialties</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white">Focused care across ear, nose & throat</h2>
+            <p className="text-sm leading-6 text-slate-600 dark:text-slate-400">Explore the specialist services available at Nalanda ENT Center.</p>
+          </div>
+          <Link to="/services" className="inline-flex items-center gap-2 rounded-xl bg-medical-700 px-5 py-3 text-sm font-bold text-white shadow-lg hover:bg-medical-800 transition-colors">Explore all services <ArrowRight className="w-4 h-4"/></Link>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {SPECIALTY_SERVICES.map((service) => (
+            <Link key={service.id} to={`/services#${service.id}`} className="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-medical-300 dark:hover:border-medical-700 transition-all">
+              <div className="flex items-start justify-between gap-3"><span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-medical-50 dark:bg-medical-950/60 text-medical-700 dark:text-medical-300"><Activity className="w-5 h-5"/></span><ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-medical-600 group-hover:translate-x-1 transition-all"/></div>
+              <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">{service.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">{service.shortDesc}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
