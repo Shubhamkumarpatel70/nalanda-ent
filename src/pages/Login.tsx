@@ -36,7 +36,7 @@ export const Login: React.FC = () => {
       if (data.user.role === 'admin') {
         navigate('/admin/queries');
       } else {
-        navigate('/');
+        navigate('/dashboard');
       }
 
     } catch (err: any) {
