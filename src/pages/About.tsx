@@ -226,24 +226,27 @@ export const About: React.FC = () => {
       {/* OUR TEAM SECTION WITH LIGHTBOX MODAL (SECTION 15A IN SPEC) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
-        <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <span className="text-xs uppercase font-bold tracking-widest text-tealbrand-600 dark:text-tealbrand-400">
-            Clinic Staff & Healthcare Team
+        <div className="relative overflow-hidden rounded-[2rem] border border-slate-200/80 bg-gradient-to-br from-sky-50 via-white to-teal-50 px-5 py-10 text-center shadow-sm dark:border-slate-800 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 sm:px-10">
+          <span className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[.2em] text-teal-700 dark:border-teal-900 dark:bg-slate-800 dark:text-teal-300">
+            <ShieldCheck className="h-3.5 w-3.5" /> Clinic Staff & Healthcare Team
           </span>
-          <h2 className="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
+          <h2 className="mt-4 text-2xl font-extrabold font-display tracking-tight text-slate-900 dark:text-white sm:text-3xl lg:text-4xl">
             Meet Our Dedicated Medical Team
           </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            Click on any staff member photo to view their detailed experience, clinical responsibilities, and qualifications.
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-400">
+            Get to know the people supporting your care. Select a team member to view their experience, responsibilities, and qualifications.
           </p>
+          <div className="pointer-events-none absolute -right-16 -top-20 h-48 w-48 rounded-full bg-teal-300/15 blur-3xl" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {STAFF_MEMBERS.map((staff) => (
-            <div
+            <button
+              type="button"
               key={staff.id}
               onClick={() => setSelectedStaff(staff)}
-              className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between"
+              aria-label={`View profile of ${staff.name}, ${staff.designation}`}
+              className="w-full h-full text-left text-inherit bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 hover:border-medical-300 dark:hover:border-medical-700 transition-all focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-medical-500 group flex flex-col justify-between"
             >
               <div>
                 <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
@@ -279,7 +282,7 @@ export const About: React.FC = () => {
               <div className="p-4 pt-0 text-[11px] text-tealbrand-600 dark:text-tealbrand-400 font-semibold flex items-center gap-1">
                 <Info className="w-3 h-3" /> Click for details
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
