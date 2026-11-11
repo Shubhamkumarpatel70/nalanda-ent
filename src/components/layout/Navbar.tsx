@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
       
       {/* Top Bar */}
-      <div className="bg-medical-900 text-white text-xs sm:text-sm py-2 px-4 shadow-inner">
+      <div className="bg-slate-950 text-white text-xs sm:text-sm py-2 px-4 shadow-inner">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4 text-slate-200">
             <a href={`tel:${CLINIC_INFO.emergencyNumber}`} className="hover:underline font-semibold text-amber-300 flex items-center gap-1.5">
@@ -238,6 +238,12 @@ export const Navbar: React.FC = () => {
               Contact
             </Link>
             
+            {isAuthenticated && !isAdmin && (
+              <Link to="/my-queries" className="block px-4 py-2.5 rounded-xl text-base font-bold text-medical-700 dark:text-medical-300 bg-medical-50 dark:bg-medical-950/50 border-l-4 border-medical-500">
+                My Contact Queries
+              </Link>
+            )}
+
             {isAdmin && (
               <Link to="/admin/queries" className={`px-3 py-2 text-sm font-bold rounded-lg transition-colors flex items-center gap-1 ${isActive('/admin/queries') ? 'bg-amber-500 text-white' : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30'}`}>
                 <ShieldCheck className="w-4 h-4" /> Admin Queries
@@ -278,6 +284,9 @@ export const Navbar: React.FC = () => {
                       <div className="text-xs font-bold text-slate-900 dark:text-white truncate">{user?.name}</div>
                       <div className="text-[11px] text-slate-500 truncate">{user?.email}</div>
                     </div>
+                    {!isAdmin && (
+                      <Link to="/my-queries" onClick={() => setUserDropdownOpen(false)} className="block px-3 py-2 rounded-lg text-xs font-bold text-medical-700 dark:text-medical-300 hover:bg-medical-50 dark:hover:bg-medical-950/40">My Contact Queries</Link>
+                    )}
                     {isAdmin && (
                       <Link to="/admin/queries" className="block px-3 py-2 rounded-lg text-xs font-bold text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40">
                         Admin Queries Dashboard
@@ -311,12 +320,12 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
-            <button onClick={toggleTheme} className="p-2 rounded-xl text-slate-600 dark:text-slate-300">
+            <button onClick={toggleTheme} aria-label="Toggle color theme" className="p-2.5 rounded-xl text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
               {theme === 'dark' ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-medical-600" />}
             </button>
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="p-2 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-transform active:scale-95"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={mobileMenuOpen} className="p-2.5 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-transform active:scale-95"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -324,7 +333,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 fade-in">
+          <div className="lg:hidden max-h-[calc(100dvh-7rem)] overflow-y-auto overscroll-contain bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 fade-in shadow-2xl">
             <Link to="/" className={`block px-4 py-2.5 rounded-xl text-base font-medium ${isActive('/') ? 'bg-medical-50 dark:bg-medical-950/80 text-medical-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}>
               Home
             </Link>
