@@ -34,7 +34,7 @@ export function requireAdmin(req, res, next) {
 // 1. SIGNUP ENDPOINT - Default role is strictly 'user'
 authRouter.post('/signup', async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, phone, password } = req.body;
 
     if (!name || !email || !password) {
       return res.status(400).json({ error: 'Name, email, and password are required.' });
@@ -56,11 +56,12 @@ authRouter.post('/signup', async (req, res) => {
       const created = await User.create({
         name,
         email: email.toLowerCase(),
+        phone: phone ? String(phone).replace(/\D/g, '').slice(-10) : '',
         passwordHash,
         role: 'user' // Default role is strictly 'user'
       });
 
-      newUserObj = { id: created._id.toString(), name: created.name, email: created.email, role: created.role };
+      newUserObj = { id: created._id.toString(), name: created.name, email: created.email, phone: created.phone || '', role: created.role };
     } else {
       const db = readFallbackDB();
       const existingUser = db.users.find(u => u.email.toLowerCase() === email.toLowerCase());
@@ -80,7 +81,7 @@ authRouter.post('/signup', async (req, res) => {
       db.users.push(newFallback);
       writeFallbackDB(db);
 
-      newUserObj = { id: newFallback.id, name: newFallback.name, email: newFallback.email, role: newFallback.role };
+      newUserObj = { id: newFallback.id, name: newFallback.name, email: newFallback.email, phone: newFallback.phone || '', role: newFallback.role };
     }
 
     const token = jwt.sign(
@@ -118,7 +119,7 @@ authRouter.post('/login', async (req, res) => {
       const validPassword = await bcrypt.compare(password, user.passwordHash);
       if (!validPassword) return res.status(401).json({ error: 'Invalid email or password.' });
 
-      userFound = { id: user._id.toString(), name: user.name, email: user.email, role: user.role };
+      userFound = { id: user._id.toString(), name: user.name, email: user.email, phone: user.phone || '', role: user.role };
     } else {
       const db = readFallbackDB();
       const user = db.users.find(u => u.email.toLowerCase() === email.toLowerCase());
@@ -126,7 +127,7 @@ authRouter.post('/login', async (req, res) => {
       const validPassword = await bcrypt.compare(password, user.passwordHash);
       if (!validPassword) return res.status(401).json({ error: 'Invalid email or password.' });
 
-      userFound = { id: user.id || user._id, name: user.name, email: user.email, role: user.role };
+      userFound = { id: user.id || user._id, name: user.name, email: user.email, phone: user.phone || '', role: user.role };
     }
 
     const token = jwt.sign(
@@ -153,12 +154,12 @@ authRouter.get('/me', authenticateToken, async (req, res) => {
     if (isMongoConnected) {
       const user = await User.findById(req.user.id);
       if (!user) return res.status(404).json({ error: 'User account not found.' });
-      return res.json({ user: { id: user._id.toString(), name: user.name, email: user.email, role: user.role } });
+      return res.json({ user: { id: user._id.toString(), name: user.name, email: user.email, phone: user.phone || '', role: user.role } });
     } else {
       const db = readFallbackDB();
       const user = db.users.find(u => (u.id || u._id) === req.user.id);
       if (!user) return res.status(404).json({ error: 'User account not found.' });
-      return res.json({ user: { id: user.id || user._id, name: user.name, email: user.email, role: user.role } });
+      return res.json({ user: { id: user.id || user._id, name: user.name, email: user.email, phone: user.phone || '', role: user.role } });
     }
   } catch (err) {
     return res.status(500).json({ error: 'Server error checking session.' });
