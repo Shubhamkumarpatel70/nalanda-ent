@@ -67,6 +67,5 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, onClose }) => {
           </div>
         </div>
       </div>
-    </div>
-  ), document.body);
+    </div>, document.body);
 };

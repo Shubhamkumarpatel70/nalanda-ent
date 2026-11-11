@@ -111,6 +111,5 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
           </button>
         </div>
       </section>
-    </div>
-  ), document.body);
+    </div>, document.body);
 };
