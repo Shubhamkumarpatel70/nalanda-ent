@@ -41,7 +41,7 @@ authRouter.post('/signup', async (req, res) => {
     }
 
     const normalizedPhone = String(phone).replace(/\D/g, '');
-    if (!/^[6-9]\\d{9}$/.test(normalizedPhone)) {
+    if (!/^[6-9]\d{9}$/.test(normalizedPhone)) {
       return res.status(400).json({ error: 'Enter a valid 10-digit Indian mobile number.' });
     }
 
