@@ -21,9 +21,13 @@ connectDB();
 const purgeExpiredEmailRestrictions = () => {
   if (isMongoConnected) return;
   const db = readFallbackDB();
-  const before = (db.emailRestrictions || []).length;
-  db.emailRestrictions = (db.emailRestrictions || []).filter(item => new Date(item.expiresAt) > new Date());
-  if (db.emailRestrictions.length !== before) writeFallbackDB(db);
+  const now = new Date();
+  const beforeRestrictions = (db.emailRestrictions || []).length;
+  const beforeRequests = (db.deletionRequests || []).length;
+  db.emailRestrictions = (db.emailRestrictions || []).filter(item => new Date(item.expiresAt) > now);
+  // Keep only anonymized deletion progress records for 90 days after admin completion.
+  db.deletionRequests = (db.deletionRequests || []).filter(item => !item.purgeAt || new Date(item.purgeAt) > now);
+  if (db.emailRestrictions.length !== beforeRestrictions || db.deletionRequests.length !== beforeRequests) writeFallbackDB(db);
 };
 purgeExpiredEmailRestrictions();
 setInterval(purgeExpiredEmailRestrictions, 60 * 60 * 1000).unref();
