@@ -224,7 +224,7 @@ authRouter.get('/account-deletion', authenticateToken, requireAdmin, async (req,
     const requests = isMongoConnected
       ? await AccountDeletionRequest.find().sort({ createdAt: -1 }).lean()
       : (readFallbackDB().deletionRequests || []).slice().sort((a,b) => new Date(b.createdAt)-new Date(a.createdAt));
-    return res.json({ requests: requests.map(r => ({ id: String(r._id || r.id), userId: r.userId, name: r.name, email: r.email, phone: r.phone, reason: r.reason, status: r.status, createdAt: r.createdAt })) });
+    return res.json({ requests: requests.map(r => ({ id: String(r._id || r.id), userId: r.userId, name: r.name, email: r.email, phone: r.phone, reason: r.reason, status: r.status, createdAt: r.createdAt, completedAt: r.completedAt || null, purgeAt: r.purgeAt || null, completedBy: r.completedBy || '' })) });
   } catch (err) { return res.status(500).json({ error: 'Unable to load deletion requests.' }); }
 });
 
@@ -240,8 +240,9 @@ authRouter.patch('/account-deletion/:id', authenticateToken, requireAdmin, async
         const account = await User.findById(request.userId).select('email phone');
         if (account) {
           const emailHash = createHash('sha256').update(String(account.email).trim().toLowerCase()).digest('hex');
-          const expiresAt = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000);
-          await EmailRestriction.findOneAndUpdate({ emailHash }, { emailHash, expiresAt }, { upsert: true, new: true });
+          const completedAt = new Date();
+          const purgeAt = new Date(completedAt.getTime() + 90 * 24 * 60 * 60 * 1000);
+          await EmailRestriction.findOneAndUpdate({ emailHash }, { emailHash, expiresAt: purgeAt }, { upsert: true, new: true });
           const digits = String(account.phone || '').replace(/\D/g, '').slice(-10);
           const phonePattern = digits ? new RegExp(digits.split('').join('\\D*') + '$') : null;
           const filters = [{ email: account.email }];
@@ -253,10 +254,13 @@ authRouter.patch('/account-deletion/:id', authenticateToken, requireAdmin, async
         request.email = 'deleted@redacted.invalid';
         request.phone = '';
         request.reason = 'Personal data erased after account deletion.';
+        request.completedAt = completedAt;
+        request.purgeAt = purgeAt;
+        request.completedBy = String(req.user.id);
       }
       request.status = status;
       await request.save();
-      return res.json({ message: status === 'Completed' ? 'Account and related contact queries deleted. Email restricted for 90 days.' : 'Deletion request updated.', request: { id: String(request._id), name: request.name, email: request.email, phone: request.phone, reason: request.reason, status: request.status, createdAt: request.createdAt } });
+      return res.json({ message: status === 'Completed' ? 'Account and related contact queries deleted. Email restricted for 90 days.' : 'Deletion request updated.', request: { id: String(request._id), name: request.name, email: request.email, phone: request.phone, reason: request.reason, status: request.status, createdAt: request.createdAt, completedAt: request.completedAt, purgeAt: request.purgeAt, completedBy: request.completedBy } });
     }
 
     const db = readFallbackDB();
@@ -269,7 +273,9 @@ authRouter.patch('/account-deletion/:id', authenticateToken, requireAdmin, async
       const account = db.users.find(u => (u.id || u._id) === request.userId);
       if (account) {
         const emailHash = createHash('sha256').update(String(account.email).trim().toLowerCase()).digest('hex');
-        const expiresAt = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString();
+        const completedAt = new Date();
+        const purgeAt = new Date(completedAt.getTime() + 90 * 24 * 60 * 60 * 1000);
+        const expiresAt = purgeAt.toISOString();
         db.emailRestrictions = db.emailRestrictions.filter(item => item.emailHash !== emailHash);
         db.emailRestrictions.push({ emailHash, expiresAt });
         const digits = String(account.phone || '').replace(/\D/g, '').slice(-10);
@@ -282,6 +288,9 @@ authRouter.patch('/account-deletion/:id', authenticateToken, requireAdmin, async
       request.email = '';
       request.phone = '';
       request.reason = 'Personal data erased after account deletion.';
+      request.completedAt = completedAt.toISOString();
+      request.purgeAt = purgeAt.toISOString();
+      request.completedBy = String(req.user.id);
     }
     request.status = status;
     request.updatedAt = new Date().toISOString();
