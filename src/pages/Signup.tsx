@@ -11,6 +11,7 @@ export const Signup: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [restrictionWarning, setRestrictionWarning] = useState(false);
   const [loading, setLoading] = useState(false);
   const { signup } = useAuth();
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export const Signup: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setRestrictionWarning(false);
     const normalizedPhone = phone.replace(/\D/g, '');
     if (!/^[6-9]\d{9}$/.test(normalizedPhone)) {
       setError('Please enter a valid 10-digit Indian mobile number.');
@@ -39,7 +41,7 @@ export const Signup: React.FC = () => {
         body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: normalizedPhone, password })
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to create account');
+      if (!res.ok) { if (data.code === 'EMAIL_RESTRICTED') setRestrictionWarning(true); throw new Error(data.error || 'Failed to create account'); }
       signup(data.token, data.user);
       navigate('/dashboard');
     } catch (err) {
@@ -77,7 +79,8 @@ export const Signup: React.FC = () => {
             <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Create your account</h2>
             <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Enter your details to get started.</p>
           </div>
-          {error && <div role="alert" className="mb-5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-300">{error}</div>}
+          {restrictionWarning && <div role="alertdialog" aria-modal="true" className="fixed inset-0 z-[200] flex items-center justify-center bg-slate-950/60 p-4"><div className="w-full max-w-md rounded-3xl bg-white dark:bg-slate-900 p-6 shadow-2xl border border-amber-200 dark:border-amber-900"><div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300"><ShieldCheck className="h-7 w-7"/></div><h3 className="text-center text-xl font-extrabold text-slate-900 dark:text-white">Email temporarily unavailable</h3><p className="mt-3 text-center text-sm leading-6 text-slate-600 dark:text-slate-300">This email was used by an account whose deletion was completed. For the next 90 days, you cannot create a new account with this email. Please use another email address.</p><button type="button" onClick={()=>{setRestrictionWarning(false);setError(null);setEmail("");}} className="mt-6 w-full rounded-xl bg-medical-700 px-4 py-3 text-sm font-bold text-white hover:bg-medical-800">Use another email</button></div></div>}
+          {error && !restrictionWarning && <div role="alert" className="mb-5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-300">{error}</div>}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="signup-name" className="mb-1.5 block text-sm font-semibold text-slate-700 dark:text-slate-300">Full name</label>

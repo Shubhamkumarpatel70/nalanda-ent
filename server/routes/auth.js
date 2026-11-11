@@ -1,6 +1,9 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { createHash } from 'crypto';
+import { ContactQuery } from '../models/ContactQuery.js';
+import { EmailRestriction } from '../models/EmailRestriction.js';
 import { User } from '../models/User.js';
 import { AccountDeletionRequest } from '../models/AccountDeletionRequest.js';
 import { isMongoConnected, readFallbackDB, writeFallbackDB } from '../db.js';
@@ -57,10 +60,24 @@ authRouter.post('/signup', async (req, res) => {
       return res.status(400).json({ error: 'Password must be at least 6 characters long.' });
     }
 
+    const normalizedEmail = String(email).trim().toLowerCase();
+    const emailHash = createHash('sha256').update(normalizedEmail).digest('hex');
+    const now = new Date();
+    if (isMongoConnected) {
+      const blocked = await EmailRestriction.findOne({ emailHash, expiresAt: { $gt: now } }).lean();
+      if (blocked) return res.status(403).json({ code: 'EMAIL_RESTRICTED', error: 'This email cannot be used for 90 days after the previous account deletion. Please use another email address.', expiresAt: blocked.expiresAt });
+    } else {
+      const fallback = readFallbackDB();
+      fallback.emailRestrictions = (fallback.emailRestrictions || []).filter(item => new Date(item.expiresAt) > now);
+      writeFallbackDB(fallback);
+      const blocked = fallback.emailRestrictions.find(item => item.emailHash === emailHash);
+      if (blocked) return res.status(403).json({ code: 'EMAIL_RESTRICTED', error: 'This email cannot be used for 90 days after the previous account deletion. Please use another email address.', expiresAt: blocked.expiresAt });
+    }
+
     let newUserObj;
 
     if (isMongoConnected) {
-      const existingUser = await User.findOne({ email: email.toLowerCase() });
+      const existingUser = await User.findOne({ email: normalizedEmail });
       if (existingUser) {
         return res.status(400).json({ error: 'An account with this email already exists.' });
       }
@@ -77,7 +94,7 @@ authRouter.post('/signup', async (req, res) => {
       newUserObj = { id: created._id.toString(), name: created.name, email: created.email, phone: created.phone || '', role: created.role };
     } else {
       const db = readFallbackDB();
-      const existingUser = db.users.find(u => u.email.toLowerCase() === email.toLowerCase());
+      const existingUser = db.users.find(u => u.email.toLowerCase() === normalizedEmail);
       if (existingUser) {
         return res.status(400).json({ error: 'An account with this email already exists.' });
       }
@@ -215,19 +232,65 @@ authRouter.patch('/account-deletion/:id', authenticateToken, requireAdmin, async
   try {
     const status = req.body.status;
     if (!['Reviewed', 'Rejected', 'Completed'].includes(status)) return res.status(400).json({ error: 'Invalid request status.' });
+
     if (isMongoConnected) {
-      const request = await AccountDeletionRequest.findByIdAndUpdate(req.params.id, { status }, { new: true });
+      const request = await AccountDeletionRequest.findById(req.params.id);
       if (!request) return res.status(404).json({ error: 'Request not found.' });
-      if (status === 'Completed') await User.findByIdAndDelete(request.userId);
-      return res.json({ message: 'Deletion request updated.', request });
+      if (status === 'Completed' && request.status !== 'Completed') {
+        const account = await User.findById(request.userId).select('email phone');
+        if (account) {
+          const emailHash = createHash('sha256').update(String(account.email).trim().toLowerCase()).digest('hex');
+          const expiresAt = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000);
+          await EmailRestriction.findOneAndUpdate({ emailHash }, { emailHash, expiresAt }, { upsert: true, new: true });
+          const digits = String(account.phone || '').replace(/\D/g, '').slice(-10);
+          const phonePattern = digits ? new RegExp(digits.split('').join('\\D*') + '$') : null;
+          const filters = [{ email: account.email }];
+          if (phonePattern) filters.push({ phone: phonePattern });
+          await Promise.all([ContactQuery.deleteMany({ $or: filters }), User.deleteOne({ _id: account._id })]);
+        }
+        request.userId = 'deleted';
+        request.name = 'Deleted user';
+        request.email = 'deleted@redacted.invalid';
+        request.phone = '';
+        request.reason = 'Personal data erased after account deletion.';
+      }
+      request.status = status;
+      await request.save();
+      return res.json({ message: status === 'Completed' ? 'Account and related contact queries deleted. Email restricted for 90 days.' : 'Deletion request updated.', request: { id: String(request._id), name: request.name, email: request.email, phone: request.phone, reason: request.reason, status: request.status, createdAt: request.createdAt } });
     }
-    const db = readFallbackDB(); db.deletionRequests ||= [];
+
+    const db = readFallbackDB();
+    db.deletionRequests ||= [];
+    db.emailRestrictions ||= [];
+    db.queries ||= [];
     const request = db.deletionRequests.find(r => (r.id || r._id) === req.params.id);
     if (!request) return res.status(404).json({ error: 'Request not found.' });
-    request.status = status; request.updatedAt = new Date().toISOString();
-    if (status === 'Completed') db.users = db.users.filter(u => (u.id || u._id) !== request.userId);
-    writeFallbackDB(db); return res.json({ message: 'Deletion request updated.', request });
-  } catch (err) { return res.status(500).json({ error: 'Unable to update deletion request.' }); }
+    if (status === 'Completed' && request.status !== 'Completed') {
+      const account = db.users.find(u => (u.id || u._id) === request.userId);
+      if (account) {
+        const emailHash = createHash('sha256').update(String(account.email).trim().toLowerCase()).digest('hex');
+        const expiresAt = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString();
+        db.emailRestrictions = db.emailRestrictions.filter(item => item.emailHash !== emailHash);
+        db.emailRestrictions.push({ emailHash, expiresAt });
+        const digits = String(account.phone || '').replace(/\D/g, '').slice(-10);
+        const normalizePhone = value => String(value || '').replace(/\D/g, '').slice(-10);
+        db.queries = db.queries.filter(q => String(q.email || '').trim().toLowerCase() !== String(account.email || '').trim().toLowerCase() && !(digits && normalizePhone(q.phone) === digits));
+        db.users = db.users.filter(u => (u.id || u._id) !== request.userId);
+      }
+      request.userId = 'deleted';
+      request.name = 'Deleted user';
+      request.email = '';
+      request.phone = '';
+      request.reason = 'Personal data erased after account deletion.';
+    }
+    request.status = status;
+    request.updatedAt = new Date().toISOString();
+    writeFallbackDB(db);
+    return res.json({ message: status === 'Completed' ? 'Account and related contact queries deleted. Email restricted for 90 days.' : 'Deletion request updated.', request });
+  } catch (err) {
+    console.error('Account deletion completion error:', err);
+    return res.status(500).json({ error: 'Unable to complete account deletion.' });
+  }
 });
 
 // Admin user directory and role management. Role is persisted in the active database.
