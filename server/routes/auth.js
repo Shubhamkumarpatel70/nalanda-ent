@@ -221,9 +221,30 @@ authRouter.post('/account-deletion', authenticateToken, async (req, res) => {
 
 authRouter.get('/account-deletion', authenticateToken, requireAdmin, async (req, res) => {
   try {
-    const requests = isMongoConnected
-      ? await AccountDeletionRequest.find().sort({ createdAt: -1 }).lean()
-      : (readFallbackDB().deletionRequests || []).slice().sort((a,b) => new Date(b.createdAt)-new Date(a.createdAt));
+    let requests;
+    if (isMongoConnected) {
+      requests = await AccountDeletionRequest.find().sort({ createdAt: -1 });
+      // Backfill legacy completed requests using their persisted updatedAt timestamp.
+      for (const request of requests) {
+        if (request.status === 'Completed' && !request.completedAt) {
+          request.completedAt = request.updatedAt || request.createdAt || new Date();
+          request.purgeAt = new Date(new Date(request.completedAt).getTime() + 90 * 24 * 60 * 60 * 1000);
+          await request.save();
+        }
+      }
+    } else {
+      const db = readFallbackDB();
+      requests = (db.deletionRequests || []).slice().sort((a,b) => new Date(b.createdAt)-new Date(a.createdAt));
+      let changed = false;
+      for (const request of requests) {
+        if (request.status === 'Completed' && !request.completedAt) {
+          request.completedAt = request.updatedAt || request.createdAt || new Date().toISOString();
+          request.purgeAt = new Date(new Date(request.completedAt).getTime() + 90 * 24 * 60 * 60 * 1000).toISOString();
+          changed = true;
+        }
+      }
+      if (changed) writeFallbackDB(db);
+    }
     return res.json({ requests: requests.map(r => ({ id: String(r._id || r.id), userId: r.userId, name: r.name, email: r.email, phone: r.phone, reason: r.reason, status: r.status, createdAt: r.createdAt, completedAt: r.completedAt || null, purgeAt: r.purgeAt || null, completedBy: r.completedBy || '' })) });
   } catch (err) { return res.status(500).json({ error: 'Unable to load deletion requests.' }); }
 });
