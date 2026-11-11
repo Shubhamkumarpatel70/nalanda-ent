@@ -27,7 +27,7 @@ export const Home: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 pb-12">
       
       {/* 1. HERO SECTION */}
-      <section className="home-hero relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 bg-gradient-to-b from-medical-50/60 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      <section className="home-hero relative overflow-hidden pt-10 pb-20 lg:pt-20 lg:pb-28 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-cyan-100 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
         
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-medical-400/10 dark:bg-medical-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-tealbrand-400/10 dark:bg-tealbrand-600/10 rounded-full blur-3xl pointer-events-none" />
