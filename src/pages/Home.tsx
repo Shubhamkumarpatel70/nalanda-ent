@@ -27,7 +27,7 @@ export const Home: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 pb-12">
       
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 bg-gradient-to-b from-medical-50/60 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      <section className="home-hero relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 bg-gradient-to-b from-medical-50/60 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
         
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-medical-400/10 dark:bg-medical-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-tealbrand-400/10 dark:bg-tealbrand-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -43,7 +43,7 @@ export const Home: React.FC = () => {
                 <span>NALANDA ENT CENTER</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-slate-900 dark:text-white leading-[1.08]">
                 Consultant ENT Surgeon & Specialist in <span className="text-gradient-primary dark:text-gradient-dark">Endoscopic ENT Care</span>
               </h1>
 
@@ -86,7 +86,7 @@ export const Home: React.FC = () => {
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-medical-500 to-tealbrand-500 opacity-20 blur-lg animate-pulse-slow" />
 
-                <div className="relative glass-card rounded-3xl p-6 shadow-2xl border border-slate-200/80 dark:border-slate-800 space-y-6">
+                <div className="hero-panel relative glass-card rounded-3xl p-6 shadow-2xl border border-slate-200/80 dark:border-slate-800 space-y-6">
                   
                   <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-inner">
                     <img
@@ -138,7 +138,7 @@ export const Home: React.FC = () => {
 
       {/* 2. STATS BAR */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-medical-900 via-medical-800 to-tealbrand-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl">
+        <div className="home-stat-strip bg-gradient-to-r from-medical-900 via-medical-800 to-tealbrand-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
             <div className="space-y-1">
               <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">20+</div>
