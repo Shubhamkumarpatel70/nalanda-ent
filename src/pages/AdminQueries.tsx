@@ -7,7 +7,7 @@ type Status='New'|'In Progress'|'Resolved';
 type Query={id:string;name:string;email:string;phone:string;branchPreference:string;subject:string;message:string;status:Status;createdAt:string};
 type UserRow={id:string;name:string;email:string;phone:string;role:'user'|'admin';createdAt?:string};
 type Deletion={id:string;userId:string;name:string;email:string;phone:string;reason:string;status:'Pending'|'Reviewed'|'Rejected'|'Completed';createdAt:string};
-const indiaDate=(value?:string)=>value?new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true}).format(new Date(value))+' IST':'—';
+const indiaDate=(value?:string)=>{if(!value)return '—';const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true}).formatToParts(new Date(value));const get=(type:string)=>parts.find(p=>p.type===type)?.value||'';return `${get('day')}-${get('month')}-${get('year')}, ${get('hour')}:${get('minute')} ${get('dayPeriod').toUpperCase()} IST`;};
 export const AdminQueries:React.FC=()=>{
  const {token}=useAuth();const [tab,setTab]=useState<'queries'|'users'|'deletions'>('queries');
  const [queries,setQueries]=useState<Query[]>([]);const [users,setUsers]=useState<UserRow[]>([]);const [deletions,setDeletions]=useState<Deletion[]>([]);
