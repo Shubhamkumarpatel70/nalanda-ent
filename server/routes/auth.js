@@ -36,8 +36,13 @@ authRouter.post('/signup', async (req, res) => {
   try {
     const { name, email, phone, password } = req.body;
 
-    if (!name || !email || !password) {
-      return res.status(400).json({ error: 'Name, email, and password are required.' });
+    if (!name || !email || !phone || !password) {
+      return res.status(400).json({ error: 'Name, email, mobile number, and password are required.' });
+    }
+
+    const normalizedPhone = String(phone).replace(/\\D/g, '');
+    if (!/^[6-9]\\d{9}$/.test(normalizedPhone)) {
+      return res.status(400).json({ error: 'Enter a valid 10-digit Indian mobile number.' });
     }
 
     if (password.length < 6) {
