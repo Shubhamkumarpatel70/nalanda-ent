@@ -1,6 +1,6 @@
 import React from 'react';
 import { TESTIMONIALS, CLINIC_INFO } from '../data/clinicData';
-import { Star, Quote, CheckCircle2, MapPin, Activity } from 'lucide-react';
+import { Star, Quote, CheckCircle2, MapPin, Activity, ExternalLink } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
   return (
@@ -43,6 +43,35 @@ export const Testimonials: React.FC = () => {
             <div className="text-sm text-slate-300 font-semibold">Surgical Hearing Restoration Rate</div>
             <div className="text-xs text-slate-400">In Microscopic Tympanoplasty procedures</div>
           </div>
+        </div>
+      </section>
+
+      {/* GOOGLE MAPS REVIEW LINKS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs uppercase tracking-[0.18em] font-bold text-medical-600 dark:text-medical-400">More patient feedback</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 dark:text-white">Read Reviews on Google Maps</h2>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Explore the Google Maps feedback shared through the links below.</p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            "https://goo.gl/maps/Udc2H9z72Cow4P5U6",
+            "https://goo.gl/maps/kme12m4Zzvckef558",
+            "https://goo.gl/maps/qoTjN673GnZAUoWh8",
+            "https://goo.gl/maps/189mi5JsAXpaqMpy7",
+            "https://goo.gl/maps/aMcQP5Rxd9eeaajR9"
+          ].map((url, index) => (
+            <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between gap-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 shadow-sm hover:shadow-lg hover:border-medical-300 dark:hover:border-medical-700 transition-all focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-medical-400/40">
+              <span className="flex items-center gap-3">
+                <span className="w-11 h-11 rounded-xl bg-medical-50 dark:bg-medical-950/60 text-medical-600 flex items-center justify-center"><MapPin className="w-5 h-5" /></span>
+                <span>
+                  <span className="block text-sm font-bold text-slate-900 dark:text-white">Google Maps feedback {index + 1}</span>
+                  <span className="block text-xs text-slate-500 dark:text-slate-400 mt-1">Open patient feedback on Google Maps</span>
+                </span>
+              </span>
+              <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-medical-600 shrink-0" />
+            </a>
+          ))}
         </div>
       </section>
 

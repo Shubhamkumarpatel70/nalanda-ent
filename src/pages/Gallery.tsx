@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { GALLERY_ITEMS, GalleryItem } from '../data/clinicData';
 import { Lightbox } from '../components/gallery/Lightbox';
-import { Maximize2, Tag } from 'lucide-react';
+import { Maximize2, Tag, Images, Search } from 'lucide-react';
 
 export const Gallery: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -14,11 +14,11 @@ export const Gallery: React.FC = () => {
     : GALLERY_ITEMS.filter(item => item.category === activeCategory);
 
   return (
-    <div className="space-y-12 pb-16">
+    <div className="space-y-10 sm:space-y-14 pb-16">
       
       {/* HEADER BANNER */}
-      <section className="page-banner bg-gradient-to-b from-medical-900 via-medical-800 to-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center space-y-4">
+      <section className="page-banner bg-gradient-to-b from-medical-900 via-medical-800 to-slate-900 text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center space-y-5">
           <span className="inline-block bg-tealbrand-500/20 text-tealbrand-300 border border-tealbrand-500/30 text-xs uppercase font-bold tracking-widest px-3 py-1 rounded-full">
             Visual Experience
           </span>
@@ -26,17 +26,23 @@ export const Gallery: React.FC = () => {
             Clinic Infrastructure & Gallery
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Take a look inside Nalanda ENT Center and explore our clinical environment, consultation areas, and patient facilities.
+            Explore the spaces, equipment, and facilities at Nalanda ENT Center through our photo gallery.
           </p>
         </div>
       </section>
 
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-5 relative z-10">
+        <div className="mx-auto max-w-3xl rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 shadow-lg px-4 py-4 flex items-center justify-center gap-3 text-sm text-slate-600 dark:text-slate-300"><Images className="w-5 h-5 text-medical-600 shrink-0" /><span>Browse photos by category and tap any image to view it in full size.</span></div>
+      </section>
+
       {/* CATEGORY FILTERS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Filter gallery by category">
           {categories.map((cat) => (
             <button
               key={cat}
+              type="button"
+              aria-pressed={activeCategory === cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
                 activeCategory === cat
@@ -52,16 +58,20 @@ export const Gallery: React.FC = () => {
 
       {/* GALLERY GRID / MASONRY - Displays only image title and tag */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
           {filteredItems.map((item) => (
-            <div
+            <button
+              type="button"
               key={item.id}
               onClick={() => setSelectedImage(item)}
-              className="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 cursor-pointer bg-slate-900 aspect-video sm:aspect-square"
+              aria-label={`View ${item.title} image`}
+              className="group relative block w-full text-left rounded-3xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 cursor-pointer bg-slate-900 aspect-[4/3] sm:aspect-square focus-visible:ring-4 focus-visible:ring-medical-400/60"
             >
               <img
                 src={item.image || '/logo.png'}
                 alt={item.title}
+                loading="lazy"
+                decoding="async"
                 onError={(e) => { e.currentTarget.src = '/logo.png'; }}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -77,9 +87,16 @@ export const Gallery: React.FC = () => {
               <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-xs">
                 <Maximize2 className="w-4 h-4" />
               </div>
-            </div>
+            </button>
           ))}
         </div>
+        {filteredItems.length === 0 && (
+          <div className="py-16 text-center rounded-3xl border border-dashed border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/50">
+            <Search className="w-8 h-8 mx-auto mb-3 text-slate-400" />
+            <p className="font-semibold text-slate-700 dark:text-slate-200">No photos in this category yet.</p>
+            <button type="button" onClick={() => setActiveCategory("All")} className="mt-3 text-sm font-semibold text-medical-600 hover:underline">Show all photos</button>
+          </div>
+        )}
       </section>
 
       {/* LIGHTBOX MODAL */}

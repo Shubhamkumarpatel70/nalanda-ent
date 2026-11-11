@@ -28,6 +28,8 @@ export const Navbar: React.FC = () => {
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [mobileBranchOpen, setMobileBranchOpen] = useState(false);
   const [mobileOthersOpen, setMobileOthersOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -43,6 +45,10 @@ export const Navbar: React.FC = () => {
     setBranchDropdownOpen(false);
     setOthersDropdownOpen(false);
     setUserDropdownOpen(false);
+    setMobileBranchOpen(false);
+    setMobileOthersOpen(false);
+    setMobileServicesOpen(false);
+    setDesktopServicesOpen(false);
   }, [location.pathname]);
 
   const isActive = (path: string) => location.pathname === path;
@@ -134,8 +140,8 @@ export const Navbar: React.FC = () => {
             {/* Desktop Branch Dropdown */}
             <div className="relative group">
               <button
-                onClick={() => setBranchDropdownOpen(!branchDropdownOpen)}
-                onMouseEnter={() => setBranchDropdownOpen(true)}
+                onClick={() => { setBranchDropdownOpen(!branchDropdownOpen); setOthersDropdownOpen(false); setUserDropdownOpen(false); }}
+                onMouseEnter={() => { setBranchDropdownOpen(true); setOthersDropdownOpen(false); setUserDropdownOpen(false); }}
                 className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center gap-1 ${
                   location.pathname.startsWith('/branches') ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
@@ -175,8 +181,8 @@ export const Navbar: React.FC = () => {
             {/* Desktop Others Dropdown (Services, Reviews, Blogs, FAQ) */}
             <div className="relative group">
               <button
-                onClick={() => setOthersDropdownOpen(!othersDropdownOpen)}
-                onMouseEnter={() => setOthersDropdownOpen(true)}
+                onClick={() => { setOthersDropdownOpen(!othersDropdownOpen); setBranchDropdownOpen(false); setUserDropdownOpen(false); }}
+                onMouseEnter={() => { setOthersDropdownOpen(true); setBranchDropdownOpen(false); setUserDropdownOpen(false); }}
                 className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center gap-1 ${
                   ['/services', '/testimonials', '/blogs', '/faq'].some(p => location.pathname.startsWith(p))
                     ? 'text-medical-600 dark:text-medical-400 bg-medical-50 dark:bg-medical-950/50 font-semibold'
@@ -191,20 +197,26 @@ export const Navbar: React.FC = () => {
                   onMouseLeave={() => setOthersDropdownOpen(false)}
                   className="absolute top-full left-0 w-72 mt-1 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-2"
                 >
-                  <div className="px-3 py-2 text-xs uppercase tracking-wider font-bold text-slate-400">
-                    Services
-                  </div>
-                  <div className="h-px bg-slate-100 dark:bg-slate-800 my-1" />
-                  {SPECIALTY_SERVICES.map((service) => (
-                    <Link 
-                      key={service.id} 
-                      to={`/services#${service.id}`} 
-                      className="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    >
-                      <div className="text-xs font-semibold text-slate-900 dark:text-slate-100">{service.title}</div>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">{service.shortDesc}</p>
-                    </Link>
-                  ))}
+                  <button
+                    type="button"
+                    aria-expanded={desktopServicesOpen}
+                    onClick={() => setDesktopServicesOpen(!desktopServicesOpen)}
+                    className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs uppercase tracking-wider font-bold text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
+                  >
+                    <span>Services</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${desktopServicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {desktopServicesOpen && (
+                    <div className="ml-2 pl-2 border-l border-slate-200 dark:border-slate-700 space-y-1">
+                      <Link to="/services" className="block px-3 py-2 text-xs font-bold text-medical-600 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">All Services</Link>
+                      {SPECIALTY_SERVICES.map((service) => (
+                        <Link key={service.id} to={`/services#${service.id}`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                          <div className="text-xs font-semibold text-slate-900 dark:text-slate-100">{service.title}</div>
+                          <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">{service.shortDesc}</p>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                   
                   <div className="h-px bg-slate-100 dark:bg-slate-800 my-2" />
                   <div className="px-3 py-2 text-xs uppercase tracking-wider font-bold text-slate-400">
@@ -263,7 +275,7 @@ export const Navbar: React.FC = () => {
             {isAuthenticated ? (
               <div className="relative">
                 <button
-                  onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                  onClick={() => { setUserDropdownOpen(!userDropdownOpen); setBranchDropdownOpen(false); setOthersDropdownOpen(false); }}
                   className="flex items-center gap-2 p-1.5 pl-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-800"
                 >
                   <div className="w-6 h-6 rounded-full bg-medical-600 text-white flex items-center justify-center text-xs font-bold uppercase">
@@ -344,7 +356,7 @@ export const Navbar: React.FC = () => {
             {/* Mobile Branch Dropdown Accordion */}
             <div className="space-y-1">
               <button
-                onClick={() => setMobileBranchOpen(!mobileBranchOpen)}
+                onClick={() => { setMobileBranchOpen(!mobileBranchOpen); setMobileOthersOpen(false); setMobileServicesOpen(false); }}
                 className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
               >
                 <span>Branches</span>
@@ -383,7 +395,7 @@ export const Navbar: React.FC = () => {
             {/* Mobile Others Dropdown Accordion */}
             <div className="space-y-1">
               <button
-                onClick={() => setMobileOthersOpen(!mobileOthersOpen)}
+                onClick={() => { setMobileOthersOpen(!mobileOthersOpen); setMobileBranchOpen(false); setMobileServicesOpen(false); }}
                 className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
               >
                 <span>Others</span>
@@ -392,18 +404,25 @@ export const Navbar: React.FC = () => {
 
               {mobileOthersOpen && (
                 <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/60 dark:border-slate-800 ml-2">
-                  <div className="px-3 py-2 text-xs uppercase font-bold tracking-wider text-slate-600 dark:text-slate-400">
-                    Services
-                  </div>
-                  {SPECIALTY_SERVICES.map((service) => (
-                    <Link
-                      key={service.id}
-                      to={`/services#${service.id}`}
-                      className="block px-3 py-2 text-sm text-slate-800 dark:text-slate-200 hover:text-medical-600"
-                    >
-                      {service.title}
-                    </Link>
-                  ))}
+                  <button
+                    type="button"
+                    aria-expanded={mobileServicesOpen}
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="w-full flex items-center justify-between px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200"
+                  >
+                    <span>Services</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {mobileServicesOpen && (
+                    <div className="ml-3 pl-3 border-l border-slate-200 dark:border-slate-700 space-y-1">
+                      <Link to="/services" className="block px-3 py-2 text-sm font-bold text-medical-600">All Services</Link>
+                      {SPECIALTY_SERVICES.map((service) => (
+                        <Link key={service.id} to={`/services#${service.id}`} className="block px-3 py-2 text-sm text-slate-800 dark:text-slate-200 hover:text-medical-600">
+                          {service.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                   <div className="h-px bg-slate-200 dark:bg-slate-700 my-2" />
                   <div className="px-3 py-2 text-xs uppercase font-bold tracking-wider text-slate-600 dark:text-slate-400">
                     More
