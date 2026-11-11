@@ -23,10 +23,14 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, onClose }) => {
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
+      role="presentation"
     >
       <div 
         className="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="gallery-lightbox-title"
       >
         <button
           onClick={onClose}
