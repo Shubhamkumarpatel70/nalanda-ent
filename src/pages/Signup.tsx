@@ -90,7 +90,7 @@ export const Signup: React.FC = () => {
             <div>
               <label htmlFor="signup-phone" className="mb-1.5 block text-sm font-semibold text-slate-700 dark:text-slate-300">Mobile number <span className="text-rose-500">*</span></label>
               <div className="relative"><Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" /><span className="absolute left-10 top-1/2 -translate-y-1/2 text-sm text-slate-500">+91</span><input id="signup-phone" autoComplete="tel-national" type="tel" inputMode="numeric" pattern="[6-9][0-9]{9}" maxLength={10} required placeholder="10-digit mobile number" value={phone} onChange={e=>setPhone(e.target.value.replace(/\D/g,'').slice(0,10))} className={fieldClass.replace('pl-11','pl-[4.5rem]')} /></div>
-              <p className="mt-1.5 text-xs text-slate-500">This number will be saved to your account and used to match your contact queries.</p>
+              
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div><label htmlFor="signup-password" className="mb-1.5 block text-sm font-semibold text-slate-700 dark:text-slate-300">Password</label><div className="relative"><Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" /><input id="signup-password" autoComplete="new-password" type="password" minLength={6} required placeholder="At least 6 characters" value={password} onChange={e=>setPassword(e.target.value)} className={fieldClass} /></div></div>
