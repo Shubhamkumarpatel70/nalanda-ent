@@ -8,7 +8,16 @@ interface LightboxProps {
 }
 
 export const Lightbox: React.FC<LightboxProps> = ({ item, onClose }) => {
-  useEffect(() => {\n    if (!item) return;\n    const previousOverflow = document.body.style.overflow;\n    document.body.style.overflow = 'hidden';\n    const handleKeyDown = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); };\n    window.addEventListener('keydown', handleKeyDown);\n    return () => { document.body.style.overflow = previousOverflow; window.removeEventListener('keydown', handleKeyDown); };\n  }, [item, onClose]);\n\n  if (!item) return null;
+  useEffect(() => {
+    if (!item) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKeyDown = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => { document.body.style.overflow = previousOverflow; window.removeEventListener('keydown', handleKeyDown); };
+  }, [item, onClose]);
+
+  if (!item) return null;
 
   return (
     <div 
