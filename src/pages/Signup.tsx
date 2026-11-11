@@ -46,7 +46,7 @@ export const Signup: React.FC = () => {
       }
 
       signup(data.token, data.user);
-      navigate('/');
+      navigate('/dashboard');
 
     } catch (err: any) {
       setError(err.message || 'Registration failed.');
