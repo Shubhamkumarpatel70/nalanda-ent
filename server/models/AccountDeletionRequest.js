@@ -6,7 +6,10 @@ const accountDeletionRequestSchema = new mongoose.Schema({
   email: { type: String, required: true },
   phone: { type: String, default: '' },
   reason: { type: String, required: true, maxlength: 1000 },
-  status: { type: String, enum: ['Pending', 'Reviewed', 'Rejected', 'Completed'], default: 'Pending' }
+  status: { type: String, enum: ['Pending', 'Reviewed', 'Rejected', 'Completed'], default: 'Pending' },
+  completedAt: { type: Date, default: null },
+  purgeAt: { type: Date, default: null, index: { expires: 0 } },
+  completedBy: { type: String, default: '' }
 }, { timestamps: true });
 
 export const AccountDeletionRequest = mongoose.model('AccountDeletionRequest', accountDeletionRequestSchema);
