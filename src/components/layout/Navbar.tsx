@@ -425,12 +425,6 @@ export const Navbar: React.FC = () => {
               Contact
             </Link>
             
-            {isAuthenticated && !isAdmin && (
-              <Link to="/dashboard" className="block px-4 py-2.5 rounded-xl text-base font-bold text-medical-700 dark:text-medical-300 bg-medical-50 dark:bg-medical-950/50 border-l-4 border-medical-500">
-                User Dashboard
-              </Link>
-            )}
-
             {isAdmin && (
               <Link to="/admin/queries" className="block px-4 py-2.5 rounded-xl text-base font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border-l-4 border-amber-500">
                 Admin Queries Dashboard
