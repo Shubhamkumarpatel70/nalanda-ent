@@ -250,7 +250,7 @@ authRouter.patch('/account-deletion/:id', authenticateToken, requireAdmin, async
         }
         request.userId = 'deleted';
         request.name = 'Deleted user';
-        request.email = '';
+        request.email = 'deleted@redacted.invalid';
         request.phone = '';
         request.reason = 'Personal data erased after account deletion.';
       }
