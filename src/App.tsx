@@ -23,6 +23,7 @@ import { Contact } from './pages/Contact';
 import { Login } from './pages/Login';
 import { Signup } from './pages/Signup';
 import { AdminQueries } from './pages/AdminQueries';
+import { MyQueries } from './pages/MyQueries';
 import { LegalPages } from './pages/LegalPages';
 import { PageLoader } from './components/common/PageLoader';
 import { Activity, Home as HomeIcon } from 'lucide-react';
@@ -78,6 +79,8 @@ export const App: React.FC = () => {
               {/* Auth Routes */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+
+              <Route path="/my-queries" element={<ProtectedRoute><MyQueries /></ProtectedRoute>} />
 
               {/* Admin Protected Route */}
               <Route
