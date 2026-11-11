@@ -61,7 +61,7 @@ authRouter.post('/signup', async (req, res) => {
       const created = await User.create({
         name,
         email: email.toLowerCase(),
-        phone: phone ? String(phone).replace(/\D/g, '').slice(-10) : '',
+        phone: normalizedPhone,
         passwordHash,
         role: 'user' // Default role is strictly 'user'
       });
@@ -79,7 +79,7 @@ authRouter.post('/signup', async (req, res) => {
         id: `usr-${Date.now()}`,
         name,
         email: email.toLowerCase(),
-        phone: phone ? String(phone).replace(/\D/g, '').slice(-10) : '',
+        phone: normalizedPhone,
         passwordHash,
         role: 'user',
         createdAt: new Date().toISOString()
