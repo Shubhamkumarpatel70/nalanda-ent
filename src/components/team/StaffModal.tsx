@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, CheckCircle, Languages, Briefcase, GraduationCap, ShieldCheck } from 'lucide-react';
 import { StaffMember } from '../../data/clinicData';
 
@@ -24,9 +25,9 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
 
   if (!staff) return null;
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-slate-950/75 p-3 backdrop-blur-md animate-in fade-in duration-200 sm:p-6"
+      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto overscroll-contain bg-slate-950/85 p-3 backdrop-blur-md animate-in fade-in duration-200 sm:p-6"
       onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}
     >
       <section
@@ -61,7 +62,7 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
           </div>
         </div>
 
-        <div className="max-h-[min(78vh,720px)] space-y-6 overflow-y-auto p-5 sm:p-8 md:col-span-3">
+        <div className="max-h-[min(78vh,720px)] space-y-6 overflow-y-auto overscroll-contain p-5 sm:p-8 md:col-span-3">
           <div className="pr-10">
             <p className="text-[10px] font-bold uppercase tracking-[.2em] text-teal-600 dark:text-teal-400">Team member profile</p>
             <h3 className="mt-1 text-xl font-bold text-slate-900 dark:text-white">Professional Overview</h3>
@@ -111,5 +112,5 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
         </div>
       </section>
     </div>
-  );
+  ), document.body);
 };

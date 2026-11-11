@@ -78,14 +78,6 @@ export const Navbar: React.FC = () => {
             <span className="hidden sm:inline-block bg-tealbrand-600/30 text-tealbrand-200 border border-tealbrand-500/30 px-2 py-0.5 rounded-full">
               Physical Walk-In Registration
             </span>
-            <a 
-              href={`https://wa.me/${CLINIC_INFO.whatsappNumber.replace(/[^0-9]/g, '')}`} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
-            >
-              <MessageSquare className="w-3.5 h-3.5 fill-emerald-500 text-emerald-500" /> WhatsApp Direct
-            </a>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Tag, Info } from 'lucide-react';
 import { GalleryItem } from '../../data/clinicData';
 
@@ -19,7 +20,7 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, onClose }) => {
 
   if (!item) return null;
 
-  return (
+  return createPortal(
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
@@ -41,11 +42,11 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, onClose }) => {
         </button>
 
         <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-2/3 bg-black flex items-center justify-center min-h-[300px] max-h-[550px]">
+          <div className="w-full md:w-2/3 bg-black flex items-center justify-center min-h-[240px] max-h-[78vh]">
             <img 
               src={item.image} 
               alt={item.title} 
-              className="max-h-[550px] w-full object-contain"
+              className="max-h-[min(78vh,680px)] max-w-full w-auto object-contain"
             />
           </div>
 
@@ -67,5 +68,5 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, onClose }) => {
         </div>
       </div>
     </div>
-  );
+  ), document.body);
 };
