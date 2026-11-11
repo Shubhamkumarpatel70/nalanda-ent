@@ -108,11 +108,27 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 4: Emergency & Direct Helpline */}
-          <div className="space-y-3">
-            <div className="pt-2 text-xs text-slate-400 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-medical-400" />
-              <span>OPD Walk-in: Mon - Sat 09 AM - 8 PM</span>
+          {/* Column 4: Contact & Clinic Hours */}
+          <div className="space-y-4">
+            <h3 className="text-base font-semibold font-display text-white tracking-wide border-l-2 border-amber-500 pl-3">
+              Contact the Clinic
+            </h3>
+            <div className="space-y-3 text-sm">
+              <a href={`tel:${CLINIC_INFO.emergencyNumber}`} className="flex items-start gap-3 rounded-xl bg-slate-800/60 border border-slate-700/60 p-3 hover:border-medical-500/60 transition-colors">
+                <Phone className="w-4 h-4 text-medical-400 mt-0.5 shrink-0" />
+                <span><span className="block text-[10px] uppercase tracking-wider text-slate-500 font-bold">Call clinic desk</span><span className="font-semibold text-white">{CLINIC_INFO.emergencyNumber}</span></span>
+              </a>
+              <a href={`mailto:${CLINIC_INFO.email}`} className="flex items-start gap-3 rounded-xl bg-slate-800/60 border border-slate-700/60 p-3 hover:border-tealbrand-500/60 transition-colors">
+                <Mail className="w-4 h-4 text-tealbrand-400 mt-0.5 shrink-0" />
+                <span className="min-w-0"><span className="block text-[10px] uppercase tracking-wider text-slate-500 font-bold">Email</span><span className="font-semibold text-white break-all">{CLINIC_INFO.email}</span></span>
+              </a>
+              <div className="flex items-start gap-3 rounded-xl bg-slate-800/60 border border-slate-700/60 p-3">
+                <Clock className="w-4 h-4 text-amber-400 mt-0.5 shrink-0" />
+                <span><span className="block text-[10px] uppercase tracking-wider text-slate-500 font-bold">Walk-in OPD</span><span className="text-slate-200">Monday – Saturday</span><span className="block text-xs text-slate-400">09:00 AM – 08:00 PM</span></span>
+              </div>
+              <a href={`https://wa.me/${CLINIC_INFO.whatsappNumber.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-4 py-3 text-xs font-bold text-white transition-colors">
+                <MessageSquare className="w-4 h-4" /> Chat on WhatsApp
+              </a>
             </div>
           </div>
 
