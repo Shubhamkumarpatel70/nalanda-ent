@@ -113,4 +113,4 @@ export const StaffModal: React.FC<StaffModalProps> = ({ staff, onClose }) => {
       </section>
     </div>
   ), document.body);
-};;
+};
