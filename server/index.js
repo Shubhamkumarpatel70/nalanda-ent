@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import { connectDB } from './db.js';
+import { connectDB, isMongoConnected, readFallbackDB, writeFallbackDB } from './db.js';
 import { authRouter } from './routes/auth.js';
 import { contactRouter } from './routes/contact.js';
 
@@ -17,6 +17,16 @@ app.use(express.json());
 
 // Initialize MongoDB Connection
 connectDB();
+
+const purgeExpiredEmailRestrictions = () => {
+  if (isMongoConnected) return;
+  const db = readFallbackDB();
+  const before = (db.emailRestrictions || []).length;
+  db.emailRestrictions = (db.emailRestrictions || []).filter(item => new Date(item.expiresAt) > new Date());
+  if (db.emailRestrictions.length !== before) writeFallbackDB(db);
+};
+purgeExpiredEmailRestrictions();
+setInterval(purgeExpiredEmailRestrictions, 60 * 60 * 1000).unref();
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Nalanda ENT Center Backend API is operational' });
