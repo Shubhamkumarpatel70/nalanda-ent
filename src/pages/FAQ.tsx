@@ -25,7 +25,7 @@ export const FAQ: React.FC = () => {
             Frequently Asked Questions
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Find answers regarding walk-in registrations, clinic branch locations, ear surgeries, endoscopic sinus procedures, and audiology testing.
+            Find clear information about ENT consultation fees in Indian Rupees, clinic locations, walk-in registration, ear and sinus treatments, and hearing tests in Patna and Bihar Sharif.
           </p>
         </div>
       </section>
