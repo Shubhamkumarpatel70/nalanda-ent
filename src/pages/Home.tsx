@@ -19,7 +19,8 @@ import {
   CLINIC_INFO, 
   DOCTOR_PROFILE, 
   BRANCHES, 
-  TESTIMONIALS 
+  TESTIMONIALS,
+  SPECIALTY_SERVICES
 } from '../data/clinicData';
 
 export const Home: React.FC = () => {
@@ -224,6 +225,28 @@ export const Home: React.FC = () => {
               </div>
             );
           })}
+        </div>
+      </section>
+
+
+      {/* Specialist services preview — sourced from the clinic's existing content */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div className="max-w-2xl space-y-2">
+            <span className="text-xs uppercase font-bold tracking-[.2em] text-medical-600 dark:text-medical-400">ENT specialties</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white">Focused care across ear, nose & throat</h2>
+            <p className="text-sm leading-6 text-slate-600 dark:text-slate-400">Explore the specialist services available at Nalanda ENT Center.</p>
+          </div>
+          <Link to="/services" className="inline-flex items-center gap-2 rounded-xl bg-medical-700 px-5 py-3 text-sm font-bold text-white shadow-lg hover:bg-medical-800 transition-colors">Explore all services <ArrowRight className="w-4 h-4"/></Link>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {SPECIALTY_SERVICES.map((service) => (
+            <Link key={service.id} to={`/services#${service.id}`} className="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-medical-300 dark:hover:border-medical-700 transition-all">
+              <div className="flex items-start justify-between gap-3"><span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-medical-50 dark:bg-medical-950/60 text-medical-700 dark:text-medical-300"><Activity className="w-5 h-5"/></span><ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-medical-600 group-hover:translate-x-1 transition-all"/></div>
+              <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">{service.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">{service.shortDesc}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
