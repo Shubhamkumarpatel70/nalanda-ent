@@ -238,6 +238,12 @@ export const Navbar: React.FC = () => {
               Contact
             </Link>
             
+            {isAuthenticated && !isAdmin && (
+              <Link to="/my-queries" className="block px-4 py-2.5 rounded-xl text-base font-bold text-medical-700 dark:text-medical-300 bg-medical-50 dark:bg-medical-950/50 border-l-4 border-medical-500">
+                My Contact Queries
+              </Link>
+            )}
+
             {isAdmin && (
               <Link to="/admin/queries" className={`px-3 py-2 text-sm font-bold rounded-lg transition-colors flex items-center gap-1 ${isActive('/admin/queries') ? 'bg-amber-500 text-white' : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30'}`}>
                 <ShieldCheck className="w-4 h-4" /> Admin Queries
@@ -278,6 +284,9 @@ export const Navbar: React.FC = () => {
                       <div className="text-xs font-bold text-slate-900 dark:text-white truncate">{user?.name}</div>
                       <div className="text-[11px] text-slate-500 truncate">{user?.email}</div>
                     </div>
+                    {!isAdmin && (
+                      <Link to="/my-queries" onClick={() => setUserDropdownOpen(false)} className="block px-3 py-2 rounded-lg text-xs font-bold text-medical-700 dark:text-medical-300 hover:bg-medical-50 dark:hover:bg-medical-950/40">My Contact Queries</Link>
+                    )}
                     {isAdmin && (
                       <Link to="/admin/queries" className="block px-3 py-2 rounded-lg text-xs font-bold text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40">
                         Admin Queries Dashboard
