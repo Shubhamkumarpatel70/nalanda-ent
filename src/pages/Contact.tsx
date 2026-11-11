@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 import { BRANCHES } from '../data/clinicData';
 import { API_BASE_URL } from '../config/api';
 import {
@@ -12,9 +13,10 @@ import {
 } from 'lucide-react';
 
 export const Contact: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const { user, isAuthenticated } = useAuth();
+  const [name, setName] = useState(user?.name || '');
+  const [email, setEmail] = useState(user?.email || '');
+  const [phone, setPhone] = useState(user?.phone || '');
   const [branchPreference, setBranchPreference] = useState(BRANCHES[0].name);
   const [subject, setSubject] = useState('General Consultation Query');
   const [message, setMessage] = useState('');
@@ -41,9 +43,9 @@ export const Contact: React.FC = () => {
       }
 
       setSuccessMsg(`Thank you ${name}! ${data.message}`);
-      setName('');
-      setEmail('');
-      setPhone('');
+      setName(isAuthenticated ? (user?.name || '') : '');
+      setEmail(isAuthenticated ? (user?.email || '') : '');
+      setPhone(isAuthenticated ? (user?.phone || '') : '');
       setMessage('');
     } catch (err: any) {
       setErrorMsg(err.message || 'Submission failed. Please check backend connection.');
